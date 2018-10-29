@@ -2,7 +2,12 @@
   "name": "yoda-docs",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "install": "gitbook install",
+    "pdf": "gitbook pdf",
+    "dev": "gitbook serve",
+    "build": "gitbook build"
+  },
   "repository": {
     "type": "git",
     "url": "git@gitlab.rokid-inc.com:GravityTeam/yoda-docs.git"
@@ -14,5 +19,7 @@
     "guidances"
   ],
   "license": "UNLICENSED",
-  "dependencies": {}
+  "dependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
 }
