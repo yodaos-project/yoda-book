@@ -1,5 +1,5 @@
 {
   "plugins": [
-       "anchor-navigation-ex-toc"
+    "anchor-navigation-ex-toc"
   ]
 }
