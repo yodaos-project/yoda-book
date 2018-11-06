@@ -56,8 +56,8 @@ Yoda OS会为每个应用启动一个单独的进程，应用的代码将会[Jer
   ```js
   var obj = {};
   setInterval(function() {
-  	var timestamp = Date.now();
-      obj[timestamp] = true;
+    var timestamp = Date.now();
+    obj[timestamp] = true;
   }, 1000);
   ```
 
@@ -65,15 +65,15 @@ Yoda OS会为每个应用启动一个单独的进程，应用的代码将会[Jer
 
   ```c
   napi_value functionExportToJS(napi_env env, napi_callback_info info) {
-    	size_t argc = 1;
-    	napi_value argv[argc];
-    	napi_get_cb_info(env, info, &argc, argv, nullptr, nullptr);
-      napi_value value = argv[0];
-    	napi_ref ref = NULL;
-  	napi_create_reference(env, value, 1, ref);
-  	// balabalabala...
-      // napi_delete_reference(env, ref);
-  	return NULL;   
+    size_t argc = 1;
+    napi_value argv[argc];
+    napi_get_cb_info(env, info, &argc, argv, nullptr, nullptr);
+    napi_value value = argv[0];
+    napi_ref ref = NULL;
+    napi_create_reference(env, value, 1, ref);
+    // balabalabala...
+    // napi_delete_reference(env, ref);
+    return NULL;   
   }
   ```
 
@@ -81,11 +81,11 @@ Yoda OS会为每个应用启动一个单独的进程，应用的代码将会[Jer
 
   ```c
   void handleAsyncCallbackFromOtherThread(uv_async_t* handle) {
-  	// napi_handle_scope scope;
-      // napi_open_handle_scope(env, &scope);
-  	// balabalabala...
-      napi_create_string_utf8(...);
-      // napi_close_handle_scope(env, scope);
+    // napi_handle_scope scope;
+    // napi_open_handle_scope(env, &scope);
+    // balabalabala...
+    napi_create_string_utf8(...);
+    // napi_close_handle_scope(env, scope);
   }
   ```
 
@@ -137,7 +137,7 @@ function main(funcName, func){
 main('func1', 'this is a string, not a function');
 ```
 
-上面的例子中，由于`func`的值并不是一个`function`而是`null`，导致在第七行执行的时候会出现错误，虽然在第一行捕获到了这个错来避免进程的退出，但是第八行的代码无法执行导致`funcs`上`func`的引用无法解除进而导致`func`引用的泄露。所以在`process`对象上出现未捕获的错误时，更多常见的做法是友好的提示错误（如果有必要）和完成清理工作后主动退出进程。
+上面的例子中，由于`func`的值并不是一个`function`而是`string`，导致在第七行执行的时候会出现错误，虽然在第一行捕获到了这个错来避免进程的退出，但是第八行的代码无法执行导致`funcs`上`func`的引用无法解除进而导致`func`引用的泄露。所以在`process`对象上出现未捕获的错误时，更多常见的做法是友好的提示错误（如果有必要）和完成清理工作后主动退出进程。
 
 ## 性能提示
 
@@ -148,5 +148,4 @@ main('func1', 'this is a string, not a function');
 - 不要依赖太多的外部库，很多库的实现从通用性的考虑会有一些额外的消耗
 - 做好弱网下的测试，很多问题可能只会在弱网的时候暴露出来
 - 当出现性能瓶颈时，优化业务流程带来的收益往往是最大的
-
 - 最重要的一点，在开发过程中保持对性能和稳定性的关注，不要在开发完成后再回头处理问题
