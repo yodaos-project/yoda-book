@@ -1,34 +1,8 @@
-# YodaOS 应用
+# YodaOS 应用生命周期
 
 ## 概述
 
 在了解了[若琪的技能](https://developer.rokid.com/docs/2-RokidDocument/1-SkillsKit/platform-introduction.html)之后，如果需要开发与设备强相关的技能，则需要开发一个本地应用。复杂的应用代码需要和系统框架不断地交流、互动。系统框架会提供一些所有应用运行必需的基础设施，而应用开发者提供客制化这些基础设施的代码，让应用按照开发者所想的方式运行。如果想要更加效率地客制化一个应用，了解一些关于 YodaOS 基础设施是如何工作的会提供一些帮助。
-
-## 应用主要流程
-
-### Main 函数
-
-每一个 CommonJS 模块都会有一个对 `module.exports` 的引用，YodaOS 的应用也同样的，他的主入口即为通过 `module.exports` 导出的一个接收一个 `activity` 作为参数的函数。
-
-```javascript
-module.exports = function main (activity) {
-
-}
-```
-
-应用通过系统框架提供的 `activity` 对象来与系统交互，如接收系统、应用事件，调用系统 API。
-
-### 监听应用生命周期事件
-
-系统框架提供的 `activity` 是一个符合 Node.js EventEmitter API 的对象，在其上我们可以监听任意一个应用的生命周期事件：
-
-```javascript
-module.exports = function main (activity) {
-  activity.on('create', () => {
-    /** do initialization on event `create` */
-  })
-}
-```
 
 ## 应用状态
 
@@ -57,8 +31,20 @@ daemon 应用会在 vui 准备好时（如登陆成功），由 vui 负责启动
 
 在应用调用了 Activity#exit 后，应用会被标记被 inactive，并收到 activity#destroy 事件。在 inactive 状态的应用会在适当的时间被 vui 回收系统资源。当前普通应用会在收到 activity#destroy 事件后被系统回收进程资源。
 
-### Background
+### 后台运行
 应用（包括 daemon 应用和普通应用）都可以主动将自己置入后台，腾出栈顶，以便被暂停的应用如音乐等继续播放媒体。应用可以使用 Activity#setBackground 方法将自己置入后台。值得注意的是，应用不在栈顶的话是没有权限播报 tts/播放媒体的，所以如果在后台任务执行到一定程度需要播报一个 tts/播放媒体时，需要使用 Activity#setForeground 抢占激活状态。
+
+
+## 生命周期事件
+
+每次应用的生命周期状态变化时，应用都可以通过 Activity 实例收到状态变化的事件。
+
+- `activity#create` 事件：会在应用进程准备完毕后触发，可以开始应用的初始化工作；
+- `activity#active` 事件：会在应用进入激活状态后触发，可以开始 tts/媒体等语音交互；
+- `activity#pause` 事件：会在表现形式为 scene 的应用短时被别的表现形式为 cut 的应用抢占激活状态时触发；
+- `activity#destroy` 事件：会在应用退出活跃状态时触发；
+- `activity#request` 事件：会在收到应用的 NLP 请求时触发；
+- `activity#url` 事件：会在其它应用调用 openURL 后对注册了对应 url 的应用触发；
 
 ## 处理应用状态变化的策略
 
@@ -83,7 +69,7 @@ daemon 应用会在 vui 准备好时（如登陆成功），由 vui 负责启动
 
 ### 应用进入后台后应该做什么
 
-语音应用不需要时时保持在前台活跃，部分应用如系统蓝牙在没有连接上蓝牙设备时，可以暂时停留在后台等待连接，并将前台留给其它活跃应用。应用也可以在后台保持 IoT 设备连接，并防止应用被因为没有活跃语音操作进入 inactive 状态而被从运行的应用中移除。
+语音应用不需要时时保持在前台活跃，部分应用如系统蓝牙在没有连接上蓝牙设备时，可以暂时停留在后台等待连接，并将前台留给其它活跃应用。
 
 ### 应用被挂起时应该做什么
 
@@ -92,6 +78,12 @@ daemon 应用会在 vui 准备好时（如登陆成功），由 vui 负责启动
 - 保存应用状态
 - 停止所有计时器或周期性任务
 - 不要发起新的任务请求
+
+## Daemon 应用
+
+部分应用可能会希望在 VUI 准备好时，尽快启动，以便初始化一些需要保持长时间活跃的操作；或者如 IoT 应用需要在设备启动完成后，开始局域网内的设备发现、注册、保持设备间的连接等，类似的应用会需要在执行完如 NLP 请求后继续保持活跃，这些情况下，应用需要在 Manifest 中注册为 daemon 应用。
+
+> 查看更多 Package.json 描述文档：[应用 Manifest](./04-app-manifest.md)
 
 ## 如何 Debug 生命周期
 
