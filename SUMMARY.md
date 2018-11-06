@@ -6,6 +6,7 @@
   - [生命周期](guidance/02-lifetime.md)
   - [灯效开发](guidance/03-lightd.md)
   - [应用 Manifest](guidance/04-app-manifest.md)
+  - [性能与稳定性](guidance/05-performance-stability.md)
 - 最佳实践
   - 测试
   - 调试
