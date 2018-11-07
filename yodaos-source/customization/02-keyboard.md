@@ -151,7 +151,7 @@
       "options": {
         "preemptive": false,
       }
-    }，
+    },
     "longpress-7000": {
       "repeat": false,
       "timeDelta": 7000,
@@ -164,6 +164,8 @@
   }
 }
 ```
+
+如果定义了多个长按按键事件，这些长按按键事件的 timeDelta 的计算都是以按键 keydown 的时间为起始时间。
 
 ### 深度定制一个按键
 
@@ -220,12 +222,14 @@ keyboard.json 的 JSON Schema 定义如下：
         "url": {
           "type": "string",
           "format": "uri",
+          "description": "A URL string to be opened to handle the keyboard event",
           "examples": [
             "yoda-skill://volume/volume_down"
           ]
         },
         "options": {
-          "type": "object"
+          "type": "object",
+          "description": "An object to be used as options while opening url to handle the event"
         }
       },
       "required": [
@@ -237,10 +241,12 @@ keyboard.json 的 JSON Schema 定义如下：
       "type": "object",
       "properties": {
         "runtimeMethod": {
-          "type": "string"
+          "type": "string",
+          "description": "A method name of which would be called to handle the event"
         },
         "params": {
-          "type": "array"
+          "type": "array",
+          "description": "An array of arguments on invocation of runtime method on handling of events"
         }
       },
       "required": [
@@ -262,14 +268,16 @@ keyboard.json 的 JSON Schema 定义如下：
           "default": 0,
           "examples": [
             400
-          ]
+          ],
+          "description": "time shall be passed before handling next incoming event, defined in milliseconds"
         },
         "longpressWindow": {
           "type": "integer",
           "default": 0,
           "examples": [
             500
-          ]
+          ],
+          "description": "longpress events shall emit on every given milliseconds"
         }
       }
     }
@@ -283,7 +291,8 @@ keyboard.json 的 JSON Schema 定义如下：
           "properties": {
             "debounce": {
               "type": "integer",
-              "default": 0
+              "default": 0,
+              "description": "time shall be passed before handling next incoming event, defined in milliseconds"
             }
           },
           "oneOf": [
@@ -302,19 +311,23 @@ keyboard.json 的 JSON Schema 定义如下：
           "properties": {
             "debounce": {
               "type": "integer",
-              "default": 0
+              "default": 0,
+              "description": "time shall be passed before handling next incoming event, defined in milliseconds"
             },
             "timeDelta": {
               "type": "integer",
-              "default": 0
+              "default": 0,
+              "description": "expected time shall a key been pressed to trigger the event"
             },
             "repeat": {
               "type": "boolean",
-              "default": false
+              "default": false,
+              "description": "if the event shall be triggered repeatedly"
             },
             "preventSubsequent": {
               "type": "boolean",
-              "default": false
+              "default": false,
+              "description": "if subsequent event of same key shall be ignored until next keydown"
             }
           },
           "oneOf": [
