@@ -6,18 +6,19 @@
   - [生命周期](guidance/02-lifetime.md)
   - [灯效开发](guidance/03-lightd.md)
   - [应用 Manifest](guidance/04-app-manifest.md)
-  - [性能与稳定性](guidance/05-performance-stability.md)
-- 最佳实践
-  - 测试
-  - 调试
+- [最佳实践](best-practice/00-best-practice.md)
+  - [测试](best-practice/01-testing.md)
+  - [调试](best-practice/02-debugging.md)
+  - [性能与稳定性](best-practice/03-performance-stability.md)
 
 # YodaOS Source
 
 - YodaOS Source
 - 编译与打包
 - [产品定制](yodaos-source/customization/00-customization.md)
-  - [按键](yodaos-source/customization/01-keyboard.md)
-  - [灯光](yodaos-source/customization/02-light.md)
+  - [概览](yodaos-source/customization/01-overview.md)
+  - [按键](yodaos-source/customization/02-keyboard.md)
+  - [灯光](yodaos-source/customization/03-light.md)
   - [iOS/Android SDK]()
 - 测试
   - 测试设施

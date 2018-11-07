@@ -20,6 +20,7 @@
   ],
   "license": "UNLICENSED",
   "dependencies": {
-    "gitbook-cli": "^2.3.2"
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-anchor-navigation-ex-toc": "0.0.11"
   }
 }
