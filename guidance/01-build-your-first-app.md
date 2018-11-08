@@ -21,6 +21,10 @@ module.exports = function main (activity) {
   activity.on('create', () => {
     /** do initialization on event `create` */
   })
+
+  activity.on('request', () => {
+    activity.tts.speak('你好')
+  })
 }
 ```
 
