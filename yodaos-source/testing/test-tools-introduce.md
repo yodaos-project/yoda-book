@@ -1,16 +1,22 @@
 # 测试工具篇
-[TOC]
+
 ## 单测工具 tape
 
 ### [单测工具介绍](https://github.com/shadow-node/tape#tape)
+
 ## 覆盖率统计工具 istanbul
+
 ### Usage
+
 #### 安装 nyc 包
 npm 工具下拉对应的包，目前 runtime 已经添加 nyc 工具包的依赖，直接 npm install 即可。
+
 #### 生成打桩文件
 将需要统计覆盖率的源文件通过 nyc 生成打过桩的文件。
+
 #### push 打桩文件到设备
 将打桩成功的文件按照原来的目录结构 push 到设备端。
+
 #### 执行单元测试
 用 tape 执行单元测试。目前 tape 已经支持覆盖率统计数据保存路径通过 --coverage 参数传入。
 ```
@@ -22,7 +28,9 @@ npm 工具下拉对应的包，目前 runtime 已经添加 nyc 工具包的依�
 
 #### 生成覆盖率报告
 利用 nyc 根据覆盖率文件生成报告。
+
 ### Example
+
 #### 脚本源码参考
 
 ```
