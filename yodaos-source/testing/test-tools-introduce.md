@@ -114,7 +114,7 @@ makeReport
 ### Q & A
 
 * Q：设备上覆盖率文件生成位置。
-  A: 由执行 tape 是传入的 --coverage 参数决定(以上脚本是生成在设备根目录的 .nyc_output 目录下)。
+  - A: 由执行 tape 是传入的 --coverage 参数决定(以上脚本是生成在设备根目录的 .nyc_output 目录下)。
 * Q：生成覆盖率报告报错，找不到目录 .nyc_output 。
   A: 因为生成报告的命令默认是从当前目录下的 .nyc_output 文件中去读取覆盖率文件。
 * Q：生成的覆盖率报告位置。
