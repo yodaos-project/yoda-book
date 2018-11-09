@@ -1,5 +1,3 @@
-# 性能和稳定性
-
 ## 概览
 
 首先我们了解一下Yoda OS的runtime：Yoda OS基于[ShadowNode](https://github.com/Rokid/ShadowNode)开发，[ShadowNode](https://github.com/Rokid/ShadowNode)是一个基于[JerryScript](https://github.com/Rokid/ShadowNode/tree/master/deps/jerry)（[ECMAScript 5](https://www.w3schools.com/js/js_es5.asp)方言）的运行时，它采用事件驱动、非阻塞I/O模型；在设计之初，[ShadowNode](https://github.com/Rokid/ShadowNode)的[API](https://github.com/Rokid/ShadowNode/blob/master/docs/api/README.md)便尽可能的保证和[Node.js](https://nodejs.org)兼容，因此在大部分场景下开发者可以像[Node.js](https://nodejs.org)那样使用[ShadowNode](https://github.com/Rokid/ShadowNode)，了解这些有利于开发者更快速的进行Yoda OS上的应用开发。
@@ -12,11 +10,11 @@
 
 ## 启动
 
-默认情况下，Yoda OS会加载所有后台（deamon）应用。当一个应用被启动后，Yoda OS希望应用在5秒内完成启动的相关逻辑，如果5秒内没有完成启动应用将会被kill。好的应用应该尽可能快的完成启动，以便更快的为用户提供服务。如果应用内部初始化逻辑包含I/O等阻塞操作，这些操作不应该阻塞启动过程，开发者可以维护一个内部的状态机来管理应用的初始化状态。
+当一个应用被启动后，Yoda OS希望应用在5秒内完成启动的相关逻辑，如果5秒内没有完成启动应用将会被kill。好的应用应该尽可能快的完成启动，以便更快的为用户提供服务。如果应用内部初始化逻辑包含I/O等阻塞操作，这些操作不应该阻塞启动过程，开发者可以维护一个内部的状态机来管理应用的初始化状态。
 
 ## 进程和线程
 
-Yoda OS会为每个应用启动一个单独的进程，应用的代码将会[JerryScript](https://github.com/Rokid/ShadowNode/tree/master/deps/jerry)线程执行（所谓的『主线程』），当然开发者也可以在	此之后为应用创建单独的进程来执行某些工作。
+Yoda OS会为每个应用创建一个单独的进程，应用的代码将会[JerryScript](https://github.com/Rokid/ShadowNode/tree/master/deps/jerry)线程执行（所谓的『主线程』），当然开发者也可以在	此之后为应用创建单独的进程或者线程来执行某些工作。
 
 应用的主线程主要负责接收并处理系统事件（NLP、按键、播放TTS等），因此主线程一般也叫做UI线程。由于主线程本身的特殊性，如果应用中包含I/O等阻塞操作将会导致应用无法及时响应系统的事件，这样会导致用户体验变得很差；同时[ShadowNode](https://github.com/Rokid/ShadowNode)不是线程安全，因此不要在其它线程中操作[ShadowNode](https://github.com/Rokid/ShadowNode)及其相关的API。
 
@@ -28,7 +26,7 @@ Yoda OS会为每个应用启动一个单独的进程，应用的代码将会[Jer
 
 ## ANRs
 
-当应用的主线程由于某些原因被长时间阻塞时，应用将会出现『Application Not Responding』（ANR），这个过程对应用来说是透明的，Yoda OS使用下面的规则来判断和处理ANR：
+当应用的主线程由于某些原因被长时间阻塞时，应用将会出现『Application Not Responding』（[ANR](https://www.droidwiki.org/wiki/Application_not_Responding)）。这个过程对应用来说是透明的，Yoda OS使用下面的规则来判断和处理ANR：
 
 - 应用底层将会每5秒会发送一个心跳给Yoda OS（无需开发者处理）
 - 当Yoda OS连续3次（15秒）没有收到来自应用的心跳时，Yoda OS将会kill并重启应用
