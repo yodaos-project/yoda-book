@@ -23,5 +23,3 @@
 - 测试
   - [测试设施](yodaos-source/testing/test-tools-introduce.md)
   - [兼容性测试](yodaos-source/testing/unit-test-introduce.md)
-  - 
-- 调试
