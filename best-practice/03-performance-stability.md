@@ -103,12 +103,12 @@ TypeError: Expected a function.
 
 ```js
 try {
-    setTimeout(function throwAnError() {
-        console.log('Hello Yoda');
-        throw new Error('intentionally throw an error');
-    }, 1000);
+  setTimeout(function throwAnError() {
+    console.log('Hello Yoda');
+    throw new Error('intentionally throw an error');
+  }, 1000);
 } catch (err) {
-    console.log('catched an intentional error');
+  console.log('catched an intentional error');
 }
 ```
 
@@ -116,7 +116,7 @@ try {
 
 ```js
 process.on('uncaughtException', function(err){
-	// balabalabala...
+  // balabalabala...
 });
 ```
 
@@ -124,13 +124,13 @@ process.on('uncaughtException', function(err){
 
 ```js
 process.on('uncaughtException', function(err){
-	console.log('handled funcs exception!!!')
+  console.log('handled funcs exception!!!')
 });
 var funcs = {};
 function main(funcName, func){
-    funcs[funcName] = func;
-    funcs[funcName]();
-    delete funcs[funcName];
+  funcs[funcName] = func;
+  funcs[funcName]();
+  delete funcs[funcName];
 }
 main('func1', 'this is a string, not a function');
 ```
