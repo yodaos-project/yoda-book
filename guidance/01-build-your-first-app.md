@@ -102,3 +102,5 @@ module.exports = function main (activity) {
   })
 }
 ```
+
+> 查看更多 URL Object 的文档：[Legacy urlObject](https://nodejs.org/docs/latest/api/url.html#url_legacy_urlobject)
