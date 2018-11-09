@@ -1,24 +1,22 @@
-# 应用测试
-
-## 概述
+# 概述
 
 有效的测试是保证质量的基础，通过快速有效的方法对应用进行测试是迭代开发应用程序必不可少的工作流程。
 
-## 测试分类
+# 测试分类
 
 1. 功能测试
 2. 白盒测试
 3. 稳定性测试
 
-## 测试方法
+# 测试方法
 
-### 功能测试
+## 功能测试
 
-功能测试我们提供2种方式，一是通过VUI进行语音交互进行验证，二是通过 mock 工具进行验证。
+功能测试我们提供2种方式，一是通过 VUI 进行语音交互进行验证，二是通过 mock 工具进行验证。
 
 > ❕注意：功能测试，需要网络状态处于正常状态
 
-#### VUI 
+### VUI 
 
 首先，通过工具将应用安装到设备；
 
@@ -26,7 +24,7 @@
 # tools/runtime-install
 ```
 
-其次，重启vui；
+其次，重启 vui ；
 
 ```bash
 # tools/runtime-op --vuid restart
@@ -38,20 +36,22 @@
 例如：若琪，我要听儿歌。
 ```
 
-#### mock 工具
+### mock 工具
 
-mock 工具可以模拟语音交互功能，通过mock 可达到语音交互的效果。
+mock 工具可以模拟语音交互功能，通过 mock 可达到语音交互的效果。
 
 ```bash
 # tools/mock --asr '我要听儿歌'
 ```
 
-### 白盒测试
+## 白盒测试
 
-通过MockAppRuntime测试工具进行针对应用的白盒测试。
+通过 MockAppRuntime 测试工具进行针对应用的白盒测试。
 
 
 ```js
+'use strict'
+
 var test = require('tape')
 var Mock = require('@yoda/mock')
 
@@ -73,7 +73,7 @@ test('test app request event', t => {
       // @param {object} nlp
       // @param {object} action
       // @param {object} [options]
-      runtime.onVoiceCommand(asr,nlp,action,options)
+      runtime.onVoiceCommand('asr', {intent: 'play_song'}, {appId: 'appdemo'}, {})
       // emit app url event
       // @param {string} url
       // @param {object} [options]
@@ -81,7 +81,8 @@ test('test app request event', t => {
       // @param {boolean} [options.preemptive=true]
       // @param {string} [options.carrierId]
       // @returns {Promise<boolean>}
-      runtime.openUrl(url,options)
+      runtime.openUrl('url', {form: 'cut'})
+    })
     .catch(err => {
       t.error(err)
       rt && rt.destruct()
@@ -90,7 +91,7 @@ test('test app request event', t => {
 })
 ```
 
-### 稳定性测试
+## 稳定性测试
 
 1. 通过执行 monkey 针对应用进行稳定性测试。
 
@@ -116,13 +117,13 @@ test('test app request event', t => {
 # tools/memory-viewer -r cpu.json
 ```
 
-## 测试工具
+# 测试工具
 
-### 测试框架
+## 测试框架
 
-采用tape，详见 [tape](https://github.com/shadow-node/tape#tape) 使用说明
+采用 tape，详见  [tape](https://github.com/shadow-node/tape#tape)  使用说明
 
-###  yoda-mock 工具
+## yoda-mock 工具
 
-[yoda-mock](https://github.com/Rokid/yoda-mock)工具用于模拟应用运行时，模拟ttsd，lightd 等服务方法。
+[yoda-mock](https://github.com/Rokid/yoda-mock) 工具用于模拟应用运行时，模拟 ttsd，lightd 等服务方法。
 
