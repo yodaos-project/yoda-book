@@ -26,7 +26,7 @@ Yoda OS会为每个应用创建一个单独的进程，应用的代码将会[Jer
 
 ## ANRs
 
-当应用的主线程由于某些原因被长时间阻塞时，应用将会出现『Application Not Responding』（[ANR](https://www.droidwiki.org/wiki/Application_not_Responding)）。这个过程对应用来说是透明的，Yoda OS使用下面的规则来判断和处理ANR：
+当应用的主线程由于某些原因被长时间阻塞时，应用将会出现『Application Not Responding』（[ANR](https://developer.android.com/topic/performance/vitals/anr)）。这个过程对应用来说是透明的，Yoda OS使用下面的规则来判断和处理ANR：
 
 - 应用底层将会每5秒会发送一个心跳给Yoda OS（无需开发者处理）
 - 当Yoda OS连续3次（15秒）没有收到来自应用的心跳时，Yoda OS将会kill并重启应用
