@@ -1,5 +1,3 @@
-# 应用 Manifest
-
 每一个 YodaOS 应用都需要存在一个 package.json 文件在应用根目录。这个 package.json 文件描述了一些关于应用的必要信息。
 
 这个 package.json 必须声明以下信息：
@@ -10,7 +8,7 @@
 
 接下来几节就会详细叙述应用开发中几个重要的部分是如何反映到 Manifest 中去的。
 
-## 包名与应用 ID
+## 包名与技能 ID
 
 在若琪开发者平台上创建了本地技能并获取到技能 ID 后，为了将这个技能与本地的应用关联起来，需要在应用的 package.json 中填写 `manifest.skillIds` 字段，如下例子：
 
