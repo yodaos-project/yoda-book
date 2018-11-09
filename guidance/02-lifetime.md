@@ -91,39 +91,37 @@ daemon 应用会在 vui 准备好时（如登陆成功），由 vui 负责启动
 
 应用在调用 Activity 的 API 时，会自动打印如下日志：
 ```
-<ext-app> Received child yodaos-qqmusic invocation(10): Activity.tts.speak
-<@ipc> Received VuiDaemon resolved promise(10)
+<bus-4321> Received child @yoda/cloudappclient invocation(10): Activity.tts.stop
+<@ipc-4321> Received VuiDaemon resolved promise(10)
 ```
-其中会有应用 id，调用序列号，与 API 名字，并在调用完成后打印对应序列号的调用是否返回。
+其中会有应用进程 pid，应用 id，调用序列号，与 API 名字，并在调用完成后打印对应序列号的调用是否返回。
 
 如果需要查询当前激活的应用，可以使用 `tools/yoda-debug GetLifetime`，可以获取到如当前应用、当前应用类型、当前正在运行的应用等信息：
 ```json
 {
   "activeSlots": {
     "cut": null,
-    "scene": "yodaos-qqmusic"
+    "scene": "@yoda\/cloudappclient"
   },
   "appDataMap": {
-    "yodaos-qqmusic": {
+    "@yoda\/cloudappclient": {
       "form": "scene"
     }
   },
-  "inactiveAppIds": [
-    "@yoda\/volume",
-    "@yoda\/system"
-  ],
+  "backgroundAppIds": [],
   "monopolist": null,
   "appIdOnPause": null,
   "cloudAppStack": {
-    "cut": "",
+    "cut": "7D0F5E5D57CD496B940654D7C8963AE0",
     "scene": "RBA66C902A6347DD86CA8D419B0BB974",
     "active": "RBA66C902A6347DD86CA8D419B0BB974"
   },
-  "aliveApps": [
-    "@yoda\/system",
-    "@yoda\/volume",
-    "yodaos-qqmusic"
-  ]
+  "appStatus": {
+    "@yoda\/network": "exited",
+    "@yoda\/cloudappclient": "running",
+    "@yoda\/system": "running",
+    "@yoda\/volume": "running"
+  }
 }
 ```
 
