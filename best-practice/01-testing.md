@@ -12,7 +12,7 @@
 
 ## 测试方法
 
-### 1. 功能测试
+### 功能测试
 
 功能测试我们提供2种方式，一是通过VUI进行语音交互进行验证，二是通过 mock 工具进行验证。
 
@@ -46,7 +46,7 @@ mock 工具可以模拟语音交互功能，通过mock 可达到语音交互的�
 # tools/mock --asr '我要听儿歌'
 ```
 
-### 2. 白盒测试
+### 白盒测试
 
 通过MockAppRuntime测试工具进行针对应用的白盒测试。
 
@@ -69,9 +69,9 @@ test('test app request event', t => {
         t.end()
       })
       // emit app request event
-      // @param {string} asr 语音识别后的文字
-      // @param {object} nlp 服务端返回的NLP
-      // @param {object} action 服务端返回的action
+      // @param {string} asr
+      // @param {object} nlp
+      // @param {object} action
       // @param {object} [options]
       runtime.onVoiceCommand(asr,nlp,action,options)
       // emit app url event
@@ -90,7 +90,7 @@ test('test app request event', t => {
 })
 ```
 
-### 3. 稳定性测试
+### 稳定性测试
 
 1. 通过执行 monkey 针对应用进行稳定性测试。
 
@@ -110,7 +110,7 @@ test('test app request event', t => {
 // cpu monitor
 # tools/memory-viewer -c -i 300 -f appname -a
 ```
-执行中会采集应用运行数据，并时时更新。通过如下命令可将 json 转换为 html 图标形式。
+执行中会采集应用运行数据，并时时更新。通过如下命令可将 json 转换为 html 图表形式。
 
 ```bash
 # tools/memory-viewer -r cpu.json
@@ -124,5 +124,5 @@ test('test app request event', t => {
 
 ###  yoda-mock 工具
 
-MockAppRuntime用于模拟应用运行时，模拟ttsd，lightd 等服务方法。
+[yoda-mock](https://github.com/Rokid/yoda-mock)工具用于模拟应用运行时，模拟ttsd，lightd 等服务方法。
 
