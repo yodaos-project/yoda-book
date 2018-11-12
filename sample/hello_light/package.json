@@ -1,0 +1,21 @@
+{
+  "name": "@yoda_sample/hello_light",
+  "version": "1.0.0",
+  "description": "An example of how to use lights",
+  "main": "app.js",
+  "metadata": {
+    "skills": [
+      "@hello_light"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "sudo <xiaofei.lan@rokid.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}

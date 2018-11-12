@@ -1,0 +1,22 @@
+{
+  "name": "@yoda_sample/hello_multimedia",
+  "version": "1.0.0",
+  "description": "An example of how to use multimedia",
+  "main": "app.js",
+  "metadata": {
+    "extapp": true,
+    "skills": [
+      "@hello_multimedia"
+    ],
+    "permission": [
+      "ACCESS_TTS",
+      "ACCESS_MULTIMEDIA"
+    ]
+  },
+  "author": "sudo <xiaofei.lan@rokid.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}

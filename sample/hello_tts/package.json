@@ -1,0 +1,20 @@
+{
+  "name": "@yoda_sample/hello_tts",
+  "version": "1.0.0",
+  "description": "An example of how to use tts",
+  "main": "app.js",
+  "metadata": {
+    "skills": [
+      "@hello_tts"
+    ],
+    "permission": [
+      "ACCESS_TTS"
+    ]
+  },
+  "author": "sudo <xiaofei.lan@rokid.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}
