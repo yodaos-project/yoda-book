@@ -105,16 +105,6 @@ makeReport()
 
 ### Q & A
 
-<div class="panel panel-info">
-**Q：设备上覆盖率文件生成位置。**
-{: .panel-heading}
-<div class="panel-body">
-
-A: 由执行 tape 是传入的 --coverage 参数决定(以上脚本是生成在设备根目录的 .nyc_output 目录下)。
-
-</div>
-</div>
-
 - Q:设备上覆盖率文件生成位置。
 - A: 由执行 tape 是传入的 --coverage 参数决定(以上脚本是生成在设备根目录的 .nyc_output 目录下)。
 
