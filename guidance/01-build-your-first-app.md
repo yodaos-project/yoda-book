@@ -38,7 +38,7 @@ module.exports = function main (activity) {
   "version": "1.0.0",
   "main": "app.js",
   "manifest": {
-    "skillIds": [
+    "skills": [
       "an-pre-registered-skill-id"
     ],
     "permission": [
@@ -74,7 +74,7 @@ module.exports = function main (activity) {
 ```json
 {
   "manifest": {
-    "skillIds": ["AVERYLONGSKILLID"],
+    "skills": ["AVERYLONGSKILLID"],
     "hosts": [
       {
         "name": "foobar.app",
