@@ -76,10 +76,7 @@ module.exports = function main (activity) {
   "manifest": {
     "skills": ["AVERYLONGSKILLID"],
     "hosts": [
-      {
-        "name": "foobar.app",
-        "skillId": "AVERYLONGSKILLID"
-      }
+      [ "foobar.app", { "skillId": "AVERYLONGSKILLID" } ]
     ]
   }
 }

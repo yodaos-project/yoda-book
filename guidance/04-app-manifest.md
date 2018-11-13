@@ -112,7 +112,7 @@ Example:
 
 代表了应用能处理的 yoda-skill 的域名。YodaOS 应用可以使用 API 如 Activity#openURL 来打开一个如 `yoda-skill://an-app-registered-host/path/to/resources` 的 URL，并通过 URL 参数将希望传递的参数发送给能够处理这个 URL 的应用。而一个应用如果希望 YodaOS 将一个域名的 URL 代理给自己，则需要在 package.json 中注册这个域名。
 
-manifest.hosts 字段需要是一个数组，这个数组的元素都是包含 `name` 和 `skillId` 字段的 JSON Object。
+manifest.hosts 字段需要是一个数组，这个数组的元素都是第一位是域名、第二位是域名参数的元组。域名参数是一个包含 `skillId` 字段的 JSON Object。
 
 Example:
 
@@ -120,10 +120,7 @@ Example:
 {
   "manifest": {
     "hosts": [
-      {
-        "name": "example.app",
-        "skillId": "AVERYLONGSKILLID"
-      }
+      [ "example.app", { "skillId": "AVERYLONGSKILLID" } ]
     ]
   }
 }
