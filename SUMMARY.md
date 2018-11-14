@@ -10,6 +10,7 @@
   - [测试](best-practice/01-testing.md)
   <!-- - [调试](best-practice/02-debugging.md) -->
   - [性能与稳定性](best-practice/03-performance-stability.md)
+- [样例](https://github.com/Rokid/yoda-samples)
 
 # YodaOS Source
 
