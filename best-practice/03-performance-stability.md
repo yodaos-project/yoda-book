@@ -150,6 +150,7 @@ main('func1', 'this is a string, not a function')
 - 当出现性能瓶颈时，优化业务流程带来的收益往往是最大的
 - 最重要的一点，在开发过程中保持对性能和稳定性的关注，不要在开发完成后再回头处理问题
 
+[Node.js]: https://nodejs.org/en/
 [ShadowNode]: https://github.com/Rokid/ShadowNode
 [JerryScript]: https://github.com/Rokid/ShadowNode/tree/master/deps/jerry
 [libtuv]: https://github.com/Rokid/ShadowNode/tree/master/deps/libtuv
