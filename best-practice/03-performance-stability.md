@@ -1,6 +1,6 @@
 ## 概览
 
-首先我们了解一下 YodaOS 的运行时：YodaOS 基于 [ShadowNode][] 它采用事件驱动、非阻塞I/O模型；在设计之初，[ShadowNode][] 的接口与 [Node.js][]兼容，因此在大部分场景下，开发者可以像 [Node.js][] 一样使用 [ShadowNode][]，了解这些有利于开发者更快速的进行 YodaOS 上的应用开发。
+首先我们了解一下 YodaOS 的运行时：YodaOS 基于 [ShadowNode][] 它采用事件驱动、非阻塞I/O模型；在设计之初，[ShadowNode][] 的接口与 [Node.js][] 兼容，因此在大部分场景下，开发者可以像 [Node.js][] 一样使用 [ShadowNode][]，了解这些有利于开发者更快速的进行 YodaOS 上的应用开发。
 
 YodaOS 开发应用时，需要关注应用的性能与稳定性，包括但不限于以下：
 
