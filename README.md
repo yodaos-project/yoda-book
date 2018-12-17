@@ -1,8 +1,8 @@
 # YodaOS Book
 
-[![Build Status](https://travis-ci.com/Rokid/yoda-book.svg?branch=master)](https://travis-ci.com/Rokid/yoda-book)
+[![Build Status](https://travis-ci.com/yodaos-project/yoda-book.svg?branch=master)](https://travis-ci.com/yodaos-project/yoda-book)
 
-This repository contains the source of all editions of "YodaOS Book", and we have the online version at: [https://rokid.github.io/yoda-book/](https://rokid.github.io/yoda-book/).
+This repository contains the source of all editions of "YodaOS Book", and we have the online version at: [https://yodaos-project.github.io/yoda-book/](https://yodaos-project.github.io/yoda-book/).
 
 ### Requirements
 
