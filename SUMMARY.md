@@ -16,6 +16,8 @@
 
 - YodaOS Source
 <!-- - 编译与打包 -->
+- 编译与运行
+  - [编译运行](yodaos-source/system/compile-run.md)
 - 产品定制 <!-- (yodaos-source/customization/00-customization.md) -->
   - [概览](yodaos-source/customization/01-overview.md)
   - [按键](yodaos-source/customization/02-keyboard.md)
