@@ -1,3 +1,37 @@
+## YodaOS 开发者工具
+
+[YodaOS 开发者工具](https://github.com/yodaos-project/yoda-platform-tools) 提供了一系列的便捷工具来对 YodaOS 设备进行操作，如发送文本指令，发送 NLP 意图，启动、安装应用等。
+
+可以从 [YodaOS 开发者工具 Releases](https://github.com/yodaos-project/yoda-platform-tools/releases) 页面下载 YodaOS 开发者工具。
+
+## 创建 YodaOS 应用项目
+
+通过 YodaOS 开发者工具，我们可以快速地创建一个 YodaOS 应用项目：
+
+```bash
+~/workspace > yoda-cli init app awesome-demo-app
+✔ Name of the package … awesome-demo-app
+✔ A short description of the package … A demo application project
+✔ Is this package private? … no / yes
+✔ Skill ids of your app …
+✔ Requested permissions of your app … ACCESS_TTS
+✔ Keywords … demo,app
+```
+
+运行了以上命令后，就可以在当前目录下的 `awesome-demo-app` 目录中看到生成的 YodaOS 应用项目了。
+
+更多的 `yoda-cli` 命令可以通过 `yoda-cli help` 查看。
+
+生成项目之后，即可将应用安装到 YodaOS 设备上：
+
+```bash
+~/workspace > yoda-cli pm install awesome-demo-app
+
+--- OR ---
+
+~/workspace/awesome-demo-app > yoda-cli pm install .
+```
+
 ## 程序入口：Main 函数
 
 对于 YodaOS 来说，每个应用都是一个 [CommonJS](https://nodejs.org/docs/latest/api/modules.html) 模块。每一个 CommonJS 模块都会有一个对 `module.exports` 的引用，YodaOS 的应用也同样的，他的主入口即为通过 `module.exports` 导出的一个接收一个 `activity` 作为参数的函数。
