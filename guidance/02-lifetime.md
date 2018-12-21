@@ -12,7 +12,7 @@
 | Inactive | 没有任务正在运行的状态 | 代表应用不在工作，资源优先被系统回收 |
 | Active | 当前栈顶应用，可能是被 NLP、URL 激活，或者是从 background 状态应用主动激活 | 只有这个状态可以播报 TTS，播放媒体等 |
 | Paused | 只可能是以 scene 形式激活的应用，曾经为激活状态，但是被别的以 cut 形式应用暂时压入了暂停状态 | 在进入 pause 状态时应该将应用自己的媒体暂停 |
-| Background | 进入后台运行，与 inactive 有区别的是当前还有正在运行的任务，不应用被系统回收资源 | 需要应用主动进入该状态 |
+| Background | 进入后台运行，与 inactive 有区别的是当前还有正在运行的任务，不应该被系统回收资源 | 需要应用主动进入该状态 |
 
 ![YodaOS 应用生命周期](../asset/yodaos-app-life-cycle.jpg)
 
