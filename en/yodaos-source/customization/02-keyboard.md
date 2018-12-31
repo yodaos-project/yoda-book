@@ -1,264 +1,263 @@
-# YodaOS 按键应用模块架构及客制化指引
+# YodaOS Button Application Module Architecture and Customization Guidelines
 
-## 概述
+## Overview
 
-按键是语音操作系统处理最直接的语音命令之外较为方便的操作方式。系统框架会提供一些按键处理必需的基础设施，而客制化开发者提供客制化这些基础设施的代码，让按键按照开发者所想的方式响应。如果想要更加效率地客制化一个按键，了解一些关于 YodaOS 基础设施是如何工作的会提供一些帮助。
+Buttons are a convenient way to operate the most direct voice commands in the voice operating system. The system framework provides some of the infrastructure necessary to handle the keys, and the custom developer provides the code to customize these infrastructures so that the buttons respond in the way the developer wants. If you want to customize a button more efficiently, it's helpful to know some about how the YodaOS infrastructure works.
 
-## 按键模块
+## button module
 
-系统通过按键模块处理硬件的按键状态变化，并通过配置的按键配置文件将按键事件按照预设的方式分发到相应的模块，亦或是注册了该按键事件的当前活跃应用。
+The system processes the key state changes of the hardware through the button module, and distributes the button events to the corresponding modules according to a preset manner through the configured button configuration file, or registers the currently active application of the button event.
 
-常用的按键分发方式有以下两种方式
+There are two ways to use the commonly used key distribution methods.
 
-1. 通过 openURL 的方式将按键事件通过 activity#url 事件来分发到注册了该 url 的应用中
-2. 通过 runtimeMethod 的方式将按键事件发送到系统运行时中
+1. By way of openURL key event will be distributed to registered by the application of the url activity # url event
+2. Send key events to the system runtime via runtimeMethod
 
-常用的按键事件有以下几种：
+Commonly used key events are as follows:
 
-1. keydown
-2. longpress
-3. keyup
+Keydown
+Longpress
+Keyup
 4. click
 5. dbclick
 
-其中，因为 longpress 是可以一次按键多次触发的事件，它拥有特殊的按键描述。
+Among them, because longpress is an event that can be triggered multiple times by one button, it has a special button description.
 
-## 按键业务描述文件
+## Button business description file
 
-按键描述文件是一个 JSON 格式的文件。这个文件的顶级 key 即为各个按键的 keyCode 字符串，而每一个按键的描述是一个以按键事件为 key 的 map。如以下例子：
+The key description file is a file in JSON format. The top-level key of this file is the keyCode string of each key, and the description of each key is a map with the key event as the key. As the following example:
 
 ```json
 {
-  "114": {
-    "keydown": {
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false,
-      }
-    },
-    "longpress": {
-      "repeat": true,
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false
-      }
-    }
-  }
+  "114": {
+    "keydown": {
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false,
+      }
+    },
+    "longpress": {
+      "repeat": true,
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false
+      }
+    }
+  }
 }
 ```
 
-以上的按键描述描述了“音量减”按键的行为，当按下“音量减”键时（keydown），就使用 url `yoda-skill://volume/volume_down` 打开音量应用，并执行音量减的操作；如果再长按“音量减”键（longpress），那么就重复（repeat）执行长按事件，使用 url `yoda-skill://volume/volume_down` 打开音量应用，并执行音量减的操作。
+The above button description describes the behavior of the “Volume Down” button. When the “Volume Down” button is pressed (keydown), the volume application is opened with url `yoda-skill://volume/volume_down` and the volume is reduced. Operation; if you press and hold the "Lengpress" button (longpress), repeat the long press event, use url `yoda-skill://volume/volume_down` to open the volume application, and perform the volume reduction operation.
 
-## 按键客制化
+## Button customization
 
-这里我们以“音量减”按键为例子，例举各种可能的按键客制化方案。
+Here we use the "Volume Reduction" button as an example to illustrate various possible button customization schemes.
 
-### 定制一个单击事件
+### Customizing a click event
 
-如果需要定制一个按键的单击事件，只需要在按键的描述器中加入以 `click` 为键的按键事件描述即可：
+If you need to customize the click event of a button, you only need to add a button event description with the `click` key in the button's descriptor:
 
 ```json
 {
-  "114": {
-    "click": {
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false,
-      }
-    }
-  }
+  "114": {
+    "click": {
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false,
+      }
+    }
+  }
 }
 ```
 
-### 定制一个双击事件
+### Customizing a double click event
 
-如果需要定制一个按键的双击事件，只需要在按键的描述器中加入以 `dbclick` 为键的按键事件描述即可：
+If you need to customize the double-click event of a button, you only need to add a button event description with the `dbclick` key in the button's descriptor:
 
 ```json
 {
-  "114": {
-    "dbclick": {
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false,
-      }
-    }
-  }
+  "114": {
+    "dbclick": {
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false,
+      }
+    }
+  }
 }
 ```
 
-### 定制一个长按事件
-如果需要定制一个按键的长按事件，只需要在按键的描述器中加入以 `longpress` 为键的按键事件描述即可：
+### Customizing a long press event
+If you need to customize a long press event for a button, you only need to add a button event description with the `longpress` key to the button's descriptor:
 
 ```json
 {
-  "114": {
-    "longpress": {
-      "repeat": true,
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false,
-      }
-    }
-  }
+  "114": {
+    "longpress": {
+      "repeat": true,
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false,
+      }
+    }
+  }
 }
 ```
 
-需要注意的是，以上是一个可以重复的长按按键定义，如果希望按键在长按 5s 后触发，则需要定义长按所需的时间：
+It should be noted that the above is a repeatable long press button definition. If you want the button to trigger after a long press of 5s, you need to define the time required for long press:
 
 ```json
 {
-  "114": {
-    "longpress": {
-      "repeat": true,
-      "timeDelta": 5000,
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false,
-      }
-    }
-  }
+  "114": {
+    "longpress": {
+      "repeat": true,
+      "timeDelta": 5000,
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false,
+      }
+    }
+  }
 }
 ```
 
-如果希望按键在长按 5s 触发，并且只触发一次，则需要将 `repeat` 置为 `false`：
+If you want the button to be triggered by a long press of 5s and only fire once, you need to set `repeat` to `false`:
 
 ```json
 {
-  "114": {
-    "longpress": {
-      "repeat": false,
-      "timeDelta": 5000,
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false,
-      }
-    }
-  }
+  "114": {
+    "longpress": {
+      "repeat": false,
+      "timeDelta": 5000,
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false,
+      }
+    }
+  }
 }
 ```
 
-如果希望客制多个不同长按时长的长按事件，可以通过在 `longpress` 键名后增加时间后缀来区分多个描述：
+If you want to customize multiple long press events with different long press durations, you can distinguish between multiple descriptions by adding a time suffix after the `longpress` key name:
 
 ```json
 {
-  "114": {
-    "longpress-5000": {
-      "repeat": false,
-      "timeDelta": 5000,
-      "preventSubsequent": true,
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false,
-      }
-    },
-    "longpress-7000": {
-      "repeat": false,
-      "timeDelta": 7000,
-      "preventSubsequent": true,
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false,
-      }
-    }
-  }
+  "114": {
+    "longpress-5000": {
+      "repeat": false,
+      "timeDelta": 5000,
+      "preventSubsequent": true,
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false,
+      }
+    },
+    "longpress-7000": {
+      "repeat": false,
+      "timeDelta": 7000,
+      "preventSubsequent": true,
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false,
+      }
+    }
+  }
 }
 ```
 
-如果定义了多个长按按键事件，这些长按按键事件的 timeDelta 的计算都是以按键 keydown 的时间为起始时间。
+If multiple long press button events are defined, the timeDelta of these long press button events is calculated starting from the time of the keydown.
 
-### 深度定制一个按键
-
-有时候，对于一个按键从用户按下该按键，到用户松开该按键，都需要按照客制化需求重新定义，则需要对 `keydown` 事件和 `keyup` 事件都完成不同的操作，则可以在按键描述中增加 `keydown` 和 `keyup` 事件的描述。
+### Depth customization of a button
+Sometimes, for a button to be pressed from the user, until the user releases the button, you need to redefine according to the customization requirements, you need to complete different operations for the `keydown` event and the `keyup` event. Add a description of the `keydown` and `keyup` events in the button description.
 
 ```json
 {
-  "114": {
-    "keydown": {
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false,
-      }
-    },
-    "keyup": {
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false
-      }
-    }
-  }
+  "114": {
+    "keydown": {
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false,
+      }
+    },
+    "keyup": {
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false
+      }
+    }
+  }
 }
 ```
 
-如果希望在长按触发事件后，不触发 keyup 事件，可以增加 `preventSubsequent` 字段：
+If you want to not trigger the keyup event after a long press of the trigger event, you can increase the `preventSubsequent` field:
 
 ```json
 {
-  "114": {
-    "longpress": {
-      "repeat": false,
-      "timeDelta": 5000,
-      "preventSubsequent": true,
-      "url": "yoda-skill://volume/volume_down",
-      "options": {
-        "preemptive": false,
-      }
-    }
-  }
+  "114": {
+    "longpress": {
+      "repeat": false,
+      "timeDelta": 5000,
+      "preventSubsequent": true,
+      "url": "yoda-skill://volume/volume_down",
+      "options": {
+        "preemptive": false,
+      }
+    }
+  }
 }
 ```
 
-## 按键事件描述定义
+## Button event description definition
 
-keyboard.json 的 JSON Schema 定义如下：
+The JSON Schema for keyboard.json is defined as follows:
 
 ```json
 {
-  "definitions": {
-    "OpenUrlDef": {
-      "$id": "#/definitions/OpenUrlDef",
-      "type": "object",
-      "properties": {
-        "url": {
-          "type": "string",
-          "format": "uri",
-          "description": "A URL string to be opened to handle the keyboard event",
-          "examples": [
-            "yoda-skill://volume/volume_down"
-          ]
-        },
-        "options": {
-          "type": "object",
-          "description": "An object to be used as options while opening url to handle the event"
-        }
-      },
-      "required": [
-        "url"
-      ]
-    },
-    "RuntimeMethodDef": {
-      "$id": "#/definitions/RuntimeMethodDef",
-      "type": "object",
-      "properties": {
-        "runtimeMethod": {
-          "type": "string",
-          "description": "A method name of which would be called to handle the event"
-        },
-        "params": {
-          "type": "array",
-          "description": "An array of arguments on invocation of runtime method on handling of events"
-        }
-      },
-      "required": [
-        "runtimeMethod"
-      ]
-    }
-  },
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://yodaos.rokid-inc.com/keyboard.schema.json",
-  "type": "object",
-  "title": "The Root Schema",
-  "properties": {
+  "definitions": {
+    "OpenUrlDef": {
+      "$id": "#/definitions/OpenUrlDef",
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "Description": "A URL string to be opened to handle the keyboard event",
+          "examples": [
+            "yoda-skill://volume/volume_down"
+          ]
+        },
+        "options": {
+          "type": "object",
+          "Description": "An object to be used as options while opening url to handle the event"
+        }
+      },
+      "required": [
+        "url"
+      ]
+    },
+    "RuntimeMethodDef": {
+      "$id": "#/definitions/RuntimeMethodDef",
+      "type": "object",
+      "properties": {
+        "runtimeMethod": {
+          "type": "string",
+          "Description": "A method name of which would be called to handle the event"
+        },
+        "params": {
+          "type": "array",
+          "Description": "An array of arguments on invocation of runtime method on handling of events"
+        }
+      },
+      "required": [
+        "runtimeMethod"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://yodaos.rokid-inc.com/keyboard.schema.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "properties": {
     "config": {
       "type": "object",
       "title": "The Config Schema",

@@ -1,14 +1,14 @@
-# 单元测试篇
-> 由于yodaOS 需要依赖设备，所以在做单元测试之前， 需要一块Rokid开发版。
+#Unit test articles
+> Since yodaOS needs to rely on devices, a Rokid development version is required before unit testing.
 
-## 设置您的测试环境
-1. 安装 node 和 adb(adb版本最低要求为 1.0.32)
-2. 执行 npm install
-3. 新建测试文件夹 test/@yoda
+## Setting up your test environment
+1. Install node and adb (the minimum requirement for adb version is 1.0.32)
+2. Execute npm install
+3. Create a new test folder test/@yoda
 
-## 创建一个简单的单元测试
-1. 在test/@yoda文件中，新建一个文件夹wifi
-2. 在wifi文件夹中, 新建 demo.test.js
+## Create a simple unit test
+1. In the test/@yoda file, create a new folder wifi
+2. In the wifi folder, create a new demo.test.js
 
 ``` js
 'use strict'
@@ -37,15 +37,15 @@ t.end()
 })
 ```
 
-## 运行单元测试代码
+## Running unit test code
 - $ npm test -- --reporter tap-spec -p '@yoda/wifi/*.test.js'
 
-## 代码风格检测
+## Code Style Detection
 - $ npm run lint-js
 
 
-## 建议测试类型
-- 类型检查
-    -  nodejs 为弱类型语言，类型检查是很有必要的
-- 参数检查
-    - 方法返回值是否和预期一样
+## Recommended test type
+- Type check
+    - nodejs is a weakly typed language, type checking is necessary
+- Parameter check
+    - The method returns the same value as expected

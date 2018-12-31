@@ -1,109 +1,109 @@
-# 概述
+# Overview
 
-有效的测试是保证质量的基础，通过快速有效的方法对应用进行测试是迭代开发应用程序必不可少的工作流程。
+Effective testing is the foundation for quality assurance. Testing applications in a fast and efficient way is an essential workflow for iterative development of applications.
 
-# 测试分类
+#测试分类
 
-1. 功能测试
-2. 白盒测试
-3. 稳定性测试
+Functional test
+2. White box test
+3. Stability test
 
-# 测试方法
+# Test Methods
 
-## 功能测试
+## function test
 
-功能测试我们提供2种方式，一是通过 VUI 进行语音交互进行验证，二是通过 mock 工具进行验证。
+Functional Testing We offer two methods, one is to verify the voice interaction through the VUI, and the other is to verify by the mock tool.
 
-> ❕注意：功能测试，需要网络状态处于正常状态
+> ❕ Note: Functional test requires network status to be normal
 
-### VUI 
+### VUI
 
-首先，通过工具将应用安装到设备；
+First, install the app to the device through the tool;
 
 ```bash
 # tools/runtime-install
 ```
 
-其次，重启 vui ；
+Second, restart vui;
 
 ```bash
 # tools/runtime-op --vuid restart
 ```
 
-最后，开始交互，进行功能测试。
+Finally, start the interaction and perform a functional test.
 
 ```
-例如：若琪，我要听儿歌。
+For example: Ruo Qi, I want to listen to children's songs.
 ```
 
-### mock 工具
+### mock tool
 
-mock 工具可以模拟语音交互功能，通过 mock 可达到语音交互的效果。
+The mock tool simulates the voice interaction function, and the mock interaction can be achieved through mock.
 
 ```bash
-# tools/mock --asr '我要听儿歌'
+# tools/mock --asr 'I want to listen to children's songs'
 ```
 
-## 白盒测试
+##白盒测试
 
-通过 [yoda-mock](#yoda-mock-工具) 测试工具进行针对应用的白盒测试。
+White box testing for applications via the [yoda-mock](#yoda-mock-tool) test tool.
 
 
 ```js
 'use strict'
 
-var test = require('tape')
-var Mock = require('@yoda/mock')
+Var test = require('tape')
+Var Mock = require('@yoda/mock')
 
-test('test app request event', t => {
-  var rt
-  // start app
-  Mock.mockAppRuntime('/opt/apps/appdemo')
-    .then(runtime => {
-      // runtime instance
-      rt = runtime
-      t.strictEqual(Object.keys(runtime.loader.appManifests).length, 1, 'mocked app runtime shall load expected app only')
-      // mock ttsd speck method
-      runtime.mockService('tts', 'speck', (text) => {
-        t.strictEqual(text, 'hello')
-        t.end()
-      })
-      // emit app request event
-      // @param {string} asr
-      // @param {object} nlp
-      // @param {object} action
-      // @param {object} [options]
-      runtime.onVoiceCommand('asr', {intent: 'play_song'}, {appId: 'appdemo'}, {})
-      // emit app url event
-      // @param {string} url
-      // @param {object} [options]
-      // @param {'cut' | 'scene'} [options.form='cut']
-      // @param {boolean} [options.preemptive=true]
-      // @param {string} [options.carrierId]
-      // @returns {Promise<boolean>}
-      runtime.openUrl('url', {form: 'cut'})
-    })
-    .catch(err => {
-      t.error(err)
-      rt && rt.destruct()
-      t.end()
-    })
+Test('test app request event', t => {
+  Var rt
+  // start app
+  Mock.mockAppRuntime('/opt/apps/appdemo')
+    .then(runtime => {
+      // runtime instance
+      Rt = runtime
+      t.strictEqual(Object.keys(runtime.loader.appManifests).length, 1, 'mocked app runtime shall load expected app only')
+      // mock ttsd speck method
+      runtime.mockService('tts', 'speck', (text) => {
+        t.strictEqual(text, 'hello')
+        T.end()
+      })
+      // emit app request event
+      @param {string} asr
+      @param {object} nlp
+      @param {object} action
+      @param {object} [options]
+      runtime.onVoiceCommand('asr', {intent: 'play_song'}, {appId: 'appdemo'}, {})
+      // emit app url event
+      @param {string} url
+      @param {object} [options]
+      @param {'cut' | 'scene'} [options.form='cut']
+      @param {boolean} [options.preemptive=true]
+      @param {string} [options.carrierId]
+      @returns {Promise<boolean>}
+      runtime.openUrl('url', {form: 'cut'})
+    })
+    .catch(err => {
+      T.error(err)
+      Rt && rt.destruct()
+      T.end()
+    })
 })
 ```
 
-## 稳定性测试
+## Stability test
 
-1. 通过执行 monkey 针对应用进行稳定性测试。
+1. Perform a stability test on your application by executing monkey.
 
-例如：测试对象为音乐应用，可以通过调用 mock 工具进行测试。
+For example, the test object is a music application, which can be tested by calling the mock tool.
 
 ```bash
-# tools/mock --asr '我要听周杰伦的歌'
-# tools/mock --asr '我要听稻香'
-# tools/mock --asr '换一个'
+# tools/mock --asr 'I want to listen to Jay Chou's songs'
+# tools/mock --asr 'I want to listen to Daoxiang'
+# tools/mock --asr 'change one'
 ```
 
-2. 通过 memory-viewer 工具监控内存和 CPU 情况
+2. Monitor memory and CPU conditions with the memory-viewer tool
 
 ```bash
 // memory monitor
@@ -111,19 +111,18 @@ test('test app request event', t => {
 // cpu monitor
 # tools/memory-viewer -c -i 300 -f appname -a
 ```
-执行中会采集应用运行数据，并时时更新。通过如下命令可将 json 转换为 html 图表形式。
+Application running data is collected during execution and updated from time to time. Use the following command to convert json to an html chart form.
 
 ```bash
 # tools/memory-viewer -r cpu.json
 ```
 
-# 测试工具
+# test tools
 
-## 测试框架
+## Testing framework
 
-采用 tape，详见  [tape](https://github.com/shadow-node/tape#tape)  使用说明
+Use tape, see [tape](https://github.com/shadow-node/tape#tape)
 
-## yoda-mock 工具
+## yoda-mock tool
 
-[yoda-mock](https://github.com/Rokid/yoda-mock) 工具用于模拟应用运行时，模拟 ttsd，lightd 等服务方法。
-
+The [yoda-mock](https://github.com/Rokid/yoda-mock) tool is used to simulate application runtimes, emulating service methods such as ttsd, lightd.

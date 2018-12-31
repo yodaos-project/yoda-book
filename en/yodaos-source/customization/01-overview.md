@@ -1,46 +1,46 @@
-# Yoda OS描述
+# Yoda OS Description
 
-## 系统架构
+## system structure
 
 ![flow](../../../asset/01-overview-flow.png)
 
-## 代码目录
+## Code directory
 
-- **apps** 集成在系统中的本地app，包括【蓝牙音乐】、【配网】、【音量】等
-- **apps/cloudappclient** 云端App的本地通用客户端，处理云端App下发的逻辑，包括【若琪音乐】、【天气】、【新闻】等
-- **include** 构建时依赖的头文件
-- **packages** 通用模块接口，用于与系统底层服务交互，包括【日志】、【蓝牙】、【音频】、【按键】等
-- **res** 资源文件包括灯光和音效
-- **runtime** Yoda OS的核心服务
-  - **activation** 激活服务，在设备被激活时播放唤醒词
-  - **lightd** 提供灯光渲染服务
-  - **multimediad** 提供多媒体播放服务
-  - **otad** 提供OTA升级服务
-  - **ttsd** 提供TTS播放服务
-  - **vuid** VUI交互服务，处理用户的NLP
-- **test**  单元测试
-- **tools** 调试工具
+- **apps** Local app integrated in the system, including [Bluetooth Music], [Distribution], [Volume], etc.
+- **apps/cloudappclient** The local universal client of the Cloud App handles the logic issued by the cloud app, including [Ruo Qi Music], [Weather], [News], etc.
+- **include** Build dependent header files
+- **packages** Common module interface for interacting with the underlying services of the system, including [log], [Bluetooth], [Audio], [Button], etc.
+- **res** resource files including lighting and sound effects
+- **runtime** The core service of Yoda OS
+  - **activation** activates the service and plays wake-up words when the device is activated
+  - **lightd** provides light rendering service
+  - **multimediad** provides multimedia playback service
+  - **otad** provides OTA upgrade service
+  - **ttsd** provides TTS playback service
+  - **vuid** VUI interactive service that handles user's NLP
+- **test** unit test
+- **tools** Debugging Tools
 
-### 编译方式
+### Compilation method
 
 - cd $OPENWRT_ROOT
 - cp ./config/leo_k18_universal_node_defconfig .config
 - make defconfig
 - make package/jsruntime/install V=s
 
-### 安装目录
+### installation manual
 
-- apps/ -> /opts/apps 目前QQ音乐等第三方App也安装在此
+- apps/ -> /opts/apps Currently third-party apps like QQ Music are also installed here.
 - packages/ -> /usr/lib/node_modules
 - res/ -> /opt/res
 - runtime/ -> /usr/yoda
 
-## VUI交互流程
+## VUI interaction process
 
 ![time](../../../asset/01-overview-time.png)
 
-### 说明
+### Description
 
-1. 用户的语音在云端解析完后通过MQTT服务推送相应的NLP到VUI
-2. VUI服务选择对应的App处理NLP
-3. 如果App的处理中包含灯光、播报等逻辑，App将通过VUI来调用对应的服务来执行逻辑
+1. After the user's voice is parsed in the cloud, the corresponding NLP is pushed to the VUI through the MQTT service.
+2. The VUI service selects the corresponding App to process the NLP.
+3. If the processing of the app includes logic such as lighting, broadcast, etc., the App will call the corresponding service through the VUI to execute the logic.

@@ -1,152 +1,152 @@
-## 概述
+## Overview
 
-在了解了[若琪的技能](https://developer.rokid.com/docs/2-RokidDocument/1-SkillsKit/platform-introduction.html)之后，如果需要开发与设备强相关的技能，则需要开发一个本地应用。复杂的应用代码需要和系统框架不断地交流、互动。系统框架会提供一些所有应用运行必需的基础设施，而应用开发者提供客制化这些基础设施的代码，让应用按照开发者所想的方式运行。如果想要更加效率地客制化一个应用，了解一些关于 YodaOS 基础设施是如何工作的会提供一些帮助。
+After learning about [Ruqi's Skills](https://developer.rokid.com/docs/2-RokidDocument/1-SkillsKit/platform-introduction.html), if you need to develop skills that are strongly related to your equipment, you will need Develop a local app. Complex application code needs to constantly communicate and interact with the system framework. The system framework provides some of the infrastructure necessary for all applications to run, and application developers provide the code to customize these infrastructures so that the application runs the way developers want. If you want to customize an application more efficiently, it's helpful to know some about how the YodaOS infrastructure works.
 
-## 应用状态
+## Application Status
 
-应用分为 5 个状态
+The app is divided into 5 states
 
-| 状态名 | 主要作用 | 备注 |
+| Status Name | Main Role | Remarks |
 | --- | --- | --- |
-| Not Running | 表示应用进程没有在运行 | - |
-| Inactive | 没有任务正在运行的状态 | 代表应用不在工作，资源优先被系统回收 |
-| Active | 当前栈顶应用，可能是被 NLP、URL 激活，或者是从 background 状态应用主动激活 | 只有这个状态可以播报 TTS，播放媒体等 |
-| Paused | 只可能是以 scene 形式激活的应用，曾经为激活状态，但是被别的以 cut 形式应用暂时压入了暂停状态 | 在进入 pause 状态时应该将应用自己的媒体暂停 |
-| Background | 进入后台运行，与 inactive 有区别的是当前还有正在运行的任务，不应该被系统回收资源 | 需要应用主动进入该状态 |
+| Not Running | indicates that the application process is not running | - |
+| Inactive | No status in which the task is running | The application is not working, the resource is prioritized by the system |
+Active | The current top-of-stack application may be activated by NLP, URL, or actively activated from the background state | Only this state can broadcast TTS, play media, etc. |
+| Paused | An application that can only be activated as a scene. It was once active, but was temporarily pushed into the pause state by another application in the form of cut | The application should pause its application when entering the pause state |
+| Background | Enter the background, the difference from inactive is that there are currently running tasks, should not be recycled by the system | Need the application to actively enter the state |
 
-![YodaOS 应用生命周期](../../asset/yodaos-app-life-cycle.jpg)
-
-
-### 应用进程与应用生命周期
-daemon 应用会在 vui 准备好时（如登陆成功），由 vui 负责启动，并设置为 inactive 状态，同时应用会收到 activity#create 事件。在收到 nlp/url 时，如果不在栈顶，会先收到 activity#active 事件，再收到 activity#request/activity#url 事件。
-如果 daemon 应用在收到 nlp/url 时进程已经崩溃还未重启，会和普通应用一样在当时启动。
-
-普通应用会在收到 nlp/url 时，如果还没有进程还没有被创建，会由 vui 负责启动，并收到 activity#create 事件，如果应用还不在栈顶，会再收到 activity#active 事件，最后收到 activity#request/activity#url 事件。
-
-应用处理完所有请求（nlp/url）后，应该主动退出，腾出栈顶，以便被暂停的应用如音乐等继续播放媒体。应用可以通过 Activity#exit 主动退出，或者通过 Activity#setBackground 将自己置入后台状态。在当前栈顶应用主动腾出栈顶后，vui 会尝试恢复之前被暂停的应用，并通过 activity#resume 事件告知应用已经被恢复到栈顶。
-
-如果一个以 scene 表现形式的应用在活跃状态时，用户触发了一个语音命令希望打开另一个应用，则
-
-在应用调用了 Activity#exit 后，应用会被标记被 inactive，并收到 activity#destroy 事件。在 inactive 状态的应用会在适当的时间被 vui 回收系统资源。当前普通应用会在收到 activity#destroy 事件后被系统回收进程资源。
-
-### 后台运行
-应用（包括 daemon 应用和普通应用）都可以主动将自己置入后台，腾出栈顶，以便被暂停的应用如音乐等继续播放媒体。应用可以使用 Activity#setBackground 方法将自己置入后台。值得注意的是，应用不在栈顶的话是没有权限播报 tts/播放媒体的，所以如果在后台任务执行到一定程度需要播报一个 tts/播放媒体时，需要使用 Activity#setForeground 抢占激活状态。
+![YodaOS Application Lifecycle](../../asset/yodaos-app-life-cycle.jpg)
 
 
-## 生命周期事件
+### Application Process and Application Lifecycle
+The daemon application will be started by the vui when the vui is ready (if the login is successful), and set to the inactive state, and the application will receive the activity#create event. When nlp/url is received, if it is not at the top of the stack, it will receive the activity#active event and then the activity#request/activity#url event.
+If the daemon application has crashed and has not restarted when it receives nlp/url, it will start at the same time as the normal application.
 
-每次应用的生命周期状态变化时，应用都可以通过 Activity 实例收到状态变化的事件。
+Ordinary applications will receive nlp / url, if no process has not been created, will be started by vui, and receive activity#create event, if the application is not at the top of the stack, will receive activity#active event, Finally received the activity#request/activity#url event.
 
-- `activity#create` 事件：会在应用进程准备完毕后触发，可以开始应用的初始化工作；
-- `activity#active` 事件：会在应用进入激活状态后触发，可以开始 tts/媒体等语音交互；
-- `activity#pause` 事件：会在表现形式为 scene 的应用短时被别的表现形式为 cut 的应用抢占激活状态时触发；
-- `activity#destroy` 事件：会在应用退出活跃状态时触发；
-- `activity#request` 事件：会在收到应用的 NLP 请求时触发；
-- `activity#url` 事件：会在其它应用调用 openURL 后对注册了对应 url 的应用触发；
+After the application has processed all requests (nlp/url), it should voluntarily quit and free up the top of the stack so that the suspended application, such as music, can continue to play the media. Apps can actively exit via Activity#exit or put themselves in the background via Activity#setBackground. After the current top-of-stack application actively vacates the top of the stack, the vui will attempt to restore the previously suspended application and notify the application that it has been restored to the top of the stack via the activity#resume event.
 
-## 处理应用状态变化的策略
+If an application in the form of a scene is active, the user triggers a voice command to open another application, then
 
-以下以蓝牙音乐应用为例子，简单介绍一下一个 YodaOS 应用应对应用状态变化的策略。
+After the app calls Activity#exit, the app is marked inactive and receives the activity#destroy event. Applications in the inactive state will be reclaimed system resources by vui at the appropriate time. The current normal application will be reclaimed by the system after receiving the activity#destroy event.
 
-### 应用启动的时候应该什么
+### Background process
+Applications (including daemon apps and general apps) can proactively put themselves in the background, freeing up the top of the stack so that paused apps like music continue to play media. Apps can put themselves into the background using the Activity#setBackground method. It is worth noting that if the application is not on the top of the stack, there is no permission to broadcast tts/play media. Therefore, if you need to broadcast a tts/play media to a certain extent in the background task execution, you need to use Activity#setForeground to preempt the activation state.
 
-当应用启动后，通过监听 `activity#create` 事件来完成以下的事情：
 
-- 初始化应用的重要数据
-- 准备好应用的 VUI，如应答用户问询的回复、准备媒体播放器等
+## Lifecycle events
 
-`需要注意的是，activity#create` 的事件监听应该尽可能的轻量，应用应该在 5s 内就能处理完所有的初始化工作，并且能够处理用户的交互事件。如果应用没有在 5s 内就处理完所有初始化工作，系统框架会以无响应的理由 kill 应用进程。
+The application can receive events with state changes through the Activity instance each time the application's lifecycle state changes.
 
-> 对于蓝牙音乐应用来说，应用启动的时候需要打开设备蓝牙，以便进行后续的蓝牙操作。
+- `activity#create` event: will be triggered after the application process is ready, can start the application initialization work;
+- `activity#active` event: will be triggered after the application enters the activation state, and can start voice interaction such as tts/media;
+- `activity#pause` event: will be triggered when the application whose expression is scene is short-lived by another application whose form is cut.
+- `activity#destroy` event: will be triggered when the application exits active;
+- `activity#request` event: will be triggered when an NLP request is received from the app;
+- `activity#url` event: will trigger the application that registered the corresponding url after other application calls openURL;
 
-### 应用收到 `activity#pause` 时应该做什么
+## Strategies for handling application state changes
 
-应用在运行时，用户可能会临时要求系统响应某些命令，这时，系统框架会临时暂停当前的应用，并启动另一个应用来处理当前的用户命令。而被临时暂停的应用需要通过监听 `activity#pause` 事件来完成以下的事情：
+Let's take a Bluetooth music application as an example to briefly introduce a strategy for a YodaOS application to respond to changes in application status.
 
-- 保存当前的媒体进度
-- 保存当前的应用状态
+### What should I do when the application starts?
 
-直到应用收到监听的 `activity#resume` 事件之前，应用应该随时准备因临时处理命令的应用的退出而触发的应用恢复事件，并完成以上暂停的操作的恢复。
+When the app starts, it does the following by listening to the `activity#create` event:
 
-> 对于蓝牙音乐应用来说，收到 `activity#pause` 后需要给连接的蓝牙设备发送暂停信号，以暂停播放的媒体。
+- Initialize important data for your app
+- Prepare the application's VUI, such as responding to user inquiries, preparing media players, etc.
 
-### 应用主动进入后台后应该做什么
+`It should be noted that the event listener of activity#create` should be as lightweight as possible. The application should be able to handle all initialization work within 5s and be able to handle user interaction events. If the application does not process all initialization work within 5 seconds, the system framework kills the application process for a non-responsive reason.
 
-语音应用不需要时时保持在前台活跃，部分应用如系统蓝牙在没有连接上蓝牙设备时，可以通过 `Activity.setBackground` 方法主动进入后台等待连接，并将前台留给其它活跃应用。应用进入后台运行状态后，无法继续请求播放 TTS 或者是其它多媒体，只能进行一些静默操作。在后台运行中的应用，如果需要开始与用户进行语音交互，则需要通过 `Activity.setForeground` 进入活跃状态。
+> For Bluetooth music applications, the device needs to be turned on for Bluetooth to be used for subsequent Bluetooth operations.
 
-> 对于蓝牙音乐应用来说，在开启设备蓝牙后，在还没有设备连接的情况下，不需要占用设备的激活状态，所以主动进入后台，保持设备蓝牙开启，等待连接。在完成蓝牙连接后，蓝牙应用会重新进入激活状态，并播报如“已连接上你的蓝牙设备”等 TTS。
+### What should I do when the app receives `activity#pause`
 
-### 应用收到 `activity#destroy` 应该做什么
+When the application is running, the user may temporarily request the system to respond to certain commands. At this time, the system framework temporarily suspends the current application and starts another application to process the current user command. Applications that are temporarily suspended need to do the following by listening to the `activity#pause` event:
 
-应用在处理完所有命令之后，通过主动调用 `Activity#exit` 来退出当前活跃状态；或者因为一个新的用户命令，其他应用需要进入活跃状态而将当前应用强行退出活跃状态时，当前应用都会被挂起，并会监听到 `activity#destroy` 事件。在这个监听中，应用应该以最快的速度完成以下操作：
+- Save current media progress
+- Save current app status
 
-- 保存应用状态
-- 停止所有计时器或周期性任务
-- 不要发起新的任务请求
+Until the application receives the `activity#resume` event of the listener, the application should be ready to resume the application recovery event triggered by the exit of the application that temporarily processes the command, and complete the recovery of the above suspended operation.
 
-> 对于蓝牙音乐应用来说，在收到 `activity#destroy` 后，需要关闭设备蓝牙。
+> For Bluetooth music applications, after receiving the `activity#pause`, you need to send a pause signal to the connected Bluetooth device to pause the playing media.
 
-## Daemon 应用
+### What should be done after the application actively enters the background?
 
-部分应用可能会希望在 VUI 准备好时，尽快启动，以便初始化一些需要保持长时间活跃的操作；或者如 IoT 应用需要在设备启动完成后，开始局域网内的设备发现、注册、保持设备间的连接等，类似的应用会需要在执行完如 NLP 请求后继续保持活跃，这些情况下，应用需要在 Manifest 中注册为 daemon 应用。
+Voice applications do not need to be active in the foreground at all times. Some applications, such as system Bluetooth, can connect to the background and wait for connections through the `Activity.setBackground` method, and leave the foreground to other active applications. After the application enters the background running state, it cannot continue to request to play TTS or other multimedia, and only some silent operations can be performed. Applications running in the background, if you need to start a voice interaction with the user, you need to enter the active state through `Activity.setForeground`.
 
-> 查看更多 package.json 描述文档：[应用 Manifest](./04-app-manifest.md)
+> For Bluetooth music applications, after the device Bluetooth is turned on, it does not need to occupy the activation state of the device when there is no device connection, so it actively enters the background, keeps the device Bluetooth open, and waits for the connection. After completing the Bluetooth connection, the Bluetooth application will re-enter the active state and broadcast TTS such as "Connected to your Bluetooth device".
 
-## 如何调试生命周期
+### Application received `activity#destroy` What should I do?
 
-应用在在收到 vui 的消息事件的时候，会自动打印如下的类似日志：
+After the application has processed all the commands, it will exit the current active state by actively calling `Activity#exit`; or because a new user command needs to enter the active state and force the current application to exit the active state, the current application will be Suspend and will listen to the `activity#destroy` event. In this monitor, the application should do the following as quickly as possible:
+
+- Save app status
+- Stop all timers or periodic tasks
+- Do not initiate new task requests
+
+> For Bluetooth music applications, after receiving the `activity#destroy`, you need to turn off the device Bluetooth.
+
+## Daemon App
+
+Some applications may want to start as soon as the VUI is ready to initialize some operations that need to be active for a long time; or if the IoT application needs to start device discovery, registration, and connection between devices after the device is booted. Etc., similar applications will need to remain active after performing an NLP request, in which case the application needs to be registered as a daemon application in Manifest.
+
+> View more package.json Description document: [Apply Manifest](./04-app-manifest.md)
+
+## How to debug the life cycle
+
+When the application receives a vui message event, it will automatically print a similar log as follows:
 ```
-<@ipc> Received VuiDaemon event event:resume
+<@ipc> Received VuiDaemon event event: resume
 ```
 
-应用在调用 Activity 的 API 时，会自动打印如下日志：
+When the app calls the Activity's API, the following log is automatically printed:
 ```
 <bus-4321> Received child @yoda/cloudappclient invocation(10): Activity.tts.stop
 <@ipc-4321> Received VuiDaemon resolved promise(10)
 ```
-其中会有应用进程 pid，应用 id，调用序列号，与 API 名字，并在调用完成后打印对应序列号的调用是否返回。
+There will be application process pid, application id, call serial number, and API name, and print the call of the corresponding serial number after the call is completed.
 
-如果需要查询当前激活的应用，可以使用 `tools/yoda-debug GetLifetime`，可以获取到如当前应用、当前应用类型、当前正在运行的应用等信息：
+If you need to query the currently activated application, you can use `tools/yoda-debug GetLifetime` to get information such as the current application, the current application type, and the currently running application:
 ```json
 {
-  "activeSlots": {
-    "cut": null,
-    "scene": "@yoda\/cloudappclient"
-  },
-  "appDataMap": {
-    "@yoda\/cloudappclient": {
-      "form": "scene"
-    }
-  },
-  "backgroundAppIds": [],
-  "monopolist": null,
-  "appIdOnPause": null,
-  "cloudAppStack": {
-    "cut": "7D0F5E5D57CD496B940654D7C8963AE0",
-    "scene": "RBA66C902A6347DD86CA8D419B0BB974",
-    "active": "RBA66C902A6347DD86CA8D419B0BB974"
-  },
-  "appStatus": {
-    "@yoda\/network": "exited",
-    "@yoda\/cloudappclient": "running",
-    "@yoda\/system": "running",
-    "@yoda\/volume": "running"
-  }
+  "activeSlots": {
+    "cut": null,
+    "scene": "@yoda\/cloudappclient"
+  },
+  "appDataMap": {
+    "@yoda\/cloudappclient": {
+      "form": "scene"
+    }
+  },
+  "backgroundAppIds": [],
+  "monopolist": null,
+  "appIdOnPause": null,
+  "cloudAppStack": {
+    "cut": "7D0F5E5D57CD496B940654D7C8963AE0",
+    "scene": "RBA66C902A6347DD86CA8D419B0BB974",
+    "active": "RBA66C902A6347DD86CA8D419B0BB974"
+  },
+  "appStatus": {
+    "@yoda\/network": "exited",
+    "@yoda\/cloudappclient": "running",
+    "@yoda\/system": "running",
+    "@yoda\/volume": "running"
+  }
 }
 ```
 
 <!--
-## 应用开发常见问题
+## Application Development FAQ
 
-### tts/multimedia 需要应用为当前激活应用
-前一个 NLP 还未处理完时，下一个 NLP 已经进入，而如果前一个 NLP 包含一个 tts，通常写法如下面这个场景，容易造成下一个 NLP 无法播报：
+### tts/multimedia requires the app to be the currently active app
+When the previous NLP has not been processed, the next NLP has entered. If the previous NLP contains a tts, it is usually written as follows. It is easy for the next NLP to be broadcast:
 
 ```javascript
-module.exports = activity => {
-  activity.on('request', nlp => {
-    activity.tts.speak('泥猴')
-      .then(() => activity.exit())
-  })
+Module.exports = activity => {
+  Activity.on('request', nlp => {
+    Activity.tts.speak('hello')
+      .then(() => activity.exit())
+  })
 })
 ```
 -->

@@ -1,22 +1,22 @@
-# 测试工具篇
+# Testing Tools
 
-## 单测工具 tape
+## Unit test tool: tape
 
-### 单测工具介绍
+### Introduction to single test tools
 
 https://github.com/shadow-node/tape#tape
 
-## 覆盖率统计工具 istanbul
+## Coverage Statistics Tool istanbul
 
 ### Usage
 
-#### 安装 nyc 包
+#### Installing the nyc package
 
-npm 工具下拉对应的包，目前 runtime 已经添加 nyc 工具包的依赖，直接 npm install 即可。
+The npm tool pulls down the corresponding package. Currently, the runtime has added the dependency of the nyc toolkit, directly npm install.
 
-### 准备覆盖率环境
+### Preparing for coverage environment
 
-初始化函数，目的是为了准备覆盖率统计环境：确保当前代码是最新；清除上次可能构建遗留的历史数据；
+The initialization function is to prepare the coverage statistics environment: to ensure that the current code is up-to-date; to clear the historical data that may be built last time;
 ```bash
 init()
 {
@@ -35,9 +35,9 @@ init()
 }
 ```
 
-#### 生成打桩文件
+#### Generating piling files
 
-生成打桩文件，思路是把待统计的源文件放到指定目录，然后再生成打桩后的文件到指定目录
+Generate a piling file. The idea is to put the source file to be counted into the specified directory, and then generate the piling file to the specified directory.
 ```bash
 getOutput()
 {
@@ -54,9 +54,9 @@ getOutput()
 }
 ```
 
-#### push 打桩文件到设备
+#### push Piling files to device
 
-将打桩成功的文件按照原来的目录结构 push 到设备端。
+Push the successfully piling file to the device side according to the original directory structure.
 ```bash
 pushToDevice()
 {
@@ -69,16 +69,16 @@ pushToDevice()
 }
 ```
 
-#### 执行单元测试
+#### Execution unit test
 
-用 tape 执行单元测试。目前 tape 已经支持覆盖率统计数据保存路径通过 --coverage 参数传入。
+Perform unit tests with tape. Currently tape has supported the coverage statistics save path passed in via the --coverage parameter.
 ```
  //example
  tools/test --coverage '.nyc_output/xx.data' -p '**/*.test.js'
 ```
-#### pull 覆盖率文件到本地
+#### pull coverage file to local
 
-将设备端 .nyc_output 这个文件 pull 到与源文件目录同级。
+Pull the device side .nyc_output file to the same level as the source file directory.
 ```bash
 pullCoverageDate()
 {
@@ -91,9 +91,9 @@ pullCoverageDate()
     fi
 }
 ```
-#### 生成覆盖率报告
+#### Generating Coverage Report
 
-利用 nyc 根据覆盖率文件生成报告。
+Use nyc to generate a report based on the coverage file.
 ```bash
 makeReport()
 {
@@ -107,30 +107,29 @@ makeReport()
 
 ### Q & A
 
-- Q1:设备上覆盖率文件生成位置？
+- Q1: Where is the coverage file generation location on the device?
 
-- A1: 由执行 tape 是传入的 --coverage 参数决定(以上脚本是生成在设备根目录的 .nyc_output 目录下)。
+- A1: Determined by the execution of the tape --the coverage parameter (the above script is generated in the .nyc_output directory of the device root).
 
-- Q2:生成覆盖率报告报错，找不到目录 .nyc_output？
+- Q2: Generate coverage report error, can't find directory .nyc_output?
 
-- A2: 因为生成报告的命令默认是从当前目录下的 .nyc_output 文件中去读取覆盖率文件。
+- A2: Because the command to generate the report defaults to reading the coverage file from the .nyc_output file in the current directory.
 
-- Q3: 生成的覆盖率报告位置？
+- Q3: Is the generated coverage report location?
 
-- A3: 项目根目录下，自动生成 coverage 目录，打开目录下的 index.html 文件即可。
+- A3: Under the project root directory, the coverage directory is automatically generated, and the index.html file in the directory can be opened.
 
-- Q4: 访问报告页面，查看源码覆盖详情，报错提示目录找不到?
+- Q4: Visit the report page to view the source code coverage details. The error message indicates that the directory cannot be found.
 
-- A4: 请确保你的源码目录跟报告的 coverage 目录保持平级。
+- A4: Make sure your source directory is level with the reported coverage directory.
 
-- Q5: 执行单测发现功能有问题?
+- Q5: Is there a problem with the single test discovery function?
 
-- A5: 可能是 push 打桩文件过程中确保非 js 文件不受影响。
+- A5: It may be that the push piling file process ensures that non-js files are not affected.
 
-- Q6: 执行单测后发现生成的覆盖率文件内不是完整的 json 格式，导致无法生成报告?
+- Q6: After performing the single test, it is found that the generated coverage file is not in the complete json format, resulting in the failure to generate a report.
 
-- A6: 确保一个测试进程中有且只有一个地方监听到该进程结束并去生成覆盖率文件。监听进程这段逻辑已经集成到 tape 中。
+- A6: Make sure there is only one place in a test process that listens to the end of the process and generates a coverage file. The logic of the listener process is already integrated into the tape.
 
-
-### 参考文档
+### Reference Document
 https://istanbul.js.org/docs/tutorials/iotjs/

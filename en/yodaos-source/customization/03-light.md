@@ -1,137 +1,136 @@
-# YodaOS 灯光服务架构及客制化指引
+# YodaOS Lighting Service Architecture and Customization Guidelines
 
-## 概述
+## Overview
 
-灯光分为2部分，一是上层的 lightd 应用框架部分，二是底层的渲染部分，也即是这个文档将要描述的部分。
-上层应用框架将操作灯光的 api 进行了抽象，用户只需要知道有多少个灯，然后对灯进行操作就行了。默认每个灯都是 RGB 格式。
-但是硬件这部分，除了需要知道有多少个灯，还要知道灯的格式。比如在 Me 上面是 RGB 灯，在 NABOO 上面是单色的 PWM 灯。
+The light is divided into two parts, one is the upper part of the lightd application frame, and the other is the underlying rendering part, which is the part of the document that will be described.
+The upper application framework abstracts the apis that operate the lights. The user only needs to know how many lights are there and then operate the lights. By default each light is in RGB format.
+But in this part of the hardware, in addition to knowing how many lights there are, you also need to know the format of the lights. For example, above the Me is the RGB light, above the NABOO is the monochrome PWM light.
 
-这部分文档需要描述的问题主要有以下几个
+The problems that need to be described in this part of the document are mainly the following
 
-- 如何配置系统内置灯效
-- 如何接收灯光应用框架传递过来的帧数据
-- 如何将应用框架传递过来的帧数据转换为实际灯的格式，然后渲染。
+- How to configure the system built-in lighting effect
+- How to receive frame data passed by the light application framework
+- How to convert the frame data passed by the application framework into the actual light format and then render.
 
-## 配置系统灯效
+## Configuring system lighting effects
 
-系统内置的灯效文件默认存放在 /opt/light/ 下面，可在 lightd 服务中配置。
+The built-in lighting effects file is stored under /opt/light/ by default and can be configured in the lightd service.
 
-系统内置灯效文件路径配置方法：
+The system built-in lighting effect file path configuration method:
 
-1. 编辑文件: `/usr/yoda/services/lightd/service.js`。
-2. 配置此字段的值 `var LIGHT_SOURCE = '/opt/light/'` 注意最后面需要一个斜杠 `/`。
+1. Edit the file: `/usr/yoda/services/lightd/service.js`.
+2. Configure the value of this field `var LIGHT_SOURCE = '/opt/light/'` Note that the last side requires a slash `/`.
 
-从配置文件上，灯效文件可以分为2种:
+From the configuration file, the lighting effect files can be divided into two types:
 
-1. 系统灯效文件。
-2. 用户灯效文件。
+1. System lighting effect file.
+2. User light effect file.
 
-### 系统灯效文件定义
+### System Light Effect File Definition
 
-系统灯效在 `${LIGHT_SOURCE}/config.json` 中配置。此文件的内容是json对象。key保存系统灯效的相对路径，以`config.json`文件为相对路径，值为该灯光的优先级。系统灯效的优先级数字越小，表示优先级越高，也就是0最高。
+The system light effect is configured in `${LIGHT_SOURCE}/config.json`. The content of this file is the json object. The key saves the relative path of the system's lighting effect. The `config.json` file is the relative path and the value is the priority of the light. The smaller the priority number of the system lighting effect, the higher the priority, that is, the highest.
 
-系统灯效维护着一个layer层，layer层是一个数组，里面保存了所有要恢复的灯光。每层只能有一个灯效，层的数字表示优先级。即一个系统灯光要恢复，会把该灯光保存到系统layer里。恢复的时候从0层开始查找。层的最大层数由config.json文件中的最大数字决定。
+The system light effect maintains a layer layer, which is an array that holds all the lights to be restored. There can only be one light effect per layer, and the number of layers indicates the priority. That is, if a system light is to be restored, the light will be saved to the system layer. Look for it from the 0th floor when recovering. The maximum number of layers in the layer is determined by the largest number in the config.json file.
 
-下面是一个 `config.json` 文件内容的例子:
+The following is an example of the contents of a `config.json` file:
 
 ```json
 {
-  "setVolume.js": 0,
-  "setMuted.js": 1,
-  "awake.js": 2,
-  "longPressMic.js": 2,
-  "loading.js": 3,
-  "setPickup.js": 3,
-  "setSpeaking.js": 4,
-  "bluetoothOpen.js": 3,
-  "bluetoothConnect.js": 3
+  "setVolume.js": 0,
+  "setMuted.js": 1,
+  "awake.js": 2,
+  "longPressMic.js": 2,
+  "loading.js": 3,
+  "setPickup.js": 3,
+  "setSpeaking.js": 4,
+  "bluetoothOpen.js": 3,
+  "bluetoothConnect.js": 3
 }
 ```
 
-只有在此文件中声明了的灯效文件才被定义为 `系统灯效`。
+Only the light effect files declared in this file are defined as `System Light Effect`.
 
-> 系统灯效的优先级为什么0是最大？
+> System Light Effect Priority Why is 0 the maximum?
 
-假设一下，如果是数字越大优先级越高。预先定义了10个灯效，如果现在要增加一个更低优先级的灯效，那么要把全部的数字往上加1。
-系统定义的优先级在运行时是不会被改变的，一般在定义阶段，最高优先级的先定义，所以很自然的，从0开始，1234比较符合顺序。
+Assume that the higher the number, the higher the priority. Pre-defined 10 lighting effects, if you want to add a lower priority lighting effect, then increase all the numbers to 1.
+The system-defined priority will not be changed at runtime. Generally, in the definition phase, the highest priority is defined first, so it is natural that starting from 0, 1234 is in order.
 
-### 用户灯效文件定义
+### User Light Effect File Definition
 
-所有非系统灯效都被定义为用户灯效。也就是说，即使你的文件在系统目录下，但是不在`config.json`文件中声明，它还是用户灯效。
+All non-system lighting effects are defined as user lighting effects. That is, even if your file is in the system directory, it is not declared in the `config.json` file, it is still user-friendly.
 
-用户灯效无需定义，也没有预先声明的优先级，所以它的优先级是运行时，由调用方动态指定的。
+The user's lighting effect does not need to be defined, and there is no pre-declared priority, so its priority is the runtime, which is dynamically specified by the caller.
 
-用户灯效同样也有一个layer层。只不过这个层是数字越小，优先级越低，默认是0。恢复的时候，从最大层开始查找，直到0层。最大层数由lightd服务里面配置。如果调用的时候超出了范围，则会自动限定在范围内。比如超出了最大范围，则默认为最大层数。
+User lighting also has a layer layer. Only this layer is the smaller the number, the lower the priority, the default is 0. When recovering, look up from the largest layer until the 0th floor. The maximum number of layers is configured by the lightd service. If the call is out of range, it is automatically limited to the range. For example, if the maximum range is exceeded, the default is the maximum number of layers.
 
-用户layer层的最大层数配置方法:
+The maximum number of layers in the user layer layer configuration method:
 
-1. 编辑文件: `/usr/yoda/services/lightd/service.js`
-2. 配置此字段的值 `var maxUserspaceLayers = 3` 注意需要一个 `大于0的整数`
+1. Edit the file: `/usr/yoda/services/lightd/service.js`
+2. Configure the value of this field `var maxUserspaceLayers = 3` Note that you need an integer greater than 0.
 
-用户灯效的优先级数字越大，优先级越高。
+The higher the priority number of the user's lighting effect, the higher the priority.
 
-> 用户灯效的优先级为什么0是最小?
+> User Light Effect Priority Why is 0? Minimum?
 
-假设一下，如果0是最大，那我调用一个用户灯效的时候，优先级应该传多少？
-用户灯效的优先级是运行时动态指定的，想要调用一个优先级更高的灯效，自然而然数字就会加1，所以是从0开始。
+Suppose, if 0 is the maximum, then when I call a user light effect, how much priority should I pass?
+The priority of the user's lighting effect is dynamically specified at runtime. If you want to call a higher priority light effect, the number will naturally increase by 1, so it starts from 0.
 
-## lightd 应用层工作流程
+## lightd Application layer workflow
 
-### lightd 架构
+### lightd Architecture
 
-lightd 整体分为2部分：
+The lightd is divided into two parts:
 
- - 一是上层 JavaScript 应用框架，负责抽象硬件 api 和管理资源。
- - 二是底层硬件渲染库，负责将上层应用设置的灯效最终渲染到硬件上。
+ - One is the upper JavaScript application framework, responsible for abstracting hardware apis and managing resources.
+ - The second is the underlying hardware rendering library, which is responsible for rendering the lighting effects of the upper application settings to the hardware.
 
-### led数据结构
+### led data structure
 
-在 JavaScript 应用框架的角度看，现在默认都是 RGB 数据格式，即使是单色 PWM 灯，也当做 RGB 操作，只是在将数据流传递给硬件渲染的时候，底层渲染库会自动把 RGB 转换为单色值。数据格式按照 RGB RGB... 顺序排列。每个通道的值为 8位整数。即每个通道的值在 0-255 之间。
+From the perspective of the JavaScript application framework, the default is now the RGB data format. Even the monochrome PWM lamp is used as the RGB operation. The underlying rendering library automatically converts the RGB to a single when the data stream is passed to the hardware rendering. Color value. The data format is arranged in RGB RGB... order. The value of each channel is an 8-bit integer. That is, the value of each channel is between 0-255.
 
-下面以拥有 5 个 RGB 灯的硬件为例，看下真实的数据在 lightd 中是如何表示的。
+Let's take the hardware with 5 RGB lights as an example to see how the real data is represented in lightd.
 
-5个灯，每个灯是 RGB 通道，所以 `frame` 帧的长度为 5 * 3 = 15，即 15 个字节，所以真实的数据结构是：
+5 lights, each of which is an RGB channel, so the length of the `frame` frame is 5 * 3 = 15, which is 15 bytes, so the real data structure is:
 
 ```c++
-char* frame = new char[5 * 3]
+Char* frame = new char[5 * 3]
 ```
 
-> 名词解释：frame
-> frame 表示刷新所有灯光一帧所需要的数据。
+> noun explanation: frame
+> frame represents the data needed to refresh all the lights one frame.
 
-## 硬件层工作流程
+## Hardware layer workflow
 
-####LED HAL参数配置
+####LED HAL parameter configuration
 
-- LED驱动属性分类
-	make menuconfig -> rokid -> Hardware Layer Solutions -> 
-	这里有三种接口的led驱动：PWM格式，MCU侧I2C，ARM侧I2C(以kamino18为例)
-- LED灯的数量
-	make menuconfig -> rokid -> Hardware Layer Solutions ->
-	由`BOARD_LED_NUMS`可以控制led灯的个数
+- LED driver attribute classification
+Make menuconfig -> rokid -> Hardware Layer Solutions ->
+There are three types of LED drivers: PWM format, MCU side I2C, ARM side I2C (take kamino18 as an example)
+- Number of LED lights
+Make menuconfig -> rokid -> Hardware Layer Solutions ->
+The number of led lights can be controlled by `BOARD_LED_NUMS`
 
 -------
 
-####LED HAL代码逻辑
-- 标准的android hardware layer架构,代码目录：`kamino18/hardware/modules/leds/`
-- HAL层代码基本格式
-       static struct hw_module_methods_t led_module_methods = {
-           .open = led_dev_open,
-       };
+####LED HAL Code Logic
+- Standard android hardware layer architecture, code directory: `kamino18/hardware/modules/leds/`
+- HAL layer code basic format
+       Static struct hw_module_methods_t led_module_methods = {
+           .open = led_dev_open,
+       };
 
-       struct hw_module_t HAL_MODULE_INFO_SYM = {
-           .tag = HARDWARE_MODULE_TAG,
-           .module_api_version = LEDS_API_VERSION,
-           .hal_api_version = HARDWARE_HAL_API_VERSION,
-           .id = LED_ARRAY_HW_ID,
-           .name = "ROKID PWM LEDS HAL",
-           .methods = &led_module_methods,
-       };
-- HAL层的调用方法：
-		hw_get_module(LED_ARRAT_HW_ID, (const struct hw_module_t **)&module);
-- 处理应用层发过RGB数据
-	第一入口函数`led_draw()`，主要实现以下功能：
-	+ 如果是RGB格式的三色灯，直接按照对应顺序刷写进底层驱动
-	+ 如果是PWM控制的单色灯，会响应把RGB数据通过`rgb_to_gray()`转换成灰度值发到驱动层
-	+ 以上各色灯自动丢弃透明度值
-
+       Struct hw_module_t HAL_MODULE_INFO_SYM = {
+           .tag = HARDWARE_MODULE_TAG,
+           .module_api_version = LEDS_API_VERSION,
+           .hal_api_version = HARDWARE_HAL_API_VERSION,
+           .id = LED_ARRAY_HW_ID,
+           .name = "ROKID PWM LEDS HAL",
+           .methods = &led_module_methods,
+       };
+- Calling method of HAL layer:
+Hw_get_module(LED_ARRAT_HW_ID, (const struct hw_module_t **)&module);
+- Processing application layer sent RGB data
+The first entry function `led_draw()` mainly implements the following functions:
++ If it is a three-color lamp in RGB format, directly write to the underlying driver in the corresponding order
++ If it is a PWM controlled monochromatic lamp, it will respond to convert the RGB data into grayscale value by `rgb_to_gray()` to the driver layer.
++ The above lights automatically discard the transparency value
