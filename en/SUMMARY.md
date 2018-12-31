@@ -1,6 +1,6 @@
 # Developing YODAOS Applications
 - [Introduction](INTRO.md)
-- First Step <!-- (guidance/00-guidance.md) -->
+- Get Started <!-- (guidance/00-guidance.md) -->
   - [Build your first app](guidance/01-build-your-first-app.md)
   - [Life Cycle](guidance/02-lifetime.md)
   - [Light Effect Development](guidance/03-lightd.md)
