@@ -1,4 +1,4 @@
-# Yoda OS描述
+# YODAOS描述
 
 ## 系统架构
 
@@ -11,7 +11,7 @@
 - **include** 构建时依赖的头文件
 - **packages** 通用模块接口，用于与系统底层服务交互，包括【日志】、【蓝牙】、【音频】、【按键】等
 - **res** 资源文件包括灯光和音效
-- **runtime** Yoda OS的核心服务
+- **runtime** YODAOS的核心服务
   - **activation** 激活服务，在设备被激活时播放唤醒词
   - **lightd** 提供灯光渲染服务
   - **multimediad** 提供多媒体播放服务

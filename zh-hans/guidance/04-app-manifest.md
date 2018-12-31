@@ -1,4 +1,4 @@
-每一个 YodaOS 应用都需要存在一个 package.json 文件在应用根目录。这个 package.json 文件描述了一些关于应用的必要信息。
+每一个 YODAOS 应用都需要存在一个 package.json 文件在应用根目录。这个 package.json 文件描述了一些关于应用的必要信息。
 
 这个 package.json 必须声明以下信息：
 
@@ -25,7 +25,7 @@
 
 ## 权限
 
-YodaOS 应用必须申请权限来获取访问一些系统功能（如 TTS 或者媒体播放器）。每一个权限都由一个全局唯一的标识来表示。
+YODAOS 应用必须申请权限来获取访问一些系统功能（如 TTS 或者媒体播放器）。每一个权限都由一个全局唯一的标识来表示。
 
 如一个应用需要使用 TTS 与媒体播放器功能，则他的 package.json 中必须包含以下几行：
 
@@ -59,13 +59,13 @@ YodaOS 应用必须申请权限来获取访问一些系统功能（如 TTS 或�
 
 **&lt;string&gt;** Default: index.js
 
-代表了应用的默认启动入口文件。YodaOS 会使用这个入口文件启动应用。默认使用应用根目录的 index.js。
+代表了应用的默认启动入口文件。YODAOS 会使用这个入口文件启动应用。默认使用应用根目录的 index.js。
 
 ## manifest.skills
 
 **&lt;array&gt;** Default: []
 
-代表了应用所关联的所有技能的 ID 序列。YodaOS 在用户语音输入并完成解析后，需要将这句语音分发到可以处理这个语音所表达的意图的应用中去，而这个分发的过程就依赖应用在若琪开发者网站中所申请的技能的信息，所以应用需要将自己的技能 ID 在 package.json 中枚举。
+代表了应用所关联的所有技能的 ID 序列。YODAOS 在用户语音输入并完成解析后，需要将这句语音分发到可以处理这个语音所表达的意图的应用中去，而这个分发的过程就依赖应用在若琪开发者网站中所申请的技能的信息，所以应用需要将自己的技能 ID 在 package.json 中枚举。
 
 Example:
 ```json
@@ -110,7 +110,7 @@ Example:
 
 **&lt;array&gt;** Default: []
 
-代表了应用能处理的 yoda-skill 的域名。YodaOS 应用可以使用 API 如 Activity#openURL 来打开一个如 `yoda-skill://an-app-registered-host/path/to/resources` 的 URL，并通过 URL 参数将希望传递的参数发送给能够处理这个 URL 的应用。而一个应用如果希望 YodaOS 将一个域名的 URL 代理给自己，则需要在 package.json 中注册这个域名。
+代表了应用能处理的 yoda-skill 的域名。YODAOS 应用可以使用 API 如 Activity#openURL 来打开一个如 `yoda-skill://an-app-registered-host/path/to/resources` 的 URL，并通过 URL 参数将希望传递的参数发送给能够处理这个 URL 的应用。而一个应用如果希望 YODAOS 将一个域名的 URL 代理给自己，则需要在 package.json 中注册这个域名。
 
 manifest.hosts 字段需要是一个数组，这个数组的元素都是第一位是域名、第二位是域名参数的元组。域名参数是一个包含 `skillId` 字段的 JSON Object。
 
@@ -130,7 +130,7 @@ Example:
 
 **&lt;boolean&gt;** Default: false
 
-如果应用希望在 YodaOS 一准备好就立刻启动，而不是等到用户语音触发命令后再启动应用；并且在处理完语音请求后还希望继续保持进程运行，而不是在处理完所有语音请求后立刻退出进程，就需要将 manifest.daemon 选项设置为 true。
+如果应用希望在 YODAOS 一准备好就立刻启动，而不是等到用户语音触发命令后再启动应用；并且在处理完语音请求后还希望继续保持进程运行，而不是在处理完所有语音请求后立刻退出进程，就需要将 manifest.daemon 选项设置为 true。
 
 Example:
 ```json

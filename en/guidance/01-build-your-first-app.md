@@ -1,12 +1,12 @@
-## YodaOS Developer Tools
+## YODAOS Developer Tools
 
-[YodaOS Developer Tools](https://github.com/yodaos-project/yoda-platform-tools) provides a range of convenient tools for manipulating YodaOS devices, such as sending text commands, sending NLP intents, launching, Install applications, etc.
+[YODAOS Developer Tools](https://github.com/yodaos-project/yoda-platform-tools) provides a range of convenient tools for manipulating YODAOS devices, such as sending text commands, sending NLP intents, launching, Install applications, etc.
 
-The YodaOS Developer Tools can be downloaded from the [YodaOS Developer Tools Releases](https://github.com/yodaos-project/yoda-platform-tools/releases) page.
+The YODAOS Developer Tools can be downloaded from the [YODAOS Developer Tools Releases](https://github.com/yodaos-project/yoda-platform-tools/releases) page.
 
-## Creating a YodaOS application
+## Creating a YODAOS application
 
-With the YodaOS Developer Tools, we can quickly create a YodaOS application project:
+With the YODAOS Developer Tools, we can quickly create a YODAOS application project:
 
 ```bash
 ~/workspace > yoda-cli init app awesome-demo-app
@@ -18,11 +18,11 @@ With the YodaOS Developer Tools, we can quickly create a YodaOS application proj
 ✔ Keywords ... demo, app
 ```
 
-After running the above command, you can see the generated YodaOS application project in the `awesome-demo-app` directory in the current directory.
+After running the above command, you can see the generated YODAOS application project in the `awesome-demo-app` directory in the current directory.
 
 More `yoda-cli` commands can be viewed with `yoda-cli help`.
 
-Once the project is built, you can install the app on your YodaOS device:
+Once the project is built, you can install the app on your YODAOS device:
 
 ```bash
 ~/workspace > yoda-cli pm install awesome-demo-app
@@ -34,7 +34,7 @@ Once the project is built, you can install the app on your YodaOS device:
 
 ## Program entry: Main function
 
-For YodaOS, each application is a [CommonJS](https://nodejs.org/docs/latest/api/modules.html) module. Every CommonJS module will have a reference to `module.exports`, and the application of YodaOS is the same. His main entry is a function that receives a `activity` as a parameter via `module.exports`.
+For YODAOS, each application is a [CommonJS](https://nodejs.org/docs/latest/api/modules.html) module. Every CommonJS module will have a reference to `module.exports`, and the application of YODAOS is the same. His main entry is a function that receives a `activity` as a parameter via `module.exports`.
 
 ```javascript
 Module.exports = function main (activity) {
@@ -44,7 +44,7 @@ Module.exports = function main (activity) {
 
 The application interacts with the system through the `activity` object provided by the system framework, such as receiving the system, application events, and calling the system API.
 
-### Interact with YodaOS
+### Interact with YODAOS
 
 The `activity` provided by the system framework is an object that conforms to Node.js [EventEmitter API](https://nodejs.org/docs/latest/api/events.html#events_events), on which we can listen to any application. Life cycle events:
 
@@ -64,7 +64,7 @@ Module.exports = function main (activity) {
 
 ## Application Manifest
 
-In addition to the program code, the application needs to declare its own identity, permission request and other information, so that YodaOS allocates resources to the application, distributes NLP, and so on. The package.json of the YodaOS app contains this information:
+In addition to the program code, the application needs to declare its own identity, permission request and other information, so that YODAOS allocates resources to the application, distributes NLP, and so on. The package.json of the YODAOS app contains this information:
 
 ```json
 {
@@ -83,7 +83,7 @@ In addition to the program code, the application needs to declare its own identi
 }
 ```
 
-Package.json is similar to the [npm](https://www.npmjs.com/) package, but for YodaOS applications, the most important of these is name and manifest: the former declares the local ID of the application, the latter Declare the permissions, skill IDs, etc. that need to be requested from YodaRuntime.
+Package.json is similar to the [npm](https://www.npmjs.com/) package, but for YODAOS applications, the most important of these is name and manifest: the former declares the local ID of the application, the latter Declare the permissions, skill IDs, etc. that need to be requested from YodaRuntime.
 
 > View more package.json Description document: [Apply Manifest](./04-app-manifest.md)
 

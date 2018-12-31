@@ -1,4 +1,4 @@
-How YodaOS Universal configures systems and applications
+How YODAOS Universal configures systems and applications
 ================================
 
 
@@ -190,7 +190,7 @@ Under the directory), the specific programming process on the Windows computer i
 
 ### Customizing systems and applications
 
-YodaOS is based on the openwrt build system, so you need to understand the optimized directory structure.
+YODAOS is based on the openwrt build system, so you need to understand the optimized directory structure.
 
 #### OpenWrt Directory Structure
 
@@ -204,7 +204,7 @@ YodaOS is based on the openwrt build system, so you need to understand the optim
 * `toolchain` cross-compilation chain, which stores the packages that compile the cross-compilation chain, including binutils, gcc, libc, and so on.
 * The source code of `target` OpenWrt can compile the binary files applicable to each platform. Each platform defines the firmware and kernel compilation process in this directory.
 * `package` stores the applicable packages in the system, including Makefiles for each package. OpenWrt defines a set of Makefile templates. Each software defines its own information with reference to this template, such as the version of the software package, download address, compilation method, installation address, and so on. In the secondary development process, we will deal with this folder frequently. In fact, packages via `./scripts/feed update -a` and `./scripts/feed install -a` will also be stored in this directory.
-  * `rokid` stores the packages required by YodaOS.
+  * `rokid` stores the packages required by YODAOS.
   * `include` OpenWrt Makefiles are stored here. The file name is `*.mk`. The files here are included in the Makefile, similar to library files, which define the compilation process.
   * `feeds` OpenWrt's extension package index directory for the add-on package manager. Simply put, download the management package. The default feeds download has packages, management, luci, routing, telephony. To download other packages, open the feeds.conf.default file in the root directory of the source, remove the ## in front of the corresponding package, and update the source: `./scripts/feeds update -a`, install and download Package: `./scripts/feeds install -a`
 * `dl` A lot of software used in the compilation process, just downloading the source code is not included, but downloaded from other servers during the compilation process, here is a unified save directory.

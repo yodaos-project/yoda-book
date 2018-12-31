@@ -1,6 +1,6 @@
 ## Overview
 
-After learning about [Ruqi's Skills](https://developer.rokid.com/docs/2-RokidDocument/1-SkillsKit/platform-introduction.html), if you need to develop skills that are strongly related to your equipment, you will need Develop a local app. Complex application code needs to constantly communicate and interact with the system framework. The system framework provides some of the infrastructure necessary for all applications to run, and application developers provide the code to customize these infrastructures so that the application runs the way developers want. If you want to customize an application more efficiently, it's helpful to know some about how the YodaOS infrastructure works.
+After learning about [Ruqi's Skills](https://developer.rokid.com/docs/2-RokidDocument/1-SkillsKit/platform-introduction.html), if you need to develop skills that are strongly related to your equipment, you will need Develop a local app. Complex application code needs to constantly communicate and interact with the system framework. The system framework provides some of the infrastructure necessary for all applications to run, and application developers provide the code to customize these infrastructures so that the application runs the way developers want. If you want to customize an application more efficiently, it's helpful to know some about how the YODAOS infrastructure works.
 
 ## Application Status
 
@@ -14,7 +14,7 @@ Active | The current top-of-stack application may be activated by NLP, URL, or a
 | Paused | An application that can only be activated as a scene. It was once active, but was temporarily pushed into the pause state by another application in the form of cut | The application should pause its application when entering the pause state |
 | Background | Enter the background, the difference from inactive is that there are currently running tasks, should not be recycled by the system | Need the application to actively enter the state |
 
-![YodaOS Application Lifecycle](../../asset/yodaos-app-life-cycle.jpg)
+![YODAOS Application Lifecycle](../../asset/yodaos-app-life-cycle.jpg)
 
 
 ### Application Process and Application Lifecycle
@@ -46,7 +46,7 @@ The application can receive events with state changes through the Activity insta
 
 ## Strategies for handling application state changes
 
-Let's take a Bluetooth music application as an example to briefly introduce a strategy for a YodaOS application to respond to changes in application status.
+Let's take a Bluetooth music application as an example to briefly introduce a strategy for a YODAOS application to respond to changes in application status.
 
 ### What should I do when the application starts?
 

@@ -1,4 +1,4 @@
-# YodaOS Lighting Service Architecture and Customization Guidelines
+# YODAOS Lighting Service Architecture and Customization Guidelines
 
 ## Overview
 

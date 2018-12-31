@@ -1,4 +1,4 @@
-# Developing YodaOS Applications
+# Developing YODAOS Applications
 - [Introduction](INTRO.md)
 - Developer refers to North <!-- (guidance/00-guidance.md) -->
   - [Start writing your first app](guidance/01-build-your-first-app.md)
@@ -11,9 +11,9 @@
   - [Performance and Stability](best-practice/03-performance-stability.md)
 - [Samples](https://github.com/Rokid/yoda-samples)
 
-# YodaOS Source
+# YODAOS Source
 
-- YodaOS Source
+- YODAOS Source
 <!-- - Compile and package -->
 - Compile and run
   - [Compile and run](yodaos-source/system/compile-run.md)

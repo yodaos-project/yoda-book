@@ -2,7 +2,7 @@
 
 ## Features
 
-YodaOS uses the lightd service to manage the lights, ie the app wants to display the lighting effects, and the light is delegated to the agent for execution, instead of recommending the app to operate the lights directly. The reasons for this are as follows:
+YODAOS uses the lightd service to manage the lights, ie the app wants to display the lighting effects, and the light is delegated to the agent for execution, instead of recommending the app to operate the lights directly. The reasons for this are as follows:
 
 - Convenient for developers to write complex lighting effects. Lightd provides an abstract library of effects effects, and developers can easily combine effects with the effects library and execute it in sequence.
 - Resource management. If you only have one kind of lighting effect, then operating the LED directly is the easiest. If you have 2 kinds of lighting effects, then you need an extra code to guarantee the order of their execution. If you have more than 3 lighting effects, then your code is known to you except God.

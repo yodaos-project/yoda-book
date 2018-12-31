@@ -2,7 +2,7 @@
 
 module.exports = function (activity) {
   activity.on('request', function () {
-    activity.tts.speak('hello yoda OS')
+    activity.tts.speak('hello YODAOS')
       .then((res) => {
         console.log('tts end', res)
       })

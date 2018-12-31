@@ -1,8 +1,8 @@
 ## Overview
 
-First let's take a look at the runtime of YodaOS: YodaOS is based on [ShadowNode][] which uses an event-driven, non-blocking I/O model; at the beginning of the design, the [ShadowNode][] interface is compatible with [Node.js][], So in most scenarios, developers can use [ShadowNode][] like [Node.js][] to understand that these will help developers to develop applications on YodaOS more quickly.
+First let's take a look at the runtime of YODAOS: YODAOS is based on [ShadowNode][] which uses an event-driven, non-blocking I/O model; at the beginning of the design, the [ShadowNode][] interface is compatible with [Node.js][], So in most scenarios, developers can use [ShadowNode][] like [Node.js][] to understand that these will help developers to develop applications on YODAOS more quickly.
 
-When developing applications, YodaOS needs to pay attention to the performance and stability of the application, including but not limited to the following:
+When developing applications, YODAOS needs to pay attention to the performance and stability of the application, including but not limited to the following:
 
 - Quick Start
 - Quick response to voice interaction
@@ -10,26 +10,26 @@ When developing applications, YodaOS needs to pay attention to the performance a
 
 ## start up
 
-When an application is launched, YodaOS wants the application to complete the startup logic within 5 seconds. If the application is not completed within 5 seconds, it will be killed. Good applications should be launched as quickly as possible to serve users faster. If the application's internal initialization logic includes blocking operations such as I/O, these operations should not block the startup process, and developers can maintain an internal state machine to manage the application's initialization state.
+When an application is launched, YODAOS wants the application to complete the startup logic within 5 seconds. If the application is not completed within 5 seconds, it will be killed. Good applications should be launched as quickly as possible to serve users faster. If the application's internal initialization logic includes blocking operations such as I/O, these operations should not block the startup process, and developers can maintain an internal state machine to manage the application's initialization state.
 
 ## Processes and threads
 
-YodaOS will create a separate process for each application, and the application code will be executed by the [JerryScript][] thread (the main thread). Of course, the developer can also create a separate process or thread for the application to perform some work. .
+YODAOS will create a separate process for each application, and the application code will be executed by the [JerryScript][] thread (the main thread). Of course, the developer can also create a separate process or thread for the application to perform some work. .
 
 The main thread of the application is mainly responsible for receiving and processing system events (NLP, buttons, etc.), so the main thread is also generally called the UI thread. Due to the particularity of the main thread itself, if the application includes blocking operations such as I/O, the application will not be able to respond to system events in time, which will result in poor user experience; while [ShadowNode][] is not thread-safe programming. Model, so don't manipulate [ShadowNode][] and its related APIs in other threads.
 
 As mentioned earlier, [ShadowNode][] uses an event-driven, non-blocking I/O model. This model is implemented via [libtuv][]. If the application logic contains I/O or other blocking tasks, the developer can Put the task into the thread pool of [libtuv][]. After the execution, it will call back in the main thread. You don't need to handle the logic such as thread synchronization yourself. For examples, please refer to [Official Implementation](https://github.com/ Libuv/libuv/blob/e4087dedf837f415056a45a838f639a3d9dc3ced/docs/code/queue-work/main.c).
 
-It should be noted that if it is not necessary in YodaOS, it is recommended to use [threadpool] of [libtuv][](http://docs.libuv.org/en/v1.x/threadpool.html) to handle multithreading. logic. Use [N-API][] and [libtuv][] for multithreading.
+It should be noted that if it is not necessary in YODAOS, it is recommended to use [threadpool] of [libtuv][](http://docs.libuv.org/en/v1.x/threadpool.html) to handle multithreading. logic. Use [N-API][] and [libtuv][] for multithreading.
 
 [JerryScript][] is a scripting language written in C. If the application contains a lot of intensive computing logic, it is recommended to put these logics into C/C by [N-API][], which speeds up processing. .
 
 ## ANRs
 
-When the application's main thread is blocked for a long time for some reason, the application will appear __Application Not Responding__([ANRs][]). This process is transparent to the application, and YodaOS uses the following rules to determine and process [ANRs][]:
+When the application's main thread is blocked for a long time for some reason, the application will appear __Application Not Responding__([ANRs][]). This process is transparent to the application, and YODAOS uses the following rules to determine and process [ANRs][]:
 
-- The bottom layer of the app will send a heartbeat to YodaOS every 5 seconds (no developer processing required)
-- YodaOS will restart the app when YodaOS does not receive a heartbeat from the app 3 times (15 seconds)
+- The bottom layer of the app will send a heartbeat to YODAOS every 5 seconds (no developer processing required)
+- YODAOS will restart the app when YODAOS does not receive a heartbeat from the app 3 times (15 seconds)
 
 Applications that are in ANR will not be able to receive and process user input, which is very bad for the user experience, so applications should avoid this situation. Here are some common scenarios that can lead to ANR:
 
@@ -47,7 +47,7 @@ In short, don't let the main thread be in a wait or full state
 
 ## Memory Management
 
-Regardless of the environment in which the application is developed, memory management is a point of constant attention. The memory of the YodaOS application is managed by the [JerryScript][] virtual machine. The virtual machine performs garbage collection by reference counting and markup elimination algorithm. When the virtual machine's heap memory is less than a certain value, the recovery mechanism is automatically triggered to ensure the memory is available. . But this does not mean that developers do not need to pay attention to the application's memory usage. Here are two common memory leak scenarios:
+Regardless of the environment in which the application is developed, memory management is a point of constant attention. The memory of the YODAOS application is managed by the [JerryScript][] virtual machine. The virtual machine performs garbage collection by reference counting and markup elimination algorithm. When the virtual machine's heap memory is less than a certain value, the recovery mechanism is automatically triggered to ensure the memory is available. . But this does not mean that developers do not need to pay attention to the application's memory usage. Here are two common memory leak scenarios:
 
 - Objects are referenced by global or closure variables and cannot be released
 

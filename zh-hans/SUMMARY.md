@@ -1,4 +1,4 @@
-# Developing YodaOS Applications
+# Developing YODAOS Applications
 - [介绍](INTRO.md)
 - 开发者指北 <!-- (guidance/00-guidance.md) -->
   - [开始编写你的第一个应用](guidance/01-build-your-first-app.md)
@@ -11,9 +11,9 @@
   - [性能与稳定性](best-practice/03-performance-stability.md)
 - [样例](https://github.com/Rokid/yoda-samples)
 
-# YodaOS Source
+# YODAOS Source
 
-- YodaOS Source
+- YODAOS Source
 <!-- - 编译与打包 -->
 - 编译与运行
   - [编译运行](yodaos-source/system/compile-run.md)

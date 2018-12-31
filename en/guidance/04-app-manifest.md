@@ -1,4 +1,4 @@
-Every YodaOS application needs to have a package.json file in the application root. This package.json file describes some of the necessary information about the application.
+Every YODAOS application needs to have a package.json file in the application root. This package.json file describes some of the necessary information about the application.
 
 This package.json must declare the following information:
 
@@ -25,7 +25,7 @@ After creating a local skill on the Ruoqi developer platform and getting the ski
 
 ## permissions
 
-YodaOS apps must request permission to gain access to some system features (such as TTS or media player). Each permission is represented by a globally unique identifier.
+YODAOS apps must request permission to gain access to some system features (such as TTS or media player). Each permission is represented by a globally unique identifier.
 
 If an application needs to use the TTS and media player features, the following lines must be included in his package.json:
 
@@ -59,13 +59,13 @@ Some rules:
 
 **&lt;string&gt;** Default: index.js
 
-Represents the default startup entry file for the app. YodaOS will use this entry file to launch the app. The index.js of the application root is used by default.
+Represents the default startup entry file for the app. YODAOS will use this entry file to launch the app. The index.js of the application root is used by default.
 
 ## manifest.skills
 
 **&lt;array&gt;** Default: []
 
-A sequence of IDs representing all the skills associated with the app. After the user voice input and parsing, YodaOS needs to distribute the speech to the application that can handle the intent expressed by the voice. The distribution process depends on the skills applied by the application in the Ruoqi developer website. Information, so the app needs to enumerate its skill ID in package.json.
+A sequence of IDs representing all the skills associated with the app. After the user voice input and parsing, YODAOS needs to distribute the speech to the application that can handle the intent expressed by the voice. The distribution process depends on the skills applied by the application in the Ruoqi developer website. Information, so the app needs to enumerate its skill ID in package.json.
 
 Example:
 ```json
@@ -110,7 +110,7 @@ Example:
 
 **&lt;array&gt;** Default: []
 
-Represents the domain name of the yoda-skill that the app can handle. YodaOS applications can use an API such as Activity#openURL to open a URL such as `yoda-skill://an-app-registered-host/path/to/resources` and send the parameters they wish to pass to the URL with the URL parameter. The application of this URL. An application that wants YodaOS to proxy the URL of a domain name to itself needs to register the domain name in package.json.
+Represents the domain name of the yoda-skill that the app can handle. YODAOS applications can use an API such as Activity#openURL to open a URL such as `yoda-skill://an-app-registered-host/path/to/resources` and send the parameters they wish to pass to the URL with the URL parameter. The application of this URL. An application that wants YODAOS to proxy the URL of a domain name to itself needs to register the domain name in package.json.
 
 The manifest.hosts field needs to be an array. The elements of this array are the tuples where the first is the domain name and the second is the domain name parameter. The domain name parameter is a JSON Object containing the `skillId` field.
 
@@ -130,7 +130,7 @@ Example:
 
 **&lt;boolean&gt;** Default: false
 
-If the application wants to start immediately when YodaOS is ready, instead of waiting for the user's voice to trigger the command, and then wants to continue the process after processing the voice request, instead of exiting the process as soon as all voice requests have been processed , you need to set the manifest.daemon option to true.
+If the application wants to start immediately when YODAOS is ready, instead of waiting for the user's voice to trigger the command, and then wants to continue the process after processing the voice request, instead of exiting the process as soon as all voice requests have been processed , you need to set the manifest.daemon option to true.
 
 Example:
 ```json

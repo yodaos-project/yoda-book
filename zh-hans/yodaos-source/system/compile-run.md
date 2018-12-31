@@ -1,4 +1,4 @@
-YodaOS Universal 如何配置系统和应用
+YODAOS Universal 如何配置系统和应用
 =============================== 
 
 
@@ -197,7 +197,7 @@ $ ./download.sh all
 
 ### 定制系统和应用
 
-YodaOS 是基于 openwrt 编译系统，所以需要了解优化后的目录结构。	
+YODAOS 是基于 openwrt 编译系统，所以需要了解优化后的目录结构。	
 
 #### OpenWrt 目录结构
 

@@ -1,8 +1,8 @@
-# YodaOS Button Application Module Architecture and Customization Guidelines
+# YODAOS Button Application Module Architecture and Customization Guidelines
 
 ## Overview
 
-Buttons are a convenient way to operate the most direct voice commands in the voice operating system. The system framework provides some of the infrastructure necessary to handle the keys, and the custom developer provides the code to customize these infrastructures so that the buttons respond in the way the developer wants. If you want to customize a button more efficiently, it's helpful to know some about how the YodaOS infrastructure works.
+Buttons are a convenient way to operate the most direct voice commands in the voice operating system. The system framework provides some of the infrastructure necessary to handle the keys, and the custom developer provides the code to customize these infrastructures so that the buttons respond in the way the developer wants. If you want to customize a button more efficiently, it's helpful to know some about how the YODAOS infrastructure works.
 
 ## button module
 

@@ -1,4 +1,4 @@
-# Yoda OS Description
+# YODAOS Description
 
 ## system structure
 
@@ -11,7 +11,7 @@
 - **include** Build dependent header files
 - **packages** Common module interface for interacting with the underlying services of the system, including [log], [Bluetooth], [Audio], [Button], etc.
 - **res** resource files including lighting and sound effects
-- **runtime** The core service of Yoda OS
+- **runtime** The core service of YODAOS
   - **activation** activates the service and plays wake-up words when the device is activated
   - **lightd** provides light rendering service
   - **multimediad** provides multimedia playback service
