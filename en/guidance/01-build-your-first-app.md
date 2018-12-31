@@ -89,7 +89,7 @@ Package.json is similar to the [npm](https://www.npmjs.com/) package, but for YO
 
 ## Processing voice requests
 
-After writing the NLP matching rules on the Ruqi developer website, you can write the following code in the application code to process the voice request:
+After writing the NLP matching rules on the Rokid developer website, you can write the following code in the application code to process the voice request:
 
 ```javascript
 Module.exports = function main (activity) {

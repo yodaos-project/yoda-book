@@ -14,7 +14,7 @@ Developers only need to do a simple configuration to complete their own customiz
 
 This book is intended for two types of readers:
 
-- If you want to be an app developer and develop a voice interactive app for YODAOS, you can start with [developer's finger] [].
+- If you want to be an app developer and develop a voice interactive app for YODAOS, you can start with [developer's finger][].
 - If you want to customize the vendor as a smart voice assistant, you can start with [YODAOS Source][].
 
 ### License
