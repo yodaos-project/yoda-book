@@ -1,10 +1,10 @@
 # Developing YODAOS Applications
 - [Introduction](INTRO.md)
-- Developer refers to North <!-- (guidance/00-guidance.md) -->
-  - [Start writing your first app](guidance/01-build-your-first-app.md)
+- First Step <!-- (guidance/00-guidance.md) -->
+  - [Build your first app](guidance/01-build-your-first-app.md)
   - [Life Cycle](guidance/02-lifetime.md)
   - [Light Effect Development](guidance/03-lightd.md)
-  - [Apply Manifest](guidance/04-app-manifest.md)
+  - [Application Manifest](guidance/04-app-manifest.md)
 - Best Practices <!-- (best-practice/00-best-practice.md) -->
   - [Testing](best-practice/01-testing.md)
   <!-- - [Debug](best-practice/02-debugging.md) -->
