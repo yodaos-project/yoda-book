@@ -40,7 +40,7 @@ Applications that are in ANR will not be able to receive and process user input,
 
 The common solutions are listed below:
 
-- For a large number of intensive calculations, you can use the tools provided by the system such as `simpleperf` to view the application function call for a period of time (requires unstriped libraries); if the CPU is mostly consumed in the virtual machine, you can pass [ShadowNode][] Provided [CPU Profiler](https://github.com/Rokid/ShadowNode/blob/bc244fe51236ddc70a3fae85a888594d99fd8e7f/docs/devs/Optimization-Tips.md#cpu-profiler) to generate [flame map](http://www .brendangregg.com/flamegraphs.html) to view script function calls
+- For a large number of intensive calculations, you can use the tools provided by the system such as `simpleperf` to view the application function call for a period of time (requires unstriped libraries); if the CPU is mostly consumed in the virtual machine, you can pass [ShadowNode][] Provided [CPU Profiler](https://github.com/Rokid/ShadowNode/blob/bc244fe51236ddc70a3fae85a888594d99fd8e7f/docs/devs/Optimization-Tips.md#cpu-profiler) to generate [flame map](http://www.brendangregg.com/flamegraphs.html) to view script function calls
 - For synchronous I/O, multi-threaded synchronization or deadlock, etc., you can view the system call status by [strace](https://linux.die.net/man/1/strace) and track the last call before waiting. Or the first call after completion to determine the cause
 
 In short, don't let the main thread be in a wait or full state

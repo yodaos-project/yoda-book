@@ -21,5 +21,5 @@ This book is intended for two types of readers:
 
 Apache v2.0
 
-[First Step]: guidance/01-build-your-first-app.html
-[YODAOS Source]: yodaos-source/customization/01-overview.html
+[First Step]: guidance/01-build-your-first-app.md
+[YODAOS Source]: yodaos-source/customization/01-overview.md
