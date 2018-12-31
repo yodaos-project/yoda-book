@@ -1,20 +1,20 @@
 # Testing Tools
 
-## Unit test tool: tape
+## Unit test tool: Tape
 
-### Introduction to single test tools
+### Introduction to Single Test Tools
 
 https://github.com/shadow-node/tape#tape
 
-## Coverage Statistics Tool istanbul
+## Coverage Statistics Tool Istanbul
 
 ### Usage
 
-#### Installing the nyc package
+#### Installing the Nyc Package
 
 The npm tool pulls down the corresponding package. Currently, the runtime has added the dependency of the nyc toolkit, directly npm install.
 
-### Preparing for coverage environment
+### Preparing for Coverage Environment
 
 The initialization function is to prepare the coverage statistics environment: to ensure that the current code is up-to-date; to clear the historical data that may be built last time;
 ```bash
@@ -35,7 +35,7 @@ init()
 }
 ```
 
-#### Generating piling files
+#### Generating Piling Files
 
 Generate a piling file. The idea is to put the source file to be counted into the specified directory, and then generate the piling file to the specified directory.
 ```bash
@@ -54,7 +54,7 @@ getOutput()
 }
 ```
 
-#### push Piling files to device
+#### Push Piling Files to Device
 
 Push the successfully piling file to the device side according to the original directory structure.
 ```bash
@@ -69,14 +69,14 @@ pushToDevice()
 }
 ```
 
-#### Execution unit test
+#### Execution Unit Test
 
 Perform unit tests with tape. Currently tape has supported the coverage statistics save path passed in via the --coverage parameter.
 ```
  //example
  tools/test --coverage '.nyc_output/xx.data' -p '**/*.test.js'
 ```
-#### pull coverage file to local
+#### Pull Coverage File to Local
 
 Pull the device side .nyc_output file to the same level as the source file directory.
 ```bash
@@ -101,7 +101,7 @@ makeReport()
   node_modules/.bin/nyc report --reporter=html
   if [ "$?" != 0 ];then
        echo "make report fail!"
-    fi
+  fi
 }
 ```
 

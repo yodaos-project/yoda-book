@@ -8,11 +8,11 @@ When developing applications, YODAOS needs to pay attention to the performance a
 - Quick response to voice interaction
 - No exceptions and crashes
 
-## start up
+## Start Up
 
 When an application is launched, YODAOS wants the application to complete the startup logic within 5 seconds. If the application is not completed within 5 seconds, it will be killed. Good applications should be launched as quickly as possible to serve users faster. If the application's internal initialization logic includes blocking operations such as I/O, these operations should not block the startup process, and developers can maintain an internal state machine to manage the application's initialization state.
 
-## Processes and threads
+## Processes and Threads
 
 YODAOS will create a separate process for each application, and the application code will be executed by the [JerryScript][] thread (the main thread). Of course, the developer can also create a separate process or thread for the application to perform some work. .
 
@@ -52,10 +52,10 @@ Regardless of the environment in which the application is developed, memory mana
 - Objects are referenced by global or closure variables and cannot be released
 
   ```js
-  Var obj = {}
+  var obj = {}
   setInterval(() => {
-    Var timestamp = Date.now()
-    Obj[timestamp] = true
+    var timestamp = Date.now()
+    obj[timestamp] = true
   }, 1000)
   ```
 
@@ -63,26 +63,26 @@ Regardless of the environment in which the application is developed, memory mana
 
   ```c
   Napi_value functionExportToJS(napi_env env, napi_callback_info info) {
-    Size_t argc = 1;
-    Napi_value argv[argc];
-    Napi_get_cb_info(env, info, &argc, argv, nullptr, nullptr);
-    Napi_value value = argv[0];
-    Napi_ref ref = NULL;
-    Napi_create_reference(env, value, 1, ref);
+    size_t argc = 1;
+    napi_value argv[argc];
+    napi_get_cb_info(env, info, &argc, argv, nullptr, nullptr);
+    napi_value value = argv[0];
+    napi_ref ref = NULL;
+    napi_create_reference(env, value, 1, ref);
     // balabalabala...
     // napi_delete_reference(env, ref);
-    Return NULL;
+    return NULL;
   }
   ```
 
 - Multi-threaded callback is not enabled [Handle Scope](https://nodejs.org/docs/latest/api/n-api.html#n_api_napi_open_handle_scope)
 
   ```c
-  Void handleAsyncCallbackFromOtherThread(uv_async_t* handle) {
+  void handleAsyncCallbackFromOtherThread(uv_async_t* handle) {
     // napi_handle_scope scope;
     // napi_open_handle_scope(env, &scope);
     // balabalabala...
-    Napi_create_string_utf8(...);
+    napi_create_string_utf8(...);
     // napi_close_handle_scope(env, scope);
   }
   ```
@@ -91,7 +91,7 @@ Therefore, whether it is self-contained automatic recovery, or the language that
 
 When there is a memory leak in the process, you can print `heapUsed` periodically. If the `heapUsed` continues to rise, it means that the script memory leaks. At this time, you can use [Heap Profiler] provided by [ShadowNode][](https://github.com/ Rokid/ShadowNode/blob/bc244fe51236ddc70a3fae85a888594d99fd8e7f/docs/devs/Optimization-Tips.md#heap-profiler) to generate snapshots of multiple virtual machine memory, by comparing process snapshots (Snapshot) to determine which objects are leaked.
 
-## Exception handling
+## Exception Handling
 
 When the script exits causing the process to exit, the developer can locate the reason by looking at the call stack in the log:
 
@@ -104,20 +104,20 @@ TypeError: Expected a function.
 When the script has an uncaughtException, [ShadowNode][] will throw the exception into the global object `process` object. If the exception of the `process` object is not listened, [ShadowNode][] will force the exit. application. Under normal circumstances, developers should avoid the occurrence of uncaught exceptions. In addition to the common unhandled exceptions that result in unhandled exceptions, the following conditions can also result:
 
 ```js
-Try {
+try {
   setTimeout(function throwAnError () {
-    Console.log('Hello Yoda')
-    Throw new Error('intentionally throw an error')
+    console.log('Hello Yoda')
+    throw new Error('intentionally throw an error')
   }, 1000)
 } catch (err) {
-  Console.log('catched an intentional error')
+  console.log('catched an intentional error')
 }
 ```
 
 In fact, this error can't be caught, because `setTimeout` is an asynchronous call. After 1 second, when `throwAnError` is called, the call stack is not declared. `try/catch` cannot catch this error, so it also causes [ShadowNode][] will force the current process to exit. You can avoid the process being forced to exit by:
 
 ```js
-Process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function (err) {
   // balabala...
 })
 ```
@@ -125,16 +125,16 @@ Process.on('uncaughtException', function (err) {
 But this is usually not a good practice, because the occurrence of an uncaught exception represents that the error is not what the developer expected, and the code that the developer expects to execute after this exception will not be executed, such as the following example, although it does not The process exits but causes a memory leak:
 
 ```js
-Process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function (err) {
   Console.log('handled function exception.')
 })
-Var funcs = {}
-Function main (funcName, func) {
-  Funcs[funcName] = func
-  Funcs[funcName]()
-  Delete funcs[funcName]
+var funcs = {}
+function main (funcName, func) {
+  funcs[funcName] = func
+  funcs[funcName]()
+  delete funcs[funcName]
 }
-Main('func1', 'this is a string, not a function')
+main('func1', 'this is a string, not a function')
 ```
 
 In the above example, since the value of `func` is not a `function` but a `string`, an error occurs when the seventh line is executed, although the error is caught on the first line to avoid the process exiting. However, the code in the eighth line cannot be executed, causing the reference to `func` on `funcs` to be unresolved and causing the leak of the `func` reference. So when an uncaught error occurs on the `process` object, the more common practice is a friendly prompt error (if necessary) and the active exit process after the cleanup is completed.

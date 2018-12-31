@@ -1,4 +1,4 @@
-#灯效果开发教程
+# Light effect development tutorial
 
 ## Features
 
@@ -20,7 +20,7 @@ YODAOS uses the lightd service to manage the lights, ie the app wants to display
 The picture above is a flow chart of lightd. Lightd provides a play(name, data, options, callback) method to execute the lighting effect file. Now, call below
 
 ```js
-Play("/opt/light/hello.js", {}, function(error) {});
+play("/opt/light/hello.js", {}, function(error) {});
 ```
 
 As an example, take a look at how the entire process works.
@@ -30,7 +30,7 @@ As an example, take a look at how the entire process works.
 2: Then lightd tries to load the /opt/light/hello.js file, the hello.js file looks like this
 
 ```js
-Module.exports = function (light, data, callback) { ... }
+module.exports = function (light, data, callback) { ... }
 ```
 
 That is, the lighting effect file must export a function that receives 3 parameters. Lightd will call this function when executed.
@@ -111,13 +111,13 @@ The contents of hello.js are as follows:
 
 // Generic notation, which derives a function for receiving parameters.
 // Lightd will call this function when it needs to display this effect.
-Module.exports = function helloLED (light, data, callback) {
+module.exports = function helloLED (light, data, callback) {
   // fill(r, g, b) It will set all lights to white
-  Light.fill(255, 255, 255)
+  light.fill(255, 255, 255)
 
   // After the lighting effects are set,
   // you need to call the render function to make the hardware take effect.
-  Light.render()
+  light.render()
 
   // Then set a 500 millisecond timer
   light.requestAnimationFrame(function () {
@@ -126,7 +126,7 @@ Module.exports = function helloLED (light, data, callback) {
     Light.render()
     // Callback is called after all the lights are completed,
     // telling the system that the lighting effect is completed.
-    Callback()
+    callback()
   }, 500)
 }
 ```
@@ -157,29 +157,29 @@ We have written the simplest lighting effect above, now let's write a light that
 ```js
 "use strict"
 
-Module.exports = function hello (light, data, callback) {
-  Function render() {
+module.exports = function hello (light, data, callback) {
+  function render() {
     // Call the light effect library provided by lightd to realize the breathing light
-    Light.breathing(255, 255, 255, 1000, 30, (r, g, b) => {
-      Light.fill(r, g, b)
-      Light.render()
+    light.breathing(255, 255, 255, 1000, 30, (r, g, b) => {
+      light.fill(r, g, b)
+      light.render()
     }).then(() => {
       light.requestAnimationFrame(() => {
         // Recursively call the render function,
         // this light will always breathe, will not stop, unless interrupted
-        Render()
+        render()
       }, 60)
     })
   }
 
-  Render()
+  render()
 
   // Note: This type of light does not need to call callback
-  Return {
+  return {
     // This hook function is called when it is interrupted,
     // if we return the stop function.
     // This stop function is optional if you don't need to care about interrupt events.
-    Stop: function() {}
+    stop: function() {}
   }
 }
 ```
@@ -189,7 +189,7 @@ The caller calls this light via `light.play('breathing.js', data, { shouldResume
 Above we used the `breathing` effect function, which is a built-in breathing effect, whose function is defined as follows:
 
 ```js
-Function breathing (r, g, b, duration, fps, render(r, g, b, lastFrame)) => Promise
+function breathing (r, g, b, duration, fps, render(r, g, b, lastFrame)) => Promise
 ```
 
 Its effect is that `rgb(0, 0, 0)` linearly transforms to `rgb(r, g, b)`, and then linearly transforms from `rgb(r, g, b)` to `rgb(0, 0, 0)`. The total duration of the change is `duration`, in milliseconds, and the frame rate of the transformation is `FPS`, and the intermediate value of each change is called back by the `render` function. The `lastFrame` parameter indicates that this is the last frame. When the change is complete, the Promise is in the `resolve` state.
@@ -201,10 +201,10 @@ The `light` object has a lot of built-in effects functions, please refer to [API
 The IO operation in JavaScript is asynchronous. If you want to do an animation from 0 to 255, the following is invalid:
 
 ```js
-Module.exports = function (light, data, callback) {
-  For (var i = 0; i < 256; i++) {
-    Light.fill(i, i, i)
-    Light.render()
+module.exports = function (light, data, callback) {
+  for (var i = 0; i < 256; i++) {
+    light.fill(i, i, i)
+    light.render()
   }
 }
 ```
@@ -226,17 +226,17 @@ The animation principle of the light is the same as the animation principle of t
 Let's make a simple gradient animation: the brightness is ramped from 0 to 255.
 
 ```js
-Module.exports = function (light, data, callback) {
-  Var currentColor = 0
-  Var render = function () {
-    Light.fill(currentColor, currentColor, currentColor)
+module.exports = function (light, data, callback) {
+  var currentColor = 0
+  var render = function () {
+    light.fill(currentColor, currentColor, currentColor)
     currentColor++
-    If (currentColor > 255) {
+    if (currentColor > 255) {
       Return
     }
     light.requestAnimationFrame(render, 33)
   }
-  Render()
+  render()
 }
 ```
 
@@ -253,7 +253,7 @@ For example, if the number of lights is exceeded during the rendering process, a
 For the problem of the adapter light, the light object has the ledsConfig property to get the hardware configuration of the light.
 
 ```js
-Module.exports = function (light, data, callback) {
+module.exports = function (light, data, callback) {
   
   light.ledsConfig
 }
@@ -274,13 +274,13 @@ Here are a few common examples.
 Play the light effect is to call play, below we play the hello.js light effect written before.
 
 ```js
-Var lightMethod = require('./lightMethod)
+var lightMethod = require('./lightMethod)
 lightMethod.play('@testAppId', '/opt/light/hello.js', {}, {})
   .then((res) => {
-    Console.log(res)
+    console.log(res)
   })
   .catch((err) => {
-    Console.log(err)
+    console.log(err)
   })
 ```
 
@@ -307,10 +307,10 @@ Playing a light effect that needs to be restored is not much different from play
 ```js
 lightMethod.play('@testAppId', '/opt/light/hello.js', {}, { shouldResume: true })
   .then((res) => {
-    Console.log(res)
+    console.log(res)
   })
   .catch((err) => {
-    Console.log(err)
+    console.log(err)
   })
 ```
 
@@ -319,13 +319,13 @@ lightMethod.play('@testAppId', '/opt/light/hello.js', {}, { shouldResume: true }
 To stop playing a single light effect, just call the stop method.
 
 ```js
-Var lightMethod = require('./lightMethod)
+var lightMethod = require('./lightMethod)
 lightMethod.stop('@testAppId', '/opt/light/hello.js')
   .then((res) => {
-    Console.log(res)
+    console.log(res)
   })
   .catch((err) => {
-    Console.log(err)
+    console.log(err)
   })
 ```
 

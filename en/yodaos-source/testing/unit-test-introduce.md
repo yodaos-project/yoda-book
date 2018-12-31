@@ -18,22 +18,22 @@ var wifi = require('@yoda/wifi')
 var logger = require('logger')('wifi')
 
 test('type check', function (t) {
-t.equal(typeof wifi.NETSERVER_CONNECTED, 'number')
-t.equal(typeof wifi.NETSERVER_UNCONNECTED, 'number')
-t.equal(typeof wifi.WIFI_CONNECTED, 'number')
-t.equal(typeof wifi.WIFI_INIVATE, 'number')
-t.equal(typeof wifi.WIFI_SCANING, 'number')
-t.equal(typeof wifi.WIFI_UNCONNECTED, 'number')
+  t.equal(typeof wifi.NETSERVER_CONNECTED, 'number')
+  t.equal(typeof wifi.NETSERVER_UNCONNECTED, 'number')
+  t.equal(typeof wifi.WIFI_CONNECTED, 'number')
+  t.equal(typeof wifi.WIFI_INIVATE, 'number')
+  t.equal(typeof wifi.WIFI_SCANING, 'number')
+  t.equal(typeof wifi.WIFI_UNCONNECTED, 'number')
 
-t.equal(typeof wifi.getWifiState(), 'number')
+  t.equal(typeof wifi.getWifiState(), 'number')
 
-t.equal(typeof wifi.getNetworkState(), 'number')
-t.equal(typeof wifi.getWifiList(), 'object')
-t.equal(typeof wifi.disableAll(), 'number')
-t.equal(typeof wifi.resetDns(), 'boolean')
-t.equal(typeof wifi.scan(), 'boolean')
+  t.equal(typeof wifi.getNetworkState(), 'number')
+  t.equal(typeof wifi.getWifiList(), 'object')
+  t.equal(typeof wifi.disableAll(), 'number')
+  t.equal(typeof wifi.resetDns(), 'boolean')
+  t.equal(typeof wifi.scan(), 'boolean')
 
-t.end()
+  t.end()
 })
 ```
 

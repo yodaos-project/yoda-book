@@ -2,7 +2,7 @@
 
 Effective testing is the foundation for quality assurance. Testing applications in a fast and efficient way is an essential workflow for iterative development of applications.
 
-#测试分类
+# Test Classification
 
 Functional test
 2. White box test
@@ -10,7 +10,7 @@ Functional test
 
 # Test Methods
 
-## function test
+## Functional Test
 
 Functional Testing We offer two methods, one is to verify the voice interaction through the VUI, and the other is to verify by the mock tool.
 
@@ -36,7 +36,7 @@ Finally, start the interaction and perform a functional test.
 For example: Ruo Qi, I want to listen to children's songs.
 ```
 
-### mock tool
+### Mock Tool
 
 The mock tool simulates the voice interaction function, and the mock interaction can be achieved through mock.
 
@@ -44,7 +44,7 @@ The mock tool simulates the voice interaction function, and the mock interaction
 # tools/mock --asr 'I want to listen to children's songs'
 ```
 
-##白盒测试
+## White Box Testing
 
 White box testing for applications via the [yoda-mock](#yoda-mock-tool) test tool.
 
@@ -52,21 +52,21 @@ White box testing for applications via the [yoda-mock](#yoda-mock-tool) test too
 ```js
 'use strict'
 
-Var test = require('tape')
-Var Mock = require('@yoda/mock')
+var test = require('tape')
+var Mock = require('@yoda/mock')
 
-Test('test app request event', t => {
-  Var rt
+test('test app request event', t => {
+  var rt
   // start app
-  Mock.mockAppRuntime('/opt/apps/appdemo')
+  mock.mockAppRuntime('/opt/apps/appdemo')
     .then(runtime => {
       // runtime instance
-      Rt = runtime
+      rt = runtime
       t.strictEqual(Object.keys(runtime.loader.appManifests).length, 1, 'mocked app runtime shall load expected app only')
       // mock ttsd speck method
       runtime.mockService('tts', 'speck', (text) => {
         t.strictEqual(text, 'hello')
-        T.end()
+        t.end()
       })
       // emit app request event
       @param {string} asr
@@ -84,14 +84,14 @@ Test('test app request event', t => {
       runtime.openUrl('url', {form: 'cut'})
     })
     .catch(err => {
-      T.error(err)
-      Rt && rt.destruct()
-      T.end()
+      t.error(err)
+      rt && rt.destruct()
+      t.end()
     })
 })
 ```
 
-## Stability test
+## Stability Testing
 
 1. Perform a stability test on your application by executing monkey.
 
@@ -117,12 +117,12 @@ Application running data is collected during execution and updated from time to 
 # tools/memory-viewer -r cpu.json
 ```
 
-# test tools
+# Testing Tools
 
-## Testing framework
+## Testing Framework
 
 Use tape, see [tape](https://github.com/shadow-node/tape#tape)
 
-## yoda-mock tool
+## YODA-Mock Tool
 
 The [yoda-mock](https://github.com/Rokid/yoda-mock) tool is used to simulate application runtimes, emulating service methods such as ttsd, lightd.

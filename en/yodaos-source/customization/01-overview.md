@@ -1,10 +1,10 @@
 # YODAOS Description
 
-## system structure
+## System Structure
 
 ![flow](../../../asset/01-overview-flow.png)
 
-## Code directory
+## Code Directory
 
 - **apps** Local app integrated in the system, including [Bluetooth Music], [Distribution], [Volume], etc.
 - **apps/cloudappclient** The local universal client of the Cloud App handles the logic issued by the cloud app, including [Ruo Qi Music], [Weather], [News], etc.
@@ -21,21 +21,21 @@
 - **test** unit test
 - **tools** Debugging Tools
 
-### Compilation method
+### Compilation Method
 
 - cd $OPENWRT_ROOT
 - cp ./config/leo_k18_universal_node_defconfig .config
 - make defconfig
 - make package/jsruntime/install V=s
 
-### installation manual
+### Installation Manual
 
 - apps/ -> /opts/apps Currently third-party apps like QQ Music are also installed here.
 - packages/ -> /usr/lib/node_modules
 - res/ -> /opt/res
 - runtime/ -> /usr/yoda
 
-## VUI interaction process
+## VUI Interaction Process
 
 ![time](../../../asset/01-overview-time.png)
 

@@ -12,7 +12,7 @@ The problems that need to be described in this part of the document are mainly t
 - How to receive frame data passed by the light application framework
 - How to convert the frame data passed by the application framework into the actual light format and then render.
 
-## Configuring system lighting effects
+## Configuring System Lighting Effects
 
 The built-in lighting effects file is stored under /opt/light/ by default and can be configured in the lightd service.
 
@@ -75,16 +75,16 @@ The higher the priority number of the user's lighting effect, the higher the pri
 Suppose, if 0 is the maximum, then when I call a user light effect, how much priority should I pass?
 The priority of the user's lighting effect is dynamically specified at runtime. If you want to call a higher priority light effect, the number will naturally increase by 1, so it starts from 0.
 
-## lightd Application layer workflow
+## Lightd Application Layer Workflow
 
-### lightd Architecture
+### Lightd Architecture
 
 The lightd is divided into two parts:
 
  - One is the upper JavaScript application framework, responsible for abstracting hardware apis and managing resources.
  - The second is the underlying hardware rendering library, which is responsible for rendering the lighting effects of the upper application settings to the hardware.
 
-### led data structure
+### Led Data Structure
 
 From the perspective of the JavaScript application framework, the default is now the RGB data format. Even the monochrome PWM lamp is used as the RGB operation. The underlying rendering library automatically converts the RGB to a single when the data stream is passed to the hardware rendering. Color value. The data format is arranged in RGB RGB... order. The value of each channel is an 8-bit integer. That is, the value of each channel is between 0-255.
 
@@ -99,9 +99,9 @@ Char* frame = new char[5 * 3]
 > noun explanation: frame
 > frame represents the data needed to refresh all the lights one frame.
 
-## Hardware layer workflow
+## Hardware Layer Workflow
 
-####LED HAL parameter configuration
+####LED HAL Parameter Configuration
 
 - LED driver attribute classification
 Make menuconfig -> rokid -> Hardware Layer Solutions ->

@@ -15,13 +15,13 @@
 
 - YODAOS Source
 <!-- - Compile and package -->
-- Compile and run
-  - [Compile and run](yodaos-source/system/compile-run.md)
-- Product customization <!-- (yodaos-source/customization/00-customization.md) -->
+- Compile and Run
+  - [Compile and Run](yodaos-source/system/compile-run.md)
+- Product Customization <!-- (yodaos-source/customization/00-customization.md) -->
   - [Overview](yodaos-source/customization/01-overview.md)
-  - [button](yodaos-source/customization/02-keyboard.md)
-  - [lights](yodaos-source/customization/03-light.md)
+  - [Button](yodaos-source/customization/02-keyboard.md)
+  - [Lights](yodaos-source/customization/03-light.md)
   <!-- - [iOS/Android SDK]() -->
 - Testing
-  - [Test facility](yodaos-source/testing/test-tools-introduce.md)
-  - [compatibility test](yodaos-source/testing/unit-test-introduce.md)
+  - [Test Facility](yodaos-source/testing/test-tools-introduce.md)
+  - [Compatibility Test](yodaos-source/testing/unit-test-introduce.md)

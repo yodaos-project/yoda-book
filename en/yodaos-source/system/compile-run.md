@@ -3,7 +3,7 @@ How YODAOS Universal configures systems and applications
 
 
 
-#### Download code
+#### Download Code
 
 1. Google Repo:
 
@@ -167,7 +167,7 @@ Drwxr-xr-x 8 xhl staff 256B 10 16 23:40 bootx_win
 
 * Compile method 3, copy the firmware to openwrt/bin/leo-k18-universal-glibc/full_images, and compress the full_images to check_by_jenkins for publishing.
     
-#### Burning firmware
+#### Burning Firmware
 
 **Linux**
 
@@ -188,7 +188,7 @@ Under the directory), the specific programming process on the Windows computer i
 * Double click download.bat
 * Press and hold BOOT_KEY on the debug board as prompted, then connect the USB cable to the PC.
 
-### Customizing systems and applications
+### Customizing Systems and Applications
 
 YODAOS is based on the openwrt build system, so you need to understand the optimized directory structure.
 
@@ -214,7 +214,7 @@ YODAOS is based on the openwrt build system, so you need to understand the optim
 * `feeds.conf.default` is the address used to download some third-party packages.
 * LICENSE & README This is the basic description of the software license and software. The README describes the basic process and dependent files for compiling the software.
    
-###### Build directory
+###### Build Directory
 
 * `build_dir` In the previous original directory, we mentioned the host tool, the toolchain tool, and the target file. OpenWrt will expand each package in this directory and compile it, so this folder contains 3 subfolders:
   * `host` Compile the tools used by the host in this folder.

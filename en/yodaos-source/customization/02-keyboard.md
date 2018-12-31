@@ -4,7 +4,7 @@
 
 Buttons are a convenient way to operate the most direct voice commands in the voice operating system. The system framework provides some of the infrastructure necessary to handle the keys, and the custom developer provides the code to customize these infrastructures so that the buttons respond in the way the developer wants. If you want to customize a button more efficiently, it's helpful to know some about how the YODAOS infrastructure works.
 
-## button module
+## Button Module
 
 The system processes the key state changes of the hardware through the button module, and distributes the button events to the corresponding modules according to a preset manner through the configured button configuration file, or registers the currently active application of the button event.
 
@@ -23,7 +23,7 @@ Keyup
 
 Among them, because longpress is an event that can be triggered multiple times by one button, it has a special button description.
 
-## Button business description file
+## Button Business Description File
 
 The key description file is a file in JSON format. The top-level key of this file is the keyCode string of each key, and the description of each key is a map with the key event as the key. As the following example:
 
@@ -49,11 +49,11 @@ The key description file is a file in JSON format. The top-level key of this fil
 
 The above button description describes the behavior of the “Volume Down” button. When the “Volume Down” button is pressed (keydown), the volume application is opened with url `yoda-skill://volume/volume_down` and the volume is reduced. Operation; if you press and hold the "Lengpress" button (longpress), repeat the long press event, use url `yoda-skill://volume/volume_down` to open the volume application, and perform the volume reduction operation.
 
-## Button customization
+## Button Customization
 
 Here we use the "Volume Reduction" button as an example to illustrate various possible button customization schemes.
 
-### Customizing a click event
+### Customizing a Click Event
 
 If you need to customize the click event of a button, you only need to add a button event description with the `click` key in the button's descriptor:
 
@@ -70,7 +70,7 @@ If you need to customize the click event of a button, you only need to add a but
 }
 ```
 
-### Customizing a double click event
+### Customizing a Double Click Event
 
 If you need to customize the double-click event of a button, you only need to add a button event description with the `dbclick` key in the button's descriptor:
 
@@ -87,7 +87,7 @@ If you need to customize the double-click event of a button, you only need to ad
 }
 ```
 
-### Customizing a long press event
+### Customizing a Long Press Event
 If you need to customize a long press event for a button, you only need to add a button event description with the `longpress` key to the button's descriptor:
 
 ```json
@@ -167,7 +167,7 @@ If you want to customize multiple long press events with different long press du
 
 If multiple long press button events are defined, the timeDelta of these long press button events is calculated starting from the time of the keydown.
 
-### Depth customization of a button
+### Depth Customization of a Button
 Sometimes, for a button to be pressed from the user, until the user releases the button, you need to redefine according to the customization requirements, you need to complete different operations for the `keydown` event and the `keyup` event. Add a description of the `keydown` and `keyup` events in the button description.
 
 ```json
@@ -207,7 +207,7 @@ If you want to not trigger the keyup event after a long press of the trigger eve
 }
 ```
 
-## Button event description definition
+## Button Event Description Definition
 
 The JSON Schema for keyboard.json is defined as follows:
 
