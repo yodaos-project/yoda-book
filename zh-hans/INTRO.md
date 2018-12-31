@@ -21,5 +21,5 @@ YODAOS 具有针对语音场景下的高集成度，它目前集成了：
 
 Apache v2.0
 
-[开发者指北]: guidance/01-build-your-first-app.html
-[YODAOS Source]: yodaos-source/customization/01-overview.html
+[开发者指北]: guidance/01-build-your-first-app.md
+[YODAOS Source]: yodaos-source/customization/01-overview.md
