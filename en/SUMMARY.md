@@ -1,5 +1,4 @@
 # Developing YodaOS Applications
-
 - [介绍](INTRO.md)
 - 开发者指北 <!-- (guidance/00-guidance.md) -->
   - [开始编写你的第一个应用](guidance/01-build-your-first-app.md)

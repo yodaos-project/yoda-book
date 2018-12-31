@@ -1,6 +1,22 @@
 {
-  "structure": {
-    "readme": "INTRO.md"
-  },
-  "plugins": []
+  "plugins": [
+    "github-buttons",
+    "splitter"
+  ],
+  "pluginsConfig": {
+    "github-buttons": {
+      "buttons": [{
+        "user": "yodaos-project",
+        "repo": "yodart",
+        "type": "star",
+        "size": "small",
+        "count": true
+      }, {
+        "user": "yodaos-project",
+        "type": "follow",
+        "width": "160",
+        "size": "small"
+      }]
+    }
+  }
 }

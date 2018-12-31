@@ -2,7 +2,7 @@
 
 ## 系统架构
 
-![flow](./01-overview-flow.png)
+![flow](../../../asset/01-overview-flow.png)
 
 ## 代码目录
 
@@ -37,7 +37,7 @@
 
 ## VUI交互流程
 
-![time](./01-overview-time.png)
+![time](../../../asset/01-overview-time.png)
 
 ### 说明
 
