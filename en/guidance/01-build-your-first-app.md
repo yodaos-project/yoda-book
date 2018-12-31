@@ -26,9 +26,11 @@ Once the project is built, you can install the app on your YODAOS device:
 
 ```bash
 ~/workspace > yoda-cli pm install awesome-demo-app
+```
 
---- OR ---
+Or,
 
+```
 ~/workspace/awesome-demo-app > yoda-cli pm install .
 ```
 
@@ -37,7 +39,7 @@ Once the project is built, you can install the app on your YODAOS device:
 For YODAOS, each application is a [CommonJS](https://nodejs.org/docs/latest/api/modules.html) module. Every CommonJS module will have a reference to `module.exports`, and the application of YODAOS is the same. His main entry is a function that receives a `activity` as a parameter via `module.exports`.
 
 ```javascript
-Module.exports = function main (activity) {
+module.exports = function main (activity) {
 
 }
 ```
@@ -49,13 +51,13 @@ The application interacts with the system through the `activity` object provided
 The `activity` provided by the system framework is an object that conforms to Node.js [EventEmitter API](https://nodejs.org/docs/latest/api/events.html#events_events), on which we can listen to any application. Life cycle events:
 
 ```javascript
-Module.exports = function main (activity) {
-  Activity.on('create', () => {
+module.exports = function main (activity) {
+  activity.on('create', () => {
     /** do initialization on event `create` */
   })
 
-  Activity.on('request', () => {
-    Activity.tts.speak('Hello World')
+  activity.on('request', () => {
+    activity.tts.speak('Hello World')
   })
 }
 ```
@@ -83,7 +85,7 @@ In addition to the program code, the application needs to declare its own identi
 }
 ```
 
-Package.json is similar to the [npm](https://www.npmjs.com/) package, but for YODAOS applications, the most important of these is name and manifest: the former declares the local ID of the application, the latter Declare the permissions, skill IDs, etc. that need to be requested from YodaRuntime.
+Package.json is similar to the [npm](https://www.npmjs.com/) package, but for YODAOS applications, the most important of these is `name` and `manifest`: the former declares the ID of the application, the latter declares the permissions, skill IDs, etc. that need to be requested from YodaRuntime.
 
 > View more package.json Description document: [Apply Manifest](./04-app-manifest.md)
 
@@ -92,9 +94,9 @@ Package.json is similar to the [npm](https://www.npmjs.com/) package, but for YO
 After writing the NLP matching rules on the Rokid developer website, you can write the following code in the application code to process the voice request:
 
 ```javascript
-Module.exports = function main (activity) {
-  Activity.on('request', nlp => {
-    Activity.tts.speak(`Hello, ${nlp.slots.value}`)
+module.exports = function main (activity) {
+  activity.on('request', nlp => {
+    activity.tts.speak(`Hello, ${nlp.slots.value}`)
   })
 }
 ```
@@ -127,9 +129,9 @@ activity.openURL('yoda-skill://foobar.app/example')
 An application that has registered the domain name can process the URL request with the following code:
 
 ```javascript
-Module.exports = function main (activity) {
-  Activity.on('url', urlObject => {
-    Activity.tts.speak(`Opened URL ${url.pathname}`)
+module.exports = function main (activity) {
+  activity.on('url', urlObject => {
+    activity.tts.speak(`Opened URL ${url.pathname}`)
   })
 }
 ```

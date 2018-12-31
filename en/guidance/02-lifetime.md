@@ -1,6 +1,6 @@
 ## Overview
 
-After learning about [Rokid Skills](https://developer.rokid.com/docs/2-RokidDocument/1-SkillsKit/platform-introduction.html), if you need to develop skills that are strongly related to your equipment, you will need Develop a local app. Complex application code needs to constantly communicate and interact with the system framework. The system framework provides some of the infrastructure necessary for all applications to run, and application developers provide the code to customize these infrastructures so that the application runs the way developers want. If you want to customize an application more efficiently, it's helpful to know some about how the YODAOS infrastructure works.
+After learning about [Rokid Skills](https://developer.rokid.com/docs/2-RokidDocument/1-SkillsKit/platform-introduction.html), if you need to develop skills that are strongly related to devices capabilities, you will need developing a native app. Complex application code needs to constantly communicate and interact with the system framework. The system framework provides some of the infrastructure necessary for all applications to run, and application developers provide the code to customize these infrastructures so that the application runs the way developers want. If you want to customize an application more efficiently, it's helpful to know some about how the YODAOS infrastructure works.
 
 ## Application Status
 
@@ -8,20 +8,22 @@ The app is divided into 5 states
 
 | Status Name | Main Role | Remarks |
 | --- | --- | --- |
-| Not Running | indicates that the application process is not running | - |
-| Inactive | No status in which the task is running | The application is not working, the resource is prioritized by the system |
-| Active | The current top-of-stack application may be activated by NLP, URL, or actively activated from the background state | Only this state can broadcast TTS, play media, etc. |
-| Paused | An application that can only be activated as a scene. It was once active, but was temporarily pushed into the pause state by another application in the form of cut | The application should pause its application when entering the pause state |
-| Background | Enter the background, the difference from inactive is that there are currently running tasks, should not be recycled by the system | Need the application to actively enter the state |
+| Not Running | application process is not running | - |
+| Inactive | No task is running | the resource is prioritized collected by the system |
+| Active | The current top-of-stack application, may be activated by NLP, URL, or proactively activated from the background state | Apps can broadcast TTS, play media, etc. only on this state |
+| Paused | Applications that be activated as a scene app, was temporarily pushed into the pause state by another application in the form of cut | Applications should pause its media when entering the pause state |
+| Background | Enter the background, the difference from inactive is that there are currently running tasks, should not be destroyed by system | Applications must actively enter the state |
 
 ![YODAOS Application Lifecycle](../../asset/yodaos-app-life-cycle.jpg)
 
 
 ### Application Process and Application Life Cycle
-The daemon application will be started by the vui when the vui is ready (if the login is successful), and set to the inactive state, and the application will receive the `activity#create` event. When nlp/url is received, if it is not at the top of the stack, it will receive the `activity#active` event and then the `activity#request`/`activity#url` event.
-If the daemon application has crashed and has not restarted when it receives nlp/url, it will start at the same time as the normal application.
 
-Ordinary applications will receive nlp / url, if no process has not been created, will be started by vui, and receive `activity#create` event, if the application is not at the top of the stack, will receive `activity#active` event, Finally received the `activity#request`/`activity#url` event.
+The daemon application will be started by the vui when the vui is ready (when the login is successful), and set to the inactive state, and the application will receive an `activity#create` event. When nlp/url is received, if it is not at the top of the stack, it will receive an `activity#active` event and then an `activity#request`/`activity#url` event.
+
+If the daemon application has crashed and has not restarted when it receives nlp/url, it will be launched at the same as the normal application.
+
+Normal applications that received nlp/url, if no process has not been created, will be started by vui, and receive `activity#create` event, if the application is not at the top of the stack, will receive `activity#active` event, Finally received the `activity#request`/`activity#url` event.
 
 After the application has processed all requests (nlp/url), it should voluntarily quit and free up the top of the stack so that the suspended application, such as music, can continue to play the media. Apps can actively exit via `Activity#exit` or put themselves in the background via `Activity#setBackground`. After the current top-of-stack application actively vacates the top of the stack, the vui will attempt to restore the previously suspended application and notify the application that it has been restored to the top of the stack via the `activity#resume` event.
 
@@ -30,7 +32,7 @@ If an application in the form of a scene is active, the user triggers a voice co
 After the app calls `Activity#exit`, the app is marked inactive and receives the `activity#destroy` event. Applications in the inactive state will be reclaimed system resources by vui at the appropriate time. The current normal application will be reclaimed by the system after receiving the `activity#destroy` event.
 
 ### Background process
-Applications (including daemon apps and general apps) can proactively put themselves in the background, freeing up the top of the stack so that paused apps like music continue to play media. Apps can put themselves into the background using the `Activity#setBackground` method. It is worth noting that if the application is not on the top of the stack, there is no permission to broadcast tts/play media. Therefore, if you need to broadcast a tts/play media to a certain extent in the background task execution, you need to use `Activity#setForeground` to preempt the activation state.
+Applications (including daemon apps and general apps) can proactively put themselves in the background, freeing up the top of the stack so that paused apps like music could continue to play media. Apps can put themselves into the background using the `Activity#setBackground` method. It is worth noting that if the application is not on the top of the stack, there is no permission to broadcast tts/play media. Therefore, if you need to broadcast a tts/play media to a certain extent in the background task execution, you need to use `Activity#setForeground` to preempt the activation state.
 
 
 ## Lifecycle events
