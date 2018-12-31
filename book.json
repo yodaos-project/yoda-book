@@ -1,22 +1,29 @@
 {
   "plugins": [
     "github-buttons",
-    "splitter"
+    "splitter",
+    "disqus"
   ],
   "pluginsConfig": {
     "github-buttons": {
-      "buttons": [{
-        "user": "yodaos-project",
-        "repo": "yodart",
-        "type": "star",
-        "size": "small",
-        "count": true
-      }, {
-        "user": "yodaos-project",
-        "type": "follow",
-        "width": "160",
-        "size": "small"
-      }]
+      "buttons": [
+        {
+          "user": "yodaos-project",
+          "repo": "yodart",
+          "type": "star",
+          "size": "small",
+          "count": true
+        },
+        {
+          "user": "yodaos-project",
+          "type": "follow",
+          "width": "160",
+          "size": "small"
+        }
+      ]
+    },
+    "disqus": {
+      "shortName": "YODAOS"
     }
   }
 }
