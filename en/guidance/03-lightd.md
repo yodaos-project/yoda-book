@@ -4,12 +4,12 @@
 
 YODAOS uses the lightd service to manage the lights, ie the app wants to display the lighting effects, and the light is delegated to the agent for execution, instead of recommending the app to operate the lights directly. The reasons for this are as follows:
 
-- Convenient for developers to write complex lighting effects. Lightd provides an abstract library of effects effects, and developers can easily combine effects with the effects library and execute it in sequence.
+- Convenient for developers to write complex lighting effects. Lightd provides an abstract library of effects that developers can easily combine and execute in order.
 - Resource management. If you only have one kind of lighting effect, then operating the LED directly is the easiest. If you have 2 kinds of lighting effects, then you need an extra code to guarantee the order of their execution. If you have more than 3 lighting effects, then your code is known to you except God.
 - js is asynchronous, and at any time, if there are 2 programs that operate the lights at the same time, there will be problems. If your lighting effect is an animation that transitions over time, you must manually interrupt them when you perform the second lighting effect.
 - Using transition animations means that you are using timers. To manually interrupt them, you must save the handles of these timers. You will find that your code is full of handles to these timers and cancel these timers. The code, while the real light effect code is only a small part.
 - Use the effects library provided by lightd, all of which are managed by effects. Developers don't have to worry about having 2 effects executing at the same time, without managing timers.
-- Modular. Lightd saves each light effect file as a separate .js file, which provides less code coupling, higher maintainability and readability, and no need to worry about variable duplicate names. Each file is a separate file. Scope.
+- Modular. Lightd saves each light effect file as a separate .js file, which provides less code coupling, higher maintainability and readability, and no need to worry about variable duplicate names. Each file is a separate scope.
 - Recovery mechanism. Lightd can restore lighting at the right time. If the banned wheat light effect is currently being played, a volume light effect suddenly comes, and the volume light effect needs to be restored. Lightd will automatically help you recover.
 - Priority mechanism. Lightd ensures that high priority lights are executed first. High-priority lighting effects always take precedence, and lighting developers don't have to worry about being interrupted, even if they are interrupted, there is a recovery mechanism. The system light effect priority is configured by the configuration file, and the user light effect priority is dynamically adjustable.
 
@@ -63,12 +63,12 @@ User-written third-party lighting effects files should be placed in the applicat
 
 Lighting design follows the following principles:
 
-1. When high priority lights are coming, low priority lights are not displayed, low priority lights are not displayed. If the low priority lights need to be restored, they are placed in the corresponding recovery queue.
-2. When the same level of light A, when the same level of light B is coming, the light B will interrupt the light A.
-3. When a low priority light comes in, a high priority light will interrupt the low priority light.
-4. The current light is executed and the first one is restored from high to low according to the priority in the recovery queue.
-5. The built-in requestAnimationFrame timer is required in the lighting effect.
-6. The system light effect priority, regardless of size, is always higher than the user light effect priority.
+1. When high priority lights are coming, low priority lights are not displayed. If the low priority lights need to be restored, they are placed in the corresponding recovery queue.
+2. When the same level of light A is played, the same level of light B is coming, then the light B will interrupt the light A.
+3. When a low priority light is played and a high priority light is coming, the high priority light interrupts the low priority light.
+4. When the current light is executed, the first one is restored from the high priority to the low priority in the recovery queue.
+5. The light effect should use the built-in requestAnimationFrame function to operate the timer.
+6. The system light effect priority is always higher than the user light effect priority.
 
 According to the performance of the light effect can be divided into two types of lighting effects:
 
@@ -87,7 +87,7 @@ The distribution network lighting effect belongs to the second category, that is
 
 Developers should write in accordance with the above two types of specifications when writing lighting effects.
 
-## Light effect writing method
+## How to create a light effect
 
 As mentioned before, the light effect can be divided into two categories according to the effect.
 
@@ -99,10 +99,10 @@ For these 2 types of lights, the development process is the same, except for 2 p
 - For the first category: Because it will definitely end in a certain period of time, and you need to restore other lights after the end, you should call the callback function after the lighting is finished, telling the system that you are done.
 - For the second category: because of the need to restore, and never stop, so this kind of light does not need to call the callback function, and when called, you need to have the property shouldResume: true.
 
-### ?Writing lights that don't need to be restored
+### Create lights that don't need to be restored
 
 Just as hello world is used as an introductory tutorial in most languages, there is also hello world in hardware programming, which is called hello LED, which lights up an LED. Now let's make a hello LED with lightd. The difference is that we have to light a circle of LED lights and then automatically go out after 500 ms.
-New file: /opt/light/hello.js
+create a new file: /opt/light/hello.js
 
 The contents of hello.js are as follows:
 
@@ -145,14 +145,14 @@ Once the callback is called, the light object is set to be in an unusable state.
 
 ** There are a few points to note: **
 
-1. After setting the lighting effect, you need to call the render function to refresh. The calling frequency of the render function is limited by hardware. Currently, the recommended minimum is 35-40ms. If it is lower than this time, frame loss will occur.
+1. After setting the lighting effect, you need to call the render function to refresh. The calling frequency of the render function is limited by hardware. Currently, the recommended minimum is 35-40ms. If it is less than this time, frame loss will occur.
 2. After lightd calls the stop function, all resources should be released and the lights can no longer be manipulated. This indicates that another program is operating the light.
 3. A light file should try to do only one effect. If multiple effects are needed, it should be split into multiple files and then executed in the callback.
-4. lightd When switching multiple lighting effects, it will automatically keep the last frame of the last light and leave it to the next light, so switching multiple lights will not cause flickering. We call this: transition
+4. Lightd automatically keep the last frame of the last light and leave it to the next light when switching multiple lights, so switching multiple lights will not cause flickering. We call this: transition.
 
-### Writing lights that need to be restored
+### Create lights that need to be restored
 
-We have written the simplest lighting effect above, now let's write a light that will automatically recover: the breathing light. It will always have a breathing effect, and if it is interrupted by other lights, the breathing light will automatically recover, then we manually remove it.
+We have created one of the simplest lighting effect above, now let's create a light that will automatically recover: the breathing light. It will always have a breathing effect, and if it is interrupted by other lights, the breathing light will automatically recover, then we manually stop it.
 
 ```js
 "use strict"
@@ -173,18 +173,19 @@ module.exports = function hello (light, data, callback) {
   }
 
   render()
-
   // Note: This type of light does not need to call callback
+
   return {
-    // This hook function is called when it is interrupted,
-    // if we return the stop function.
+    // This hook function is called when it is interrupted, if we return the stop function.
     // This stop function is optional if you don't need to care about interrupt events.
-    stop: function() {}
+    stop: function() {
+      // we are doing nothing here.
+    }
   }
 }
 ```
 
-The caller calls this light via `light.play('breathing.js', data, { shouldResume: true }, callback)` to tell the system that the light needs to be restored. If other lights are executed in the middle, the light will also be automatically restored. Unless the user uses `light.stop('breathing.js')` to clear the recovered lights. Call the light that needs to be restored, because the callback is not called in the light, so in the caller's view, the callback will be called back immediately when the light effect is started.
+The caller calls this light via `light.play('breathing.js', data, { shouldResume: true }, callback)` to tell the system that the light needs to be restored. If other lights are executed in the middle, the light will also be automatically restored. Unless the user uses `light.stop('breathing.js')` to clear the recovered lights. In the caller's view, the callback will be called back immediately when the light effect is started because the callback is not called in the light.
 
 Above we used the `breathing` effect function, which is a built-in breathing effect, whose function is defined as follows:
 
@@ -219,9 +220,9 @@ The above effect does not produce the expected animation, as it is almost instan
 
 ### Custom lighting effects animation
 
-Built-in implementation of breathing lights and gradient animation, let's talk about how to implement custom lighting effects animation.
+Lightd implements breathing lights and gradient effects, let's talk about how to implement custom lighting effects animation.
 
-The animation principle of the light is the same as the animation principle of the screen. We can use an LED light as a pixel point. We can refresh the brightness value of the LED light at a suitable rate to see the animation effect.
+The animation principle of the light is the same as the animation principle of the screen. We can use an LED light as a pixel point. We can refresh the color value of the LED light at a suitable rate to see the animation effect.
 
 Let's make a simple gradient animation: the brightness is ramped from 0 to 255.
 
@@ -232,7 +233,7 @@ module.exports = function (light, data, callback) {
     light.fill(currentColor, currentColor, currentColor)
     currentColor++
     if (currentColor > 255) {
-      Return
+      return callback()
     }
     light.requestAnimationFrame(render, 33)
   }
@@ -242,7 +243,7 @@ module.exports = function (light, data, callback) {
 
 The above is the simplest animation, the brightness of all lights is changed from 0 to 255, and the brightness is refreshed every 33 milliseconds. All animations are based on this principle.
 
-In fact, the built-in `ransition` and `breathing` are also implemented this way, except that the color channel they calculated is RGB and the FPS and ? duration parameters are added.
+In fact, the build-in transitions and breathing are also implemented in this way, except that the color channel they calculate is rgb, fps and duration.
 
 ## Adapting different hardware
 
@@ -255,19 +256,19 @@ For the problem of the adapter light, the light object has the ledsConfig proper
 ```js
 module.exports = function (light, data, callback) {
   
-  light.ledsConfig
+  var ledsConfig = light.ledsConfig
 }
 ```
 
-- `ledsConfig.leds` returns the number of lights
-- `ledConfig.format` returns the number of channels in the light, now defaults to 3
-- `ledConfig.maximumFps` Returns the time required to refresh a frame, in milliseconds, indicating that at least this time is required between refreshing 2 frames, otherwise a frame loss will be sent.
+- `ledsConfig.leds` the number of lights
+- `ledConfig.format` the number of channels in the light, now defaults to 3
+- `ledConfig.maximumFps` the time required to refresh a frame, in milliseconds, indicating that at least this time is required between refreshing 2 frames, otherwise frame loss will occur.
 
 ## Debug light effect
 
 Under the lightd service directory, there is a tests/lightMethod.js file that encapsulates a method that directly calls the api provided by lightd. All apis can view the lightMethod.js file, where each api has detailed comments and function declarations.
 
-Here are a few common examples.
+The following are common examples.
 
 ### Play light effect
 
@@ -289,7 +290,8 @@ Save the above code as a .js file and execute it to see the light effect.
 ### View lightd log
 
 At present, debugging lights is not enough to look at by eye, especially when multiple lights are switched.
-`logread -f -e nice | grep lightd` or `logread -f -e nice | grep lightService`
+
+Use `logread -f -e nice | grep lightd` or `logread -f -e nice | grep lightService` to view lightd log.
  
 Lightd is the log of the light service processing request, which can be viewed by all App calls.
 The lightService is a specific processing logic that looks at the actions being performed at each step.

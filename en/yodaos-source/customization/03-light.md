@@ -2,7 +2,7 @@
 
 ## Overview
 
-The light is divided into two parts, one is the upper part of the lightd application frame, and the other is the underlying rendering part, which is the part of the document that will be described.
+The light is divided into two parts, one is the upper part of the lightd application frame, and the other is the underlying rendering part, which is the part of this document that will be described.
 The upper application framework abstracts the apis that operate the lights. The user only needs to know how many lights are there and then operate the lights. By default each light is in RGB format.
 But in this part of the hardware, in addition to knowing how many lights there are, you also need to know the format of the lights. For example, above the Me is the RGB light, above the NABOO is the monochrome PWM light.
 
@@ -16,7 +16,7 @@ The problems that need to be described in this part of the document are mainly t
 
 The built-in lighting effects file is stored under /opt/light/ by default and can be configured in the lightd service.
 
-The system built-in lighting effect file path configuration method:
+Configure the path of the system build-in lighting effect file:
 
 1. Edit the file: `/usr/yoda/services/lightd/service.js`.
 2. Configure the value of this field `var LIGHT_SOURCE = '/opt/light/'` Note that the last side requires a slash `/`.
@@ -28,9 +28,9 @@ From the configuration file, the lighting effect files can be divided into two t
 
 ### System Light Effect File Definition
 
-The system light effect is configured in `${LIGHT_SOURCE}/config.json`. The content of this file is the json object. The key saves the relative path of the system's lighting effect. The `config.json` file is the relative path and the value is the priority of the light. The smaller the priority number of the system lighting effect, the higher the priority, that is, the highest.
+The system light effect is configured in `${LIGHT_SOURCE}/config.json`. The content of this file is the json object. The key saves the relative path of the system's lighting effect. The value is the priority of the light. The smaller the priority number of the system lighting effect, the higher the priority. That is 0 is the highest.
 
-The system light effect maintains a layer layer, which is an array that holds all the lights to be restored. There can only be one light effect per layer, and the number of layers indicates the priority. That is, if a system light is to be restored, the light will be saved to the system layer. Look for it from the 0th floor when recovering. The maximum number of layers in the layer is determined by the largest number in the config.json file.
+The system light effect maintains a layer, which is an array that holds all the lights to be restored. There can only be one light effect per layer, and the number of layers indicates the priority. That is, if a system light is to be restored, the light will be saved to the system layer. Look for it from the 0th floor when recovering. The maximum number of layers in the layer is determined by the largest number in the config.json file.
 
 The following is an example of the contents of a `config.json` file:
 
@@ -61,16 +61,16 @@ All non-system lighting effects are defined as user lighting effects. That is, e
 
 The user's lighting effect does not need to be defined, and there is no pre-declared priority, so its priority is the runtime, which is dynamically specified by the caller.
 
-User lighting also has a layer layer. Only this layer is the smaller the number, the lower the priority, the default is 0. When recovering, look up from the largest layer until the 0th floor. The maximum number of layers is configured by the lightd service. If the call is out of range, it is automatically limited to the range. For example, if the maximum range is exceeded, the default is the maximum number of layers.
+User lighting also has a layer. Only this layer is the smaller the number, the lower the priority, the default is 0. When recovering, look up from the largest layer until the 0th floor. The maximum number of layers is configured by the lightd service. If the call is out of range, it is automatically limited to the range. For example, if the maximum range is exceeded, the default is the maximum number of layers.
 
-The maximum number of layers in the user layer layer configuration method:
+Configure the maximum number of layers in the user layer:
 
 1. Edit the file: `/usr/yoda/services/lightd/service.js`
 2. Configure the value of this field `var maxUserspaceLayers = 3` Note that you need an integer greater than 0.
 
 The higher the priority number of the user's lighting effect, the higher the priority.
 
-> User Light Effect Priority Why is 0? Minimum?
+> User Light Effect Priority Why is 0 Minimum?
 
 Suppose, if 0 is the maximum, then when I call a user light effect, how much priority should I pass?
 The priority of the user's lighting effect is dynamically specified at runtime. If you want to call a higher priority light effect, the number will naturally increase by 1, so it starts from 0.
@@ -86,14 +86,14 @@ The lightd is divided into two parts:
 
 ### Led Data Structure
 
-From the perspective of the JavaScript application framework, the default is now the RGB data format. Even the monochrome PWM lamp is used as the RGB operation. The underlying rendering library automatically converts the RGB to a single when the data stream is passed to the hardware rendering. Color value. The data format is arranged in RGB RGB... order. The value of each channel is an 8-bit integer. That is, the value of each channel is between 0-255.
+From the perspective of the JavaScript application framework, the default is now the RGB data format. Even the monochrome PWM lamp is used as the RGB operation. The underlying rendering library automatically converts the RGB to a single when the data stream is passed to the hardware rendering. The data format is arranged in RGB RGB... order. The value of each channel is an 8-bit integer. That is, the value of each channel is between 0-255.
 
 Let's take the hardware with 5 RGB lights as an example to see how the real data is represented in lightd.
 
 5 lights, each of which is an RGB channel, so the length of the `frame` frame is 5 * 3 = 15, which is 15 bytes, so the real data structure is:
 
 ```c++
-Char* frame = new char[5 * 3]
+char* frame = new char[5 * 3]
 ```
 
 > noun explanation: frame
@@ -101,7 +101,7 @@ Char* frame = new char[5 * 3]
 
 ## Hardware Layer Workflow
 
-####LED HAL Parameter Configuration
+#### LED HAL Parameter Configuration
 
 - LED driver attribute classification
 Make menuconfig -> rokid -> Hardware Layer Solutions ->
@@ -112,21 +112,25 @@ The number of led lights can be controlled by `BOARD_LED_NUMS`
 
 -------
 
-####LED HAL Code Logic
+#### LED HAL Code Logic
 - Standard android hardware layer architecture, code directory: `kamino18/hardware/modules/leds/`
 - HAL layer code basic format
-       Static struct hw_module_methods_t led_module_methods = {
-           .open = led_dev_open,
-       };
 
-       Struct hw_module_t HAL_MODULE_INFO_SYM = {
-           .tag = HARDWARE_MODULE_TAG,
-           .module_api_version = LEDS_API_VERSION,
-           .hal_api_version = HARDWARE_HAL_API_VERSION,
-           .id = LED_ARRAY_HW_ID,
-           .name = "ROKID PWM LEDS HAL",
-           .methods = &led_module_methods,
-       };
+```c
+ Static struct hw_module_methods_t led_module_methods = {
+     .open = led_dev_open,
+ };
+
+ Struct hw_module_t HAL_MODULE_INFO_SYM = {
+     .tag = HARDWARE_MODULE_TAG,
+     .module_api_version = LEDS_API_VERSION,
+     .hal_api_version = HARDWARE_HAL_API_VERSION,
+     .id = LED_ARRAY_HW_ID,
+     .name = "ROKID PWM LEDS HAL",
+     .methods = &led_module_methods,
+ };
+```
+
 - Calling method of HAL layer:
 Hw_get_module(LED_ARRAT_HW_ID, (const struct hw_module_t **)&module);
 - Processing application layer sent RGB data
