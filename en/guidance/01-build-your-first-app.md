@@ -1,6 +1,6 @@
 ## YODAOS Developer Tools
 
-[YODAOS Developer Tools](https://github.com/yodaos-project/yoda-platform-tools) provides a range of convenient tools for manipulating YODAOS devices, such as sending text commands, sending NLP intents, launching, Install applications, etc.
+[YODAOS Developer Tools](https://github.com/yodaos-project/yoda-platform-tools) provides a range of convenient tools for manipulating YODAOS devices, such as sending text commands, sending NLP intents, launching, install applications, etc.
 
 The YODAOS Developer Tools can be downloaded from the [YODAOS Developer Tools Releases](https://github.com/yodaos-project/yoda-platform-tools/releases) page.
 

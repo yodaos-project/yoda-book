@@ -1,6 +1,6 @@
 # YODAOS Book
 
-In the field of voice interaction, especially in the case of smart speaker products such as Alexa and Homepod, the interaction form and equipment cost on hardware and software pose different degrees of challenges for operating systems such as Android or Linux, while YODAOS is As the first fully open source voice interactive operating system came into being.
+In the field of voice interaction, especially in the case of smart speaker products such as Alexa and Homepod, the interaction form and equipment cost on hardware and software pose different degrees of challenges for operating systems such as Android or Linux, while YODAOS is as the first fully open source voice interactive operating system came into being.
 
 YODAOS has high integration for voice scenarios and it is currently integrated:
 

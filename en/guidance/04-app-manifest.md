@@ -1,4 +1,4 @@
-Every YODAOS application needs to have a package.json file in the application root. This package.json file describes some of the necessary information about the application.
+Every YODAOS application needs to have a package.json file in the application root path. This package.json file describes some of the necessary information about the application.
 
 This package.json must declare the following information:
 
