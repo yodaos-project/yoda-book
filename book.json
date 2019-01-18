@@ -2,9 +2,20 @@
   "plugins": [
     "github-buttons",
     "splitter",
-    "disqus"
+    "disqus",
+    "i18n-upgrade"
   ],
   "pluginsConfig": {
+    "i18n": {
+      "Lang1": {
+        "name": "English",
+        "url": "en-us"
+      },
+      "Lang2": {
+        "name": "简体中文",
+        "url": "zh-cn"
+      }
+    },
     "github-buttons": {
       "buttons": [
         {

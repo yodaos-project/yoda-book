@@ -14,7 +14,7 @@ The app is divided into 5 states
 | Paused | Applications that be activated as a scene app, was temporarily pushed into the pause state by another application in the form of cut | Applications should pause its media when entering the pause state |
 | Background | Enter the background, the difference from inactive is that there are currently running tasks, should not be destroyed by system | Applications must actively enter the state |
 
-![YODAOS Application Lifecycle](../../asset/yodaos-app-life-cycle.jpg)
+![YODAOS Application Lifecycle](../../../asset/yodaos-app-life-cycle.jpg)
 
 
 ### Application Process and Application Life Cycle

@@ -2,7 +2,7 @@
 
 ## System Structure
 
-![flow](../../../asset/01-overview-flow.png)
+![flow](../../../../asset/01-overview-flow.png)
 
 ## Code Directory
 
@@ -37,7 +37,7 @@
 
 ## VUI Interaction Process
 
-![time](../../../asset/01-overview-time.png)
+![time](../../../../asset/01-overview-time.png)
 
 ### Description
 

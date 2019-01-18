@@ -15,7 +15,7 @@ YODAOS uses the lightd service to manage the lights, ie the app wants to display
 
 ## lightd flowchart
 
-![](../../asset/lightd-lifecycle.png)
+![](../../../asset/lightd-lifecycle.png)
 
 The picture above is a flow chart of lightd. Lightd provides a play(name, data, options, callback) method to execute the lighting effect file. Now, call below
 

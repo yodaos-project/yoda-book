@@ -15,7 +15,7 @@ YODAOS 使用 lightd 服务管理灯光，即 App 要显示灯光效果，统一
 
 ## lightd 流程图
 
-![](../../asset/lightd-lifecycle.png)
+![](../../../asset/lightd-lifecycle.png)
 
 上图是 lightd 的流程图。lightd 提供 play(name, data, options, callback) 方法去执行灯效文件。现在，以下面调用
 
