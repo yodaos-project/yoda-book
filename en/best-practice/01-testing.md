@@ -4,36 +4,36 @@ Effective testing is the foundation for quality assurance. Testing applications 
 
 # Test Classification
 
-Functional test
-2. White box test
-3. Stability test
+1. Functional testing
+2. White box testing
+3. Stability testing
 
 # Test Methods
 
-## Functional Test
+## Functional Testing
 
-Functional Testing We offer two methods, one is to verify the voice interaction through the VUI, and the other is to verify by the mock tool.
+We offer two methods to test the function , one is to verify the voice interaction through the VUI, and the other is to verify by the mock tool.
 
-> ❕ Note: Functional test requires network status to be normal
+> ❕ Note: Functional testing requires network status to be normal
 
 ### VUI
 
 First, install the app to the device through the tool;
 
 ```bash
-# tools/runtime-install
+$ tools/runtime-install
 ```
 
 Second, restart vui;
 
 ```bash
-# tools/runtime-op --vuid restart
+$ tools/runtime-op --vuid restart
 ```
 
 Finally, start the interaction and perform a functional test.
 
 ```
-For example: Ruo Qi, I want to listen to children's songs.
+For example: Rokid, I want to listen to children's songs.
 ```
 
 ### Mock Tool
@@ -41,7 +41,7 @@ For example: Ruo Qi, I want to listen to children's songs.
 The mock tool simulates the voice interaction function, and the mock interaction can be achieved through mock.
 
 ```bash
-# tools/mock --asr 'I want to listen to children's songs'
+$ tools/mock --asr "I want to listen to children's songs"
 ```
 
 ## White Box Testing
@@ -53,7 +53,7 @@ White box testing for applications via the [yoda-mock](#yoda-mock-tool) test too
 'use strict'
 
 var test = require('tape')
-var Mock = require('@yoda/mock')
+var mock = require('@yoda/mock')
 
 test('test app request event', t => {
   var rt
@@ -62,26 +62,26 @@ test('test app request event', t => {
     .then(runtime => {
       // runtime instance
       rt = runtime
-      t.strictEqual(Object.keys(runtime.loader.appManifests).length, 1, 'mocked app runtime shall load expected app only')
+      t.strictEqual(Object.keys(rt.loader.appManifests).length, 1, 'mocked app runtime shall load expected app only')
       // mock ttsd speck method
-      runtime.mockService('tts', 'speck', (text) => {
+      rt.mockService('tts', 'speck', (text) => {
         t.strictEqual(text, 'hello')
         t.end()
       })
       // emit app request event
-      @param {string} asr
-      @param {object} nlp
-      @param {object} action
-      @param {object} [options]
-      runtime.onVoiceCommand('asr', {intent: 'play_song'}, {appId: 'appdemo'}, {})
+      // @param {string} asr
+      // @param {object} nlp
+      // @param {object} action
+      // @param {object} [options]
+      rt.onVoiceCommand('asr', {intent: 'play_song'}, {appId: 'appdemo'}, {})
       // emit app url event
-      @param {string} url
-      @param {object} [options]
-      @param {'cut' | 'scene'} [options.form='cut']
-      @param {boolean} [options.preemptive=true]
-      @param {string} [options.carrierId]
-      @returns {Promise<boolean>}
-      runtime.openUrl('url', {form: 'cut'})
+      // @param {string} url
+      // @param {object} [options]
+      // @param {'cut' | 'scene'} [options.form='cut']
+      // @param {boolean} [options.preemptive=true]
+      // @param {string} [options.carrierId]
+      // @returns {Promise<boolean>}
+      rt.openUrl('url', {form: 'cut'})
     })
     .catch(err => {
       t.error(err)
@@ -93,28 +93,28 @@ test('test app request event', t => {
 
 ## Stability Testing
 
-1. Perform a stability test on your application by executing monkey.
+1. Perform a stability testing on your application by executing monkey.
 
 For example, the test object is a music application, which can be tested by calling the mock tool.
 
 ```bash
-# tools/mock --asr 'I want to listen to Jay Chou's songs'
-# tools/mock --asr 'I want to listen to Daoxiang'
-# tools/mock --asr 'change one'
+$ tools/mock --asr "I want to listen to Jay Chou's songs"
+$ tools/mock --asr 'I want to listen to Daoxiang'
+$ tools/mock --asr 'change one'
 ```
 
-2. Monitor memory and CPU conditions with the memory-viewer tool
+2. Monitor memory and CPU conditions with the memory-viewer tool.
 
 ```bash
 // memory monitor
-# tools/memory-viewer -m -i 300 -f appname -a
+$ tools/memory-viewer -m -i 300 -f appname -a
 // cpu monitor
-# tools/memory-viewer -c -i 300 -f appname -a
+$ tools/memory-viewer -c -i 300 -f appname -a
 ```
 Application running data is collected during execution and updated from time to time. Use the following command to convert json to an html chart form.
 
 ```bash
-# tools/memory-viewer -r cpu.json
+$ tools/memory-viewer -r cpu.json
 ```
 
 # Testing Tools
