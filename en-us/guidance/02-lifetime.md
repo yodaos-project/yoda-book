@@ -1,6 +1,6 @@
 ## Overview
 
-After learning about [Rokid Skills](https://developer.rokid.com/docs/2-RokidDocument/1-SkillsKit/platform-introduction.html), if you need to develop skills that are strongly related to devices capabilities, you will need developing a native app. Complex application code needs to constantly communicate and interact with the system framework. The system framework provides some of the infrastructure necessary for all applications to run, and application developers provide the code to customize these infrastructures so that the application runs the way developers want. If you want to customize an application more efficiently, it's helpful to know some about how the YODAOS infrastructure works.
+With knowledge of [Rokid Skills](https://developer.rokid.com/docs/2-RokidDocument/1-SkillsKit/platform-introduction.html), if you need to develop skills that are strongly related to devices capabilities, you would like to develop a native app. Complex application code needs to constantly communicate and interact with the system framework. The system framework provides sorts of the infrastructure necessary for all applications to run, and application developers provide the code to customize these infrastructures so that the application runs the way developers want. If you want to customize an application more efficiently, it's helpful to know some about how the YODAOS infrastructure works.
 
 ## Application Status
 
