@@ -117,11 +117,11 @@ The number of led lights can be controlled by `BOARD_LED_NUMS`
 - HAL layer code basic format
 
 ```c
- Static struct hw_module_methods_t led_module_methods = {
+ static struct hw_module_methods_t led_module_methods = {
      .open = led_dev_open,
  };
 
- Struct hw_module_t HAL_MODULE_INFO_SYM = {
+ struct hw_module_t HAL_MODULE_INFO_SYM = {
      .tag = HARDWARE_MODULE_TAG,
      .module_api_version = LEDS_API_VERSION,
      .hal_api_version = HARDWARE_HAL_API_VERSION,
