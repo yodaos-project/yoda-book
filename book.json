@@ -1,6 +1,40 @@
 {
-  "structure": {
-    "readme": "INTRO.md"
-  },
-  "plugins": []
+  "plugins": [
+    "github-buttons",
+    "splitter",
+    "disqus",
+    "i18n-upgrade"
+  ],
+  "pluginsConfig": {
+    "i18n": {
+      "Lang1": {
+        "name": "English",
+        "url": "en-us"
+      },
+      "Lang2": {
+        "name": "简体中文",
+        "url": "zh-cn"
+      }
+    },
+    "github-buttons": {
+      "buttons": [
+        {
+          "user": "yodaos-project",
+          "repo": "yodart",
+          "type": "star",
+          "size": "small",
+          "count": true
+        },
+        {
+          "user": "yodaos-project",
+          "type": "follow",
+          "width": "160",
+          "size": "small"
+        }
+      ]
+    },
+    "disqus": {
+      "shortName": "YODAOS"
+    }
+  }
 }
