@@ -14,7 +14,7 @@ $ repo init -u ssh://{yourname}@openai-corp.rokid.com:29418/kamino_universal_cus
 2. Rokid Repo:
 
 ```sh
-$ repo init -u ssh://{yourname}@openai-corp.rokid.com:29418/kamino_universal_cust/open-platform/manifest -m yodaos-7.27.0-alpha-20181030.xml -repo-url=ssh://{yourname}@openai-corp.rokid.com:29418/tools/repo --no-repo-verify
+$ repo init -u ssh://{yourname}@openai-corp.rokid.com:29418/kamino_universal_cust/open-platform/manifest -m yodaos-7.27.0-alpha-20181030.xml --repo-url=ssh://{yourname}@openai-corp.rokid.com:29418/tools/repo --no-repo-verify
 ```
 
 #### 代码结构
