@@ -21,6 +21,7 @@
   - [概览](yodaos-source/customization/01-overview.md)
   - [按键](yodaos-source/customization/02-keyboard.md)
   - [灯光](yodaos-source/customization/03-light.md)
+  - [自定义消息](yodaos-source/customization/04-mqtt.md)
   <!-- - [iOS/Android SDK]() -->
 - 测试
   - [测试设施](yodaos-source/testing/test-tools-introduce.md)
