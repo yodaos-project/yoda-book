@@ -48,9 +48,9 @@
 
 key 为消息中的 topic。handler 类型有 3 种:
 
-  1. url: 执行一个 URL
-  2. bin: 执行一个 shell 命令
-  3. runtimeMethod: 执行 runtime 中的函数并将 text 作为最后的 argument
+1. url: 执行一个 URL
+2. bin: 执行一个 shell 命令
+3. runtimeMethod: 执行 runtime 中的函数并将 text 作为最后的 argument
 
 不同的类型通过相应的字段区分，并且一个 topic 只支持一种类型，优先级按照上面的顺序。
 

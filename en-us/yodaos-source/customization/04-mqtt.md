@@ -48,9 +48,9 @@ This method is configured using a json file with the file name `wormhole.json`. 
 
 Key is the topic in the message. There are 3 types of handler types:
 
-  1. url: execute a URL
-  2. bin: execute a shell command
-  3. runtimeMethod: Execute the function in runtime and use text as the last argument
+1. url: execute a URL
+2. bin: execute a shell command
+3. runtimeMethod: Execute the function in runtime and use text as the last argument
 
 Different types are distinguished by corresponding fields, and a topic supports only one type, and the priority is in the above order.
 
