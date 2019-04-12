@@ -54,7 +54,7 @@ key 为消息中的 topic。handler 类型有 3 种:
 
 不同的类型通过相应的字段区分，并且一个 topic 只支持一种类型，优先级按照上面的顺序。
 
-其中，如果通过 url 打开 app，会在这个 url 的 query 中加入 __topic 与 __text 字段，分别为 wormhole 的 topic 与 text
+其中，如果通过 url 打开 app，会在这个 url 的 query 中加入 `__topic` 与 `__text` 字段，分别为 wormhole 的 topic 与 text
 
 新增 handler 为 bin 类型时, 是否将 mqtt 消息内容作为参数传入的 boolean 标记是 withContent
 

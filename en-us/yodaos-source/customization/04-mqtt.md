@@ -46,7 +46,7 @@ This method is configured using a json file with the file name `wormhole.json`. 
 }
 ```
 
-Key is the topic in the message. There are 3 types of handler types:
+Key is the topic in the message. There are 3 types of handler:
 
 1. url: execute a URL
 2. bin: execute a shell command
@@ -54,7 +54,7 @@ Key is the topic in the message. There are 3 types of handler types:
 
 Different types are distinguished by corresponding fields, and a topic supports only one type, and the priority is in the above order.
 
-If you open the app through url, the __topic and __text fields will be added to the query of this url, which are the topic and text of wormhole respectively.
+If you open the app through url, the `__topic` and `__text` fields will be added to the query of this url, which are the topic and text of wormhole respectively.
 
 When the new handler is bin type, the boolean tag passed in as the argument to the mqtt message content is withContent.
 
