@@ -21,6 +21,7 @@
   - [Overview](yodaos-source/customization/01-overview.md)
   - [Button](yodaos-source/customization/02-keyboard.md)
   - [Lights](yodaos-source/customization/03-light.md)
+  - [Custom MQTT message](yodaos-source/customization/04-mqtt.md)
   <!-- - [iOS/Android SDK]() -->
 - Testing
   - [Test facility](yodaos-source/testing/test-tools-introduce.md)
