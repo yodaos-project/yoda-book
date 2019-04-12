@@ -11,8 +11,8 @@ The message through the mobile phone SDK needs to conform to a certain format, a
 
 ```json
 {
-  topic: "String",
-  text: "String"
+  "topic": "String",
+  "text": "String"
 }
 ```
 

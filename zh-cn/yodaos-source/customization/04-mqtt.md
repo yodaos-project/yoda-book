@@ -11,8 +11,8 @@
 
 ```json
 {
-  topic: "String",
-  text: "String"
+  "topic": "String",
+  "text": "String"
 }
 ```
 
