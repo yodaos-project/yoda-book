@@ -2,7 +2,7 @@
 - [介绍](INTRO.md)
 - 开发者指北 <!-- (guidance/00-guidance.md) -->
   - [开始编写你的第一个应用](guidance/01-build-your-first-app.md)
-  - [生命周期](guidance/02-lifetime.md)
+  - [语音焦点](guidance/02-audio-focus.md)
   - [灯效开发](guidance/03-lightd.md)
   - [应用 Manifest](guidance/04-app-manifest.md)
 - 最佳实践 <!-- (best-practice/00-best-practice.md) -->
