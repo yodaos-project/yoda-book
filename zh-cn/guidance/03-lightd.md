@@ -2,7 +2,7 @@
 
 ## 特点
 
-YODAOS 使用 lightd 服务管理灯光，即 App 要显示灯光效果，统一交由 lightd 去代理执行，而不推荐 App 直接去操作灯光。这样做的理由有以下几点：
+YodaOS 使用 lightd 服务管理灯光，即 App 要显示灯光效果，统一交由 lightd 去代理执行，而不推荐 App 直接去操作灯光。这样做的理由有以下几点：
 
 - 方便开发者编写复杂的灯光效果。lightd 提供了抽象的 effects 灯光效果库，开发者使用 effects 库可以很容易的组合各种效果，并按顺序执行它。
 - 资源管理。如果您只有一种灯效，那么直接操作 LED 是最简单的。如果您有 2 种灯效，那你要额外一点代码保证它们的执行顺序，如果您有 3 种以上的灯效，那么你的代码除了你知道，只剩上帝知道。
@@ -254,7 +254,6 @@ module.exports = function (light, data, callback) {
 
 ```js
 module.exports = function (light, data, callback) {
-  
   light.ledsConfig
 }
 ```
@@ -290,7 +289,7 @@ lightMethod.play('@testAppId', '/opt/light/hello.js', {}, {})
 
 目前调试灯光，光靠眼睛看是不够的，尤其是多个灯光切换的时候，可以使用
 `logread -f -e nice | grep lightd` 或者 `logread -f -e nice | grep lightService`
- 
+
 lightd 是灯光服务处理请求的日志，可以查看到所有 App 调用的请求。
 lightService 是具体的处理逻辑部分，可以查看到每一步正在执行的动作。
 
