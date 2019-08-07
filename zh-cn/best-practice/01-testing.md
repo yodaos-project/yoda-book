@@ -2,128 +2,63 @@
 
 有效的测试是保证质量的基础，通过快速有效的方法对应用进行测试是迭代开发应用程序必不可少的工作流程。
 
-# 测试分类
+## 撰写第一条单元测试
 
-1. 功能测试
-2. 白盒测试
-3. 稳定性测试
-
-# 测试方法
-
-## 功能测试
-
-功能测试我们提供2种方式，一是通过 VUI 进行语音交互进行验证，二是通过 mock 工具进行验证。
-
-> ❕注意：功能测试，需要网络状态处于正常状态
-
-### VUI 
-
-首先，通过工具将应用安装到设备；
-
-```bash
-# tools/runtime-install
-```
-
-其次，重启 vui ；
-
-```bash
-# tools/runtime-op --vuid restart
-```
-
-最后，开始交互，进行功能测试。
+假设我们的应用代码目录有如下结构：
 
 ```
-例如：若琪，我要听儿歌。
+-- ~/awesome-app
+   |- package.json
+   |
+   |- /test
+   |  |- cool-func.test.js
+   |
+   |- /src
+   |  |- app.js
+   |  |- cool-func.js
 ```
 
-### mock 工具
-
-mock 工具可以模拟语音交互功能，通过 mock 可达到语音交互的效果。
-
-```bash
-# tools/mock --asr '我要听儿歌'
+如果我们在 `~/awesome-app/src/cool-func.js` 有以下一个函数，我们希望测试她的输出，
+```js
+module.exports = function coolFunc () {
+  return 'happy testing'
+}
 ```
 
-## 白盒测试
-
-通过 [yoda-mock](#yoda-mock-工具) 测试工具进行针对应用的白盒测试。
-
+那么我们将在 `~/awesome-app/test/cool-func.test.js` 开始撰写我们的第一条测试用例：
 
 ```js
-'use strict'
+var test = require('@yodaos/mm').test
+var coolFunc = require('../src/cool-func')
 
-var test = require('tape')
-var Mock = require('@yoda/mock')
-
-test('test app request event', t => {
-  var rt
-  // start app
-  Mock.mockAppRuntime('/opt/apps/appdemo')
-    .then(runtime => {
-      // runtime instance
-      rt = runtime
-      t.strictEqual(Object.keys(runtime.loader.appManifests).length, 1, 'mocked app runtime shall load expected app only')
-      // mock ttsd speck method
-      runtime.mockService('tts', 'speck', (text) => {
-        t.strictEqual(text, 'hello')
-        t.end()
-      })
-      // emit app request event
-      // @param {string} asr
-      // @param {object} nlp
-      // @param {object} action
-      // @param {object} [options]
-      runtime.onVoiceCommand('asr', {intent: 'play_song'}, {appId: 'appdemo'}, {})
-      // emit app url event
-      // @param {string} url
-      // @param {object} [options]
-      // @param {'cut' | 'scene'} [options.form='cut']
-      // @param {boolean} [options.preemptive=true]
-      // @param {string} [options.carrierId]
-      // @returns {Promise<boolean>}
-      runtime.openUrl('url', {form: 'cut'})
-    })
-    .catch(err => {
-      t.error(err)
-      rt && rt.destruct()
-      t.end()
-    })
+test('happy testing', t => {
+  t.strictEqual(coolFunc(), 'happy testing')
+  t.end()
 })
 ```
 
-## 稳定性测试
+## 运行单元测试
 
-1. 通过执行 monkey 针对应用进行稳定性测试。
-
-例如：测试对象为音乐应用，可以通过调用 mock 工具进行测试。
+首先，通过 yoda-cli 将应用代码与测试用例安装到设备：
 
 ```bash
-# tools/mock --asr '我要听周杰伦的歌'
-# tools/mock --asr '我要听稻香'
-# tools/mock --asr '换一个'
+~/awesome-app > yoda-cli pm install .
 ```
 
-2. 通过 memory-viewer 工具监控内存和 CPU 情况
+然后将应用通过 instrument 模式启动，同时开始监听应用的输出：
 
 ```bash
-// memory monitor
-# tools/memory-viewer -m -i 300 -f appname -a
-// cpu monitor
-# tools/memory-viewer -c -i 300 -f appname -a
+~/awesome-app > yoda-cli am instrument awesome-app 'test/*.test.js'
+~/awesome-app > yoda-cli am logread awesome-app
+✔  success   instrument
+{ appId: 'cloud-player', mode: 'instrument' }
+TAP version 13
+ok 1 strict equal
+
+1..1
+# tests 1
+# pass  1
+# ok
 ```
-执行中会采集应用运行数据，并时时更新。通过如下命令可将 json 转换为 html 图表形式。
 
-```bash
-# tools/memory-viewer -r cpu.json
-```
-
-# 测试工具
-
-## 测试框架
-
-采用 tape，详见  [tape](https://github.com/shadow-node/tape#tape)  使用说明
-
-## yoda-mock 工具
-
-[yoda-mock](https://github.com/Rokid/yoda-mock) 工具用于模拟应用运行时，模拟 ttsd，lightd 等服务方法。
-
+看起来测试通过！
