@@ -22,7 +22,7 @@
 - [产品定制](yodaos-source/customization/00-customization.md)
   - [概览](yodaos-source/customization/01-overview.md)
   - [按键](yodaos-source/customization/02-keyboard.md)
-  - [灯光](yodaos-source/customization/03-light.md)
+  - [灯效](yodaos-source/customization/03-light.md)
 - 测试
   - [测试设施](yodaos-source/testing/test-tools-introduce.md)
   - [兼容性测试](yodaos-source/testing/unit-test-introduce.md)
