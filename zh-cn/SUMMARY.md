@@ -16,7 +16,9 @@
 
 - YODAOS Source
 <!-- - 编译与打包 -->
-- [编译与运行](yodaos-source/system/compile-run.md)
+- [源码介绍](yodaos-source/00-source-tree.md)
+- [编译](yodaos-source/01-compile.md)
+- [术语表](yodaos-source/glossary.md)
 - [产品定制](yodaos-source/customization/00-customization.md)
   - [概览](yodaos-source/customization/01-overview.md)
   - [按键](yodaos-source/customization/02-keyboard.md)
@@ -24,4 +26,3 @@
 - 测试
   - [测试设施](yodaos-source/testing/test-tools-introduce.md)
   - [兼容性测试](yodaos-source/testing/unit-test-introduce.md)
-- [术语表](yodaos-source/glossary.md)
