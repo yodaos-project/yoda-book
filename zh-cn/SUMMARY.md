@@ -1,4 +1,5 @@
-# Developing YODAOS Applications
+# Developing YodaOS Application
+
 - [介绍](INTRO.md)
 - 开发者指北 <!-- (guidance/00-guidance.md) -->
   - [开始编写你的第一个应用](guidance/01-build-your-first-app.md)
@@ -15,14 +16,12 @@
 
 - YODAOS Source
 <!-- - 编译与打包 -->
-- 编译与运行
-  - [编译运行](yodaos-source/system/compile-run.md)
-- 产品定制 <!-- (yodaos-source/customization/00-customization.md) -->
+- [编译与运行](yodaos-source/system/compile-run.md)
+- [产品定制](yodaos-source/customization/00-customization.md)
   - [概览](yodaos-source/customization/01-overview.md)
   - [按键](yodaos-source/customization/02-keyboard.md)
   - [灯光](yodaos-source/customization/03-light.md)
-  - [自定义消息](yodaos-source/customization/04-mqtt.md)
-  <!-- - [iOS/Android SDK]() -->
 - 测试
   - [测试设施](yodaos-source/testing/test-tools-introduce.md)
   - [兼容性测试](yodaos-source/testing/unit-test-introduce.md)
+- [术语表](yodaos-source/glossary.md)
