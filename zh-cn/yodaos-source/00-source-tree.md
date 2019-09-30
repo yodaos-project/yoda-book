@@ -119,7 +119,7 @@ Debug 模式下，
 | aial      | 算法库、神经网络库、语音激活库、离线自然语言处理等 |
 | native    | 系统功能库与服务，包括多媒体、蓝牙、音量等 |
 | vm        | 应用虚拟机，包括 Node.js 和 ShadowNode |
-| jsruntime | 上层 JavaScript 运行时代码 |
+| jsruntime | YodaOS 应用框架代码 |
 
 ### yodart 介绍
 
