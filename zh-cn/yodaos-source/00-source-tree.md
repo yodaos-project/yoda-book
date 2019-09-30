@@ -37,7 +37,7 @@ YodaOS 使用 [OpenWRT](https://openwrt.org/) 编译系统，下面会做一个�
 * `./toolchain` 交叉编译链，这个文件中存放的就是编译交叉编译链的软件包.包括 binutils、gcc、libc 等等。
 * `./target` OpenWrt 的源码可以编译出各个平台适用的二进制文件，各平台在这个目录里定义了固件和内核的编译过程。
 * `./package` 存放了系统中适用的软件包,包含针对各个软件包的 Makefile。OpenWrt 定义了一套 Makefile 模板。各软件参照这个模板定义了自己的信息，如软件包的版本、下载地址、编译方式、安装地址等。在二次开发过程中，这个文件夹我们会经常打交道。事实上，通过 `./scripts/feed update -a` 和 `./scripts/feed install -a` 的软件包也会存放在这个目录之中。
-  * `./rokid` 存放了YodaOS所需要的package。
+  * `./rokid` 存放了 YodaOS 所需要的package。
   * `./include` OpenWrt 的 Makefile 都存放在这里。文件名为 `*.mk`。这里的文件上是在 Makefile 里被包含的，类似于库文件，这些文件定义了编译过程。
   * `./feeds` OpenWrt 的附加软件包管理器的扩展包索引目录。简单来说就是下载管理软件包的。默认 feeds 下载有 packages、management、luci、routing、telephony。如要下载其他的软件包，需打开源码根目录下面的 feeds.conf.default 文件，去掉相应软件包前面的#号，然后更新源：`./scripts/feeds update -a`，安装下载好的包：`./scripts/feeds install -a`
 * `./dl` 在编译过程中使用的很多软件，刚开始下载源码并没有包含，而是在编译过程中从其他服务器下载的，这里是统一的保存目录。
@@ -50,10 +50,10 @@ YodaOS 使用 [OpenWRT](https://openwrt.org/) 编译系统，下面会做一个�
 
 * `./build_dir` 在前面的原始目录中，我们提到了 host 工具，toolchain 工具还有目标文件。OpenWrt 将在这个目录中展开各个软件包，进行编译，所以这个文件夹中包含3个子文件夹:
   * `./host` 在该文件夹中编译主机使用的工具软件。
-  * `./toolchain-XXX` 在该文件夹中编译交叉工具链。
-  * `./target-XXX` 在此编译目标平台的目标文件，包括各个软件包和内核文件。
+  * `./toolchain-<name>` 在该文件夹中编译交叉工具链。
+  * `./target-<name>` 在此编译目标平台的目标文件，包括各个软件包和内核文件。
   * `./bin` 保存编译完成后的二进制文件，包括完整的 bin 文件,所有的 ipk 文件。
-* `./staging_dir` 用于保存在 build_dir 目录中编译完成的软件，所以这里也和 build_dir 有同样的子目录结构。比如，在 target-XXX 文件夹中保存了目标平台编译好的头文件，库文件。在我们开发自己的 ipk 文件时，编译过程中，预处理头文件，链接动态库，静态库都是到这个子文件夹中。
+* `./staging_dir` 用于保存在 build_dir 目录中编译完成的软件，所以这里也和 build_dir 有同样的子目录结构。比如，在 `target-<name>` 文件夹中保存了目标平台编译好的头文件，库文件。在我们开发自己的 ipk 文件时，编译过程中，预处理头文件，链接动态库，静态库都是到这个子文件夹中。
 
 ##### 如何添加自己的包（Package）
 
@@ -68,7 +68,7 @@ YodaOS 使用 [OpenWRT](https://openwrt.org/) 编译系统，下面会做一个�
 ##### 使用 menuconfig 生成配置
 
 - 运行 `make menuconfig` 完成配置修改
-- 运行 `./scripts/diffconfig.sh > xxxx_defconfig` 生成脚本
+- 运行 `./scripts/diffconfig.sh > *_defconfig` 生成脚本
 
 ##### 编译单个包
 
@@ -123,12 +123,10 @@ Debug 模式下，
 
 ### yodart 介绍
 
-[yodaos-project/yodart][] 是 [YodaOS][] 的上层应用层框架，下面对其做简单介绍。
+[yodaos-project/yodart][] 是 [YodaOS][] 的应用层框架，下面对其做简单介绍。
 
 | 子目录               | 描述  |
 |---------------------|-------|
-| apps                | 内置本地应用，包括蓝牙音乐、音量控制、配网等 |
-| apps/cloudappclient | 云端技能的本地客户端，处理云端下发的逻辑 |
 | include             | 构建时依赖的项目头文件 |
 | packages            | 通用模块接口，用于调用系统底层服务 |
 | res                 | 资源文件包括灯光和音效 |

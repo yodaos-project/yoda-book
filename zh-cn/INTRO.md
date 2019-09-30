@@ -32,7 +32,6 @@
 - 如果你想作为应用开发者，为 YodaOS 开发语音交互应用，那么可以从 [开发者指北][] 开始。
 - 如果你想深度定制，那么可以从 [YodaOS Source][] 开始。
 
-[Rokid]: https://www.rokid.com
 [开发者指北]: guidance/01-build-your-first-app.md
 [YodaOS]: https://github.com/yodaos-project
 [YodaOS Application]: yodaos-source/glossary.md#yodaos-application
