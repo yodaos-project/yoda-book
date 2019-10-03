@@ -1,0 +1,825 @@
+
+<!DOCTYPE HTML>
+<html lang="en-us" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Compile and Run · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Get Started
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../guidance/01-build-your-first-app.html">
+            
+                <a href="../../guidance/01-build-your-first-app.html">
+            
+                    
+                    Build your first app
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../guidance/02-lifetime.html">
+            
+                <a href="../../guidance/02-lifetime.html">
+            
+                    
+                    Life Cycle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../guidance/03-lightd.html">
+            
+                <a href="../../guidance/03-lightd.html">
+            
+                    
+                    Light Effect Development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../guidance/04-app-manifest.html">
+            
+                <a href="../../guidance/04-app-manifest.html">
+            
+                    
+                    Application Manifest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Best Practices
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../best-practice/01-testing.html">
+            
+                <a href="../../best-practice/01-testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../best-practice/03-performance-stability.html">
+            
+                <a href="../../best-practice/03-performance-stability.html">
+            
+                    
+                    Performance and Stability
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <a target="_blank" href="https://github.com/Rokid/yoda-samples">
+            
+                    
+                    Samples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    YODAOS Source
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    Compile and Run
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.2.1" data-path="compile-run.html">
+            
+                <a href="compile-run.html">
+            
+                    
+                    Compile and Run
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    Product Customization
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../customization/01-overview.html">
+            
+                <a href="../customization/01-overview.html">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../customization/02-keyboard.html">
+            
+                <a href="../customization/02-keyboard.html">
+            
+                    
+                    Button
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../customization/03-light.html">
+            
+                <a href="../customization/03-light.html">
+            
+                    
+                    Lights
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../customization/04-mqtt.html">
+            
+                <a href="../customization/04-mqtt.html">
+            
+                    
+                    Custom MQTT message
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    Testing
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../testing/test-tools-introduce.html">
+            
+                <a href="../testing/test-tools-introduce.html">
+            
+                    
+                    Test facility
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../testing/unit-test-introduce.html">
+            
+                <a href="../testing/unit-test-introduce.html">
+            
+                    
+                    compatibility test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Compile and Run</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="how-yodaos-universal-configures-systems-and-applications">How YODAOS Universal configures systems and applications</h1>
+<h4 id="download-code">Download Code</h4>
+<ol>
+<li>Google Repo:</li>
+</ol>
+<pre><code class="lang-sh">$ repo init -u ssh://{yourname}@openai-corp.rokid.com:29418/kamino_universal_cust/open-platform/manifest -m yodaos-7.27.0-alpha-20181030.xml
+</code></pre>
+<ol>
+<li>Rokid Repo:</li>
+</ol>
+<pre><code class="lang-sh">$ repo init -u ssh://{yourname}@openai-corp.rokid.com:29418/kamino_universal_cust/open-platform/manifest -m yodaos-7.27.0-alpha-20181030.xml -repo-url=ssh: //{yourname}@openai-corp.rokid.com:29418/tools/repo --no-repo-verify
+</code></pre>
+<h4 id="code-structure">Code Structure</h4>
+<pre><code class="lang-sh">* &#x251C;&#x2500;&#x2500; 3rd: third-party software package
+    &#x251C;&#x2500;&#x2500; applications :Applications
+    &#x251C;&#x2500;&#x2500; build.sh -&gt; /home/hailiang.xu/naboo/products/rokid/common/build.sh :ci compile script
+    &#x251C;&#x2500;&#x2500; envsetup.sh -&gt; /home/hailiang.xu/naboo/products/rokid/common/envsetup.sh : <span class="hljs-built_in">local</span> compilation script
+    &#x251C;&#x2500;&#x2500;frames: application frameworks, native services, commands, libraries, and abstractions to third parties, etc.
+    &#x251C;&#x2500;&#x2500; hardware : HAL (hardware abstract layer), including hardware abstraction of the main chip and peripherals
+    &#x251C;&#x2500;&#x2500; kernel: kernel
+    &#x251C;&#x2500;&#x2500; Makefile -&gt; /home/hailiang.xu/naboo/products/rokid/common/Makefile: External makefile
+    &#x251C;&#x2500;&#x2500; openwrt:[openwrt directory](<span class="hljs-comment">#openwrt_folder)</span>
+    &#x251C;&#x2500;&#x2500; products: product related file directory
+    &#x251C;&#x2500;&#x2500; toolchains: compile toolchain
+    &#x251C;&#x2500;&#x2500; tools: system tools
+    &#x251C;&#x2500;&#x2500; uboot:uboot
+    &#x2514;&#x2500;&#x2500; vendor: third-party manufacturer files
+</code></pre>
+<h4 id="installing-compilation-dependent-tools">Installing Compilation Dependent Tools</h4>
+<p><strong>ubuntu 16.04</strong></p>
+<pre><code class="lang-sh">$ sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core gettext libssl-dev unzip texinfo device-tree-compiler dosfstools libusb
+</code></pre>
+<p><strong>CentOS 7</strong></p>
+<pre><code class="lang-sh">$ yum install -y unzip bzip2 dosfstools wget gcc gcc-c++ git ncurses-devel zlib-static openssl-devel svn patch perl-Module-Install.noarch perl-Thread-Queue
+</code></pre>
+<p>CentOS7 needs to manually install <code>device-tree-compiler</code></p>
+<pre><code class="lang-sh">$ wget http://www.rpmfind.net/linux/epel/6/x86_64/Packages/d/dtc-1.4.0-1.el6.x86_64.rpm
+$ rpm -i dtc-1.4.0-1.el6.x86_64.rpm
+</code></pre>
+<h4 id="compiling">Compiling</h4>
+<p>Method 1, manual copy</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> openwrt
+$ cp configs/leo_k18_universal_node_defconfig .config
+$ make defconfig
+$ make
+<span class="hljs-comment"># If you want to view the detailed compilation information, please add V=s parameter</span>
+<span class="hljs-comment"># If you want to speed up compilation, please add -j parameter</span>
+</code></pre>
+<p>Method 2, compile with <code>source envsetup.sh</code>:</p>
+<pre><code class="lang-sh">You<span class="hljs-string">&apos;re building on openwrt
+Lunch menu...pick a combo:
+
+    1. leo_gx8010_ota_1v
+    2. leo_gx8010_rkd_1v
+    3. leo_gx8010_rkd_2v
+    4. leo_gx8010_rkd_3v
+    5. leo_gx8010_rkd_4v
+    6. leo_gx8010_rkd_naboo
+    7. leo_gx8010_rkd_naboo_yodaos
+    8. leo_gx8010_ssd_1v
+    9. leo_k18_cus360
+    10. leo_k18_dev31
+    11. leo_k18_dev32
+    12. leo_k18_dev33
+    13. leo_k18_dev34
+    14. leo_k18_universal_avs
+    15. leo_k18_universal
+    16. leo_k18_universal_node
+    17. leo_k18_cus360_native
+    18. leo_gx8010_rkd_naboo_chinateleom
+
+    Which would you like? [6] 16
+
+    You are building on Linux
+    Echo Lunch menu... pick a root filesystem:
+    1. ubifs(root filesystem is read wirte)
+    2. squashfs(root filesystem is read only)
+    Which would you like? [1]1
+
+    You are building on Linux
+    Lunch menu... pick a image style:
+    1. debug (root filesystem bin is not striped)
+    2. release(root filesystem bin is striped)
+    Which would you like? [1]1
+    /home/hailiang.xu/k18/openwrt
+    ~/k18/openwrt ~/k18
+    ====================================================
+
+    #TARGET_BOARD=k18
+    #BUILD_TYPE=32
+    #CONFIG=leo_k18_universal_node_defconfig
+
+    ====================================================
+    #
+    # configuration written to .config
+    #
+    1
+    Set configure Debug info ...
+    Merging /home/hailiang.xu/k18/products/rokid/common/rokidos_debug_config.frag
+    Merging /home/hailiang.xu/k18/products/rokid/common/rokidos_debug_packages.frag
+    Merging /home/hailiang.xu/k18/products/rokid/common/rokidos_debug_noset_package.frag
+    Merge DEBUG info success
+    ~/k18
+
+$ make -j32
+#Method2 Make Method 1 an automatic script and add the Select File System and release/debug options.
+</span></code></pre>
+<p>Method 3, the automatic compilation script is used to publish the image:</p>
+<pre><code class="lang-sh">$ ./build.sh -p leo_k18_universal_node -n openwrt-leo-k18-universal <span class="hljs-_">-f</span> leo-k18-universal -j32 -r
+</code></pre>
+<p>Method 3 is to call method 2 and compile and generate the Recovery partition and the OTA firmware, which is usually used for production image publishing.</p>
+<h4 id="firmware-address">Firmware Address</h4>
+<ul>
+<li>Refer to Chapter 6 of the Rokid Kamino18 Universal Install Guide V2.5.pdf for a brief description.</li>
+<li>Generate firmware in openwrt/bin/leo-k18-universal-glibc/</li>
+</ul>
+<pre><code class="lang-sh">-rwxr-xr-x 1 xhl staff 57K 10 16 23:40 bootmusic.wav
+-rwxr-xr-x@ 1 xhl staff 332K 10 17 00:35 bootx
+Drwxr-xr-x 8 xhl staff 256B 10 16 23:40 bootx_win
+-rwxr-xr-x 1 xhl staff 1.9K 10 16 23:40 download.bat
+-rwxr-xr-x 1 xhl staff 3.1K 10 17 15:55 download.sh
+-rw-r--r-- 1 xhl staff 256K 10 17 00:26 env.bin
+-rwxr--r-- 1 xhl staff 386B 10 16 23:40 gen_swupdate_img.sh
+-rw-r--r-- 1 xhl staff 162K 10 17 00:09 mcu.bin
+-rw-r--r-- 1 xhl staff 1.4K 10 17 00:26 md5sums
+-rw-r--r-- 1 xhl staff 2.0M 10 17 00:26 openwrt-leo-k18-universal-app.img
+-rw-r--r-- 1 xhl staff 4.0M 10 17 00:26 openwrt-leo-k18-universal-fit-uImage.itb
+-rw-r--r-- 1 xhl staff 22M 10 17 00:26 openwrt-leo-k18-universal-rootfs.tar.gz
+-rw-r--r-- 1 xhl staff 27M 10 17 00:26 openwrt-leo-k18-universal-squashfs.img
+-rw-r--r-- 1 xhl staff 37K 10 17 00:10 openwrt-leo-k18-universal-u-boot-spl.bin
+-rw-r--r-- 1 xhl staff 346K 10 17 00:10 openwrt-leo-k18-universal-u-boot.img
+-rw-r--r-- 1 xhl staff 4.0M 10 17 00:26 openwrt-leo-k18-universal-uImage
+-rw-r--r-- 1 xhl staff 27M 10 17 00:26 openwrt-leo-k18-univers
+</code></pre>
+<ul>
+<li>Compile method 3, copy the firmware to openwrt/bin/leo-k18-universal-glibc/full_images, and compress the full_images to check_by_jenkins for publishing.</li>
+</ul>
+<h4 id="burning-firmware">Burning Firmware</h4>
+<p><strong>Linux</strong></p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> openwrt/bin/leo-k18-universal-glibc/
+$ sudo cp bootx /usr/<span class="hljs-built_in">local</span>/bin/
+$ ./download.sh all
+<span class="hljs-comment"># Press and hold BOOT_KEY on the debug board as prompted, then connect the USB cable to the PC.</span>
+</code></pre>
+<p><strong>Windows</strong></p>
+<p>Before using the Windows programming tool, you need to install the usb driver for a new computer (drive installation files and instructions in <code>leo-k18-universal-glibc/bootx_win/driver_install</code>
+Under the directory), the specific programming process on the Windows computer is as follows:</p>
+<ul>
+<li>Go to the $(K18DIR)/openwrt/bin/ leo-k18-universal-glibc /full_images directory</li>
+<li>Double click download.bat</li>
+<li>Press and hold BOOT_KEY on the debug board as prompted, then connect the USB cable to the PC.</li>
+</ul>
+<h3 id="customizing-systems-and-applications">Customizing Systems and Applications</h3>
+<p>YODAOS is based on the openwrt build system, so you need to understand the optimized directory structure.</p>
+<h4 id="openwrt-directory-structure">OpenWrt Directory Structure</h4>
+<h5 id="original-directory">Original Directory</h5>
+<ul>
+<li><code>scripts</code> stores some scripts, using bash, python, perl and many other scripting languages. The feeds file for third-party package management is also in this directory during compilation. During the compilation process, the scripts used are also placed in this directory.</li>
+<li><code>tools</code> When compiling, the host needs to use some tools, and the tools contain commands to get and compile these tools. There are Makefiles in the package, and some include patches. There is a <code>$(eval $(call HostBuild))</code> in each Makefile, which means that the tool is compiled for use on the host.</li>
+<li><code>config</code> stores the configuration file of the entire system</li>
+<li><code>configs</code> stores the default configuration of each board level</li>
+<li><code>docs</code> contains an introduction to the source code of the entire host machine, and there is a Makefile to generate documentation for the target system. Use <code>make -C docs/</code> to generate documentation for the target system.</li>
+<li><code>toolchain</code> cross-compilation chain, which stores the packages that compile the cross-compilation chain, including binutils, gcc, libc, and so on.</li>
+<li>The source code of <code>target</code> OpenWrt can compile the binary files applicable to each platform. Each platform defines the firmware and kernel compilation process in this directory.</li>
+<li><code>package</code> stores the applicable packages in the system, including Makefiles for each package. OpenWrt defines a set of Makefile templates. Each software defines its own information with reference to this template, such as the version of the software package, download address, compilation method, installation address, and so on. In the secondary development process, we will deal with this folder frequently. In fact, packages via <code>./scripts/feed update -a</code> and <code>./scripts/feed install -a</code> will also be stored in this directory.<ul>
+<li><code>rokid</code> stores the packages required by YODAOS.</li>
+<li><code>include</code> OpenWrt Makefiles are stored here. The file name is <code>*.mk</code>. The files here are included in the Makefile, similar to library files, which define the compilation process.</li>
+<li><code>feeds</code> OpenWrt&apos;s extension package index directory for the add-on package manager. Simply put, download the management package. The default feeds download has packages, management, luci, routing, telephony. To download other packages, open the feeds.conf.default file in the root directory of the source, remove the ## in front of the corresponding package, and update the source: <code>./scripts/feeds update -a</code>, install and download Package: <code>./scripts/feeds install -a</code></li>
+</ul>
+</li>
+<li><code>dl</code> A lot of software used in the compilation process, just downloading the source code is not included, but downloaded from other servers during the compilation process, here is a unified save directory.</li>
+<li><code>Makefile</code> Executes the entry file for the make command in the top-level directory.</li>
+<li><code>rules.mk</code> defines some common variables and functions used in the Makefile.</li>
+<li><code>Config.in</code> In <code>include/toplevel.mk</code> we can see that this is the file associated with <code>make menuconfig</code>.</li>
+<li><code>feeds.conf.default</code> is the address used to download some third-party packages.</li>
+<li>LICENSE &amp; README This is the basic description of the software license and software. The README describes the basic process and dependent files for compiling the software.</li>
+</ul>
+<h6 id="build-directory">Build Directory</h6>
+<ul>
+<li><code>build_dir</code> In the previous original directory, we mentioned the host tool, the toolchain tool, and the target file. OpenWrt will expand each package in this directory and compile it, so this folder contains 3 subfolders:<ul>
+<li><code>host</code> Compile the tools used by the host in this folder.</li>
+<li><code>toolchain-XXX</code> Compile the cross toolchain in this folder.</li>
+<li><code>target-XXX</code> Compile the target files of the target platform here, including individual packages and kernel files.</li>
+<li><code>bin</code> Saves the compiled binary, including the complete bin file, all ipk files.</li>
+<li><code>staging_dir</code> is used to save the compiled software in the build_dir directory, so it has the same subdirectory structure as build_dir. For example, the target platform compiled header file and library file are saved in the target-XXX folder. When we develop our own ipk file, during the compilation process, the preprocessor header file, the link dynamic library, and the static library are all in this subfolder.</li>
+<li><code>tmp</code> temporary folder, there are a lot of intermediate temporary files to be saved during the compilation process, all here.</li>
+<li><code>logs</code> log folder, get information from here when an error is encountered, analyze the reason for the compilation failure.</li>
+</ul>
+</li>
+</ul>
+<h4 id="how-to-generate-a-customized-configuration">How to generate a customized configuration</h4>
+<ul>
+<li>Use <code>make menuconfig</code> to complete the configuration changes.</li>
+<li>Generate configuration using the <code>diffconfig.sh</code> script.</li>
+</ul>
+<pre><code class="lang-sh">$ ./scripts/diffconfig.sh &gt; configs/&lt;board level&gt;_defconfig
+</code></pre>
+<h4 id="how-to-compile-a-single-package">How to compile a single package</h4>
+<p>Clean, compile, and install a single package:</p>
+<pre><code class="lang-sh">$ make package/&lt;name&gt;/{clean,compile,install}
+</code></pre>
+<p>Compile cleanup, compile, install toolchain:</p>
+<pre><code class="lang-sh"><span class="hljs-variable">$make</span> toolchain/{clean,compile,install}
+</code></pre>
+<h4 id="how-to-compile-uboot-separately">How to compile uboot separately</h4>
+<p>Compile uboot</p>
+<pre><code class="lang-sh">$ make package/uboot-leo/compile
+</code></pre>
+<p>Install to the <code>openwrt/bin/</code> directory</p>
+<pre><code class="lang-sh">$ make package/uboot-leo/install
+</code></pre>
+<h4 id="how-to-compile-the-kernel-separately">How to compile the kernel separately</h4>
+<p>Compile module</p>
+<pre><code class="lang-sh">$ make target/linux/compile
+</code></pre>
+<p>Compile zImage, dts, install to the <code>openwrt/bin/</code> directory</p>
+<pre><code class="lang-sh">$ make target/linux/install
+</code></pre>
+<h4 id="how-to-modify-the-kernel-configuration">How to modify the kernel configuration</h4>
+<pre><code class="lang-sh">$ make kernel_menuconfig
+</code></pre>
+<h4 id="how-to-choose-debugrelease">How to choose Debug/Release</h4>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">source</span> envsetup.sh
+
+You are building on Linux
+Lunch menu... pick a image style:
+
+1. debug (root filesystem bin is not striped) (currently limited by the size of k18 flash, also <span class="hljs-keyword">in</span> the debug mode without a symbol table)
+2. release(root filesystem bin is striped)
+</code></pre>
+<p>./build.sh adds the -d option:</p>
+<pre><code class="lang-sh">$ ./build.sh -p leo_k18_universal_node -n openwrt-leo-k18-universal <span class="hljs-_">-f</span> leo-k18-universal -j32 -r <span class="hljs-_">-d</span>
+</code></pre>
+<p>Release mode</p>
+<ol>
+<li>Your own debugger does not need to be packaged into the image.</li>
+<li>Set the default log level in RKLog to info.</li>
+</ol>
+<p>In Debug mode</p>
+<ol>
+<li>The CONFIG_DEBUG macro will be opened under config;</li>
+<li>Each software package copies the corresponding test program and tools into the image according to the macro definition;</li>
+<li>Set the default log level in RKLog to debug;</li>
+<li>Subsequent DEBUG mode will be added to gdb, strace, valgrind software;</li>
+</ol>
+<h4 id="how-to-add-your-own-package">How to add your own package</h4>
+<blockquote>
+<p>Please refer to <a href="https://openwrt.org/docs/guide-developer/helloworld/chapter3" target="_blank">https://openwrt.org/docs/guide-developer/helloworld/chapter3</a></p>
+</blockquote>
+<h4 id="how-to-control-whether-the-system-service-is-booted">How to control whether the system service is booted</h4>
+<p>Take the alab-libs repository as an example. Developers need our front-end activation library, but don&apos;t want to boot. View <code>package/rokid/alab-libs/Config.in</code> default
+It is booting up, if it does not need to be booted.</p>
+<ul>
+<li><code>make menuconfig</code></li>
+<li>Remove the checkbox in <code>rokid/alab-libs/Configuration</code></li>
+</ul>
+<pre><code class="lang-sh">    menu <span class="hljs-string">&quot;Configuration&quot;</span>
+
+    config TURENPROC_AUTO_RUN
+        bool <span class="hljs-string">&quot;auto run&quot;</span>
+        default y
+        <span class="hljs-built_in">help</span>
+            turenproc service auto run
+
+    endmenu
+</code></pre>
+<p>Then check <code>alab-libs/Makefile</code> to determine if booting is started according to whether or not <code>TURENPROC_AUTO_RUN</code> is selected in menuconfig.</p>
+<pre><code class="lang-sh"><span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$(CONFIG_TURENPROC_AUTO_RUN)</span>&quot;</span> != <span class="hljs-string">&quot;y&quot;</span> ]; <span class="hljs-keyword">then</span> \
+  (SED) <span class="hljs-string">&quot;s/^START/#START/g&quot;</span> $(1)/etc/init.d/turenproc;
+<span class="hljs-keyword">fi</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Compile and Run","level":"2.2.1","depth":2,"next":{"title":"Product Customization","level":"2.3","depth":1,"ref":"","articles":[{"title":"Overview","level":"2.3.1","depth":2,"path":"yodaos-source/customization/01-overview.md","ref":"yodaos-source/customization/01-overview.md","articles":[]},{"title":"Button","level":"2.3.2","depth":2,"path":"yodaos-source/customization/02-keyboard.md","ref":"yodaos-source/customization/02-keyboard.md","articles":[]},{"title":"Lights","level":"2.3.3","depth":2,"path":"yodaos-source/customization/03-light.md","ref":"yodaos-source/customization/03-light.md","articles":[]},{"title":"Custom MQTT message","level":"2.3.4","depth":2,"path":"yodaos-source/customization/04-mqtt.md","ref":"yodaos-source/customization/04-mqtt.md","articles":[]}]},"previous":{"title":"Compile and Run","level":"2.2","depth":1,"ref":"","articles":[{"title":"Compile and Run","level":"2.2.1","depth":2,"path":"yodaos-source/system/compile-run.md","ref":"yodaos-source/system/compile-run.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github-buttons","splitter","disqus","i18n-upgrade"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"YODAOS"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"i18n-upgrade":{"Lang1":{"name":"English","url":"en","include":"[]"},"Lang2":{"name":"中文","url":"zh","include":"[]"}},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"i18n":{"Lang1":{"name":"English","url":"en-us"},"Lang2":{"name":"简体中文","url":"zh-cn"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en-us","gitbook":"*"},"file":{"path":"yodaos-source/system/compile-run.md","mtime":"2019-10-03T12:06:21.594Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-03T12:07:09.477Z"},"basePath":"../..","book":{"language":"en-us"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-i18n-upgrade/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

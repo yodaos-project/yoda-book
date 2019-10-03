@@ -1,0 +1,670 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>语音焦点 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="03-lightd.html" />
+    
+    
+    <link rel="prev" href="01-build-your-first-app.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    开发者指北
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-build-your-first-app.html">
+            
+                <a href="01-build-your-first-app.html">
+            
+                    
+                    开始编写你的第一个应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="02-audio-focus.html">
+            
+                <a href="02-audio-focus.html">
+            
+                    
+                    语音焦点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="03-lightd.html">
+            
+                <a href="03-lightd.html">
+            
+                    
+                    灯效开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="04-app-manifest.html">
+            
+                <a href="04-app-manifest.html">
+            
+                    
+                    应用 Manifest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    最佳实践
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../best-practice/01-testing.html">
+            
+                <a href="../best-practice/01-testing.html">
+            
+                    
+                    测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../best-practice/03-performance-stability.html">
+            
+                <a href="../best-practice/03-performance-stability.html">
+            
+                    
+                    性能与稳定性
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <a target="_blank" href="https://github.com/Rokid/yoda-samples">
+            
+                    
+                    样例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    YODAOS Source
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../yodaos-source/00-source-tree.html">
+            
+                <a href="../yodaos-source/00-source-tree.html">
+            
+                    
+                    源码介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../yodaos-source/01-compile.html">
+            
+                <a href="../yodaos-source/01-compile.html">
+            
+                    
+                    编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../yodaos-source/02-glossary.html">
+            
+                <a href="../yodaos-source/02-glossary.html">
+            
+                    
+                    术语表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../yodaos-source/customization/00-overview.html">
+            
+                <a href="../yodaos-source/customization/00-overview.html">
+            
+                    
+                    配置产品
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../yodaos-source/customization/01-keyboard.html">
+            
+                <a href="../yodaos-source/customization/01-keyboard.html">
+            
+                    
+                    按键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="../yodaos-source/customization/02-light.html">
+            
+                <a href="../yodaos-source/customization/02-light.html">
+            
+                    
+                    灯效
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../yodaos-source/message/00-overview.html">
+            
+                <a href="../yodaos-source/message/00-overview.html">
+            
+                    
+                    系统消息
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1" data-path="../yodaos-source/message/01-voice-interface.html">
+            
+                <a href="../yodaos-source/message/01-voice-interface.html">
+            
+                    
+                    语音交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.2" data-path="../yodaos-source/message/02-system-states.html">
+            
+                <a href="../yodaos-source/message/02-system-states.html">
+            
+                    
+                    系统状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" >
+            
+                <span>
+            
+                    
+                    测试
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.7.1" data-path="../yodaos-source/testing/test-tools-introduce.html">
+            
+                <a href="../yodaos-source/testing/test-tools-introduce.html">
+            
+                    
+                    测试设施
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7.2" data-path="../yodaos-source/testing/unit-test-introduce.html">
+            
+                <a href="../yodaos-source/testing/unit-test-introduce.html">
+            
+                    
+                    兼容性测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >语音焦点</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x8BED;&#x97F3;&#x7126;&#x70B9;&#x6982;&#x8FF0;">&#x8BED;&#x97F3;&#x7126;&#x70B9;&#x6982;&#x8FF0;</h2>
+<p>&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x4E0D;&#x540C;&#x4E8E;&#x56FE;&#x5F62;&#x4EA4;&#x4E92;&#xFF0C;&#x76F8;&#x6BD4;&#x4E8E; GUI&#xFF0C;VUI &#x5728;&#x4F7F;&#x7528;&#x4E2D;&#x7528;&#x6237;&#x66F4;&#x96BE;&#x4EE5;&#x540C;&#x65F6;&#x5904;&#x7406;&#x591A;&#x4E2A;&#x4EA4;&#x4E92;&#x5E76;&#x884C;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x6240;&#x4EE5;&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x534F;&#x8C03;&#x591A;&#x4E2A;&#x5E94;&#x7528;&#x7684;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x8BF7;&#x6C42;&#xFF0C;&#x7ED9;&#x7528;&#x6237;&#x4E00;&#x4E2A;&#x4E13;&#x6CE8;&#x7684;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x4F7F;&#x7528;&#x4F53;&#x9A8C;&#x3002;</p>
+<h2 id="audiofocus">AudioFocus</h2>
+<p>&#x5982;&#x679C;&#x628A;&#x6211;&#x4EEC;&#x7684;&#x8BBE;&#x5907;&#x5F53;&#x4F5C;&#x4E00;&#x4E2A;&#x673A;&#x573A;&#xFF0C;&#x5E94;&#x7528;&#x4EEC;&#x4EE3;&#x8868;&#x4E86;&#x5F85;&#x673A;&#x7684;&#x98DE;&#x673A;&#xFF0C;YodaOS &#x7CFB;&#x7EDF;&#x76F8;&#x5F53;&#x4E8E;&#x63A7;&#x5236;&#x5854;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x7533;&#x8BF7;&#x671F;&#x671B;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x8BED;&#x97F3;&#x7126;&#x70B9;&#xFF0C;&#x4F46;&#x6700;&#x7EC8;&#x7684;&#x6388;&#x6743;&#x51B3;&#x5B9A;&#x4F1A;&#x7531;&#x7CFB;&#x7EDF;&#x53D1;&#x51FA;&#x3002;&#x6211;&#x4EEC;&#x901A;&#x8FC7; AudioFocus &#x6A21;&#x5757;&#x6765;&#x548C;&#x7CFB;&#x7EDF;&#x7684;&#x201C;&#x63A7;&#x5236;&#x5854;&#x201D;&#x4EA4;&#x6D41;&#x3002;</p>
+<h3 id="audiofocus-&#x4F7F;&#x7528;&#x573A;&#x666F;">AudioFocus &#x4F7F;&#x7528;&#x573A;&#x666F;</h3>
+<h4 id="&#x5A92;&#x4F53;&#x5E94;&#x7528;">&#x5A92;&#x4F53;&#x5E94;&#x7528;</h4>
+<p>&#x5A92;&#x4F53;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x5728;&#x7528;&#x6237;&#x8981;&#x6C42;&#x64AD;&#x653E;&#x97F3;&#x4E50;&#x65F6;&#xFF0C;&#x7533;&#x8BF7;&#x9ED8;&#x8BA4;&#x7C7B;&#x578B;&#x7684; AudioFocus&#xFF0C;&#x5E76;&#x5728;&#x7533;&#x8BF7;&#x83B7;&#x5F97;&#x6388;&#x6743;&#x540E;&#xFF0C;&#x5F00;&#x59CB;&#x64AD;&#x653E;&#x5A92;&#x4F53;&#x3002;&#x5982;&#x679C;&#x8BE5; AudioFocus &#x88AB;&#x77ED;&#x6682;&#x6302;&#x8D77;&#xFF0C;&#x90A3;&#x4E48;&#x5A92;&#x4F53;&#x5E94;&#x7528;&#x9700;&#x8981;&#x6682;&#x65F6;&#x5C06;&#x5A92;&#x4F53;&#x6682;&#x505C;&#xFF0C;&#x6216;&#x8005;&#x53EF;&#x4EE5;&#x6309;&#x7167; mayDuck &#x53C2;&#x6570;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x538B;&#x4F4E;&#x64AD;&#x653E;&#x5668;&#x97F3;&#x91CF;&#x3002;&#x5982;&#x679C;&#x8BE5; AudioFocus &#x88AB;&#x5E9F;&#x5F03;&#xFF0C;&#x90A3;&#x4E48;&#x5A92;&#x4F53;&#x5E94;&#x7528;&#x9700;&#x8981;&#x5C06;&#x5A92;&#x4F53;&#x64AD;&#x653E;&#x5668;&#x505C;&#x6B62;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x91CA;&#x653E;&#x64AD;&#x653E;&#x5668;&#x8D44;&#x6E90;&#x3002;&#x5F53;&#x5A92;&#x4F53;&#x7ED3;&#x675F;&#x64AD;&#x653E;&#x540E;&#xFF0C;&#x5E94;&#x8BE5;&#x4E3B;&#x52A8;&#x5E9F;&#x5F03; AudioFocus&#x3002;</p>
+<p>&#x5E94;&#x7528;&#x5728;&#x5B8C;&#x6210;&#x4EFB;&#x52A1;&#x540E;&#xFF0C;&#x5E94;&#x8BE5;&#x81EA;&#x884C;&#x9000;&#x51FA;&#x5E94;&#x7528;&#xFF0C;&#x4EE5;&#x7F13;&#x89E3;&#x8BBE;&#x5907;&#x8D44;&#x6E90;&#x538B;&#x529B;&#x3002;</p>
+<h4 id="&#x5BF9;&#x8BDD;&#x5E94;&#x7528;">&#x5BF9;&#x8BDD;&#x5E94;&#x7528;</h4>
+<p>&#x5BF9;&#x8BDD;&#x5E94;&#x7528;&#x901A;&#x5E38;&#x7684;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x6BD4;&#x8F83;&#x77ED;&#x6682;&#xFF0C;&#x6240;&#x4EE5;&#x63A8;&#x8350;&#x7533;&#x8BF7; TRANSIENT &#x7C7B;&#x578B;&#x7684; AudioFocus&#xFF0C;&#x5E76;&#x5728;&#x7533;&#x8BF7;&#x83B7;&#x5F97;&#x6388;&#x6743;&#x540E;&#xFF0C;&#x5F00;&#x59CB;&#x8BED;&#x97F3;&#x5408;&#x6210;&#x5E76;&#x64AD;&#x653E;&#x3002;&#x5728; AudioFocus &#x88AB;&#x6302;&#x8D77;&#x540E;&#xFF0C;&#x5E94;&#x8BE5;&#x7ACB;&#x523B;&#x53D6;&#x6D88;&#x5F53;&#x524D;&#x7684;&#x8BED;&#x97F3;&#x5408;&#x6210;&#x3002;&#x5F53;&#x8BED;&#x97F3;&#x5408;&#x6210;&#x7ED3;&#x675F;&#x64AD;&#x653E;&#x540E;&#xFF0C;&#x5E94;&#x8BE5;&#x4E3B;&#x52A8;&#x5E9F;&#x5F03; AudioFocus&#x3002;</p>
+<p>&#x5E94;&#x7528;&#x5728;&#x5B8C;&#x6210;&#x4EFB;&#x52A1;&#x540E;&#xFF0C;&#x5E94;&#x8BE5;&#x81EA;&#x884C;&#x9000;&#x51FA;&#x5E94;&#x7528;&#xFF0C;&#x4EE5;&#x7F13;&#x89E3;&#x8BBE;&#x5907;&#x8D44;&#x6E90;&#x538B;&#x529B;&#x3002;</p>
+<h4 id="&#x901A;&#x8BDD;&#x5E94;&#x7528;">&#x901A;&#x8BDD;&#x5E94;&#x7528;</h4>
+<p>&#x901A;&#x8BDD;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x5728;&#x6536;&#x5230;&#x901A;&#x8BDD;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x6216;&#x8005;&#x7528;&#x6237;&#x8981;&#x6C42;&#x62E8;&#x6253;&#x7535;&#x8BDD;&#x65F6;&#xFF0C;&#x6309;&#x9700;&#x7533;&#x8BF7;&#x9ED8;&#x8BA4;&#x7C7B;&#x578B;&#x7684; AudioFocus &#x6216;&#x8005; TRANSIENT_EXCLUSIVE &#x7C7B;&#x578B;&#x7684; AudioFocus&#xFF08;&#x53D6;&#x51B3;&#x4E8E;&#x5E94;&#x7528;&#x662F;&#x5426;&#x5E0C;&#x671B;&#x5728;&#x901A;&#x8BDD;&#x65F6;&#xFF0C;&#x7528;&#x6237;&#x8FD8;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x8981;&#x6C42;&#x8BBE;&#x5907;&#x64AD;&#x653E;&#x5176;&#x4ED6;&#x5A92;&#x4F53;&#x3001;&#x5524;&#x9192;&#x8BBE;&#x5907;&#xFF09;&#x3002;&#x5982;&#x679C;&#x901A;&#x8BDD;&#x5E94;&#x7528;&#x7533;&#x8BF7;&#x4E86;&#x9ED8;&#x8BA4;&#x7C7B;&#x578B;&#x7684; AudioFocus&#xFF0C;&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x540C;&#x65F6;&#x7533;&#x8BF7; VoiceInterface &#x7684; monologue &#x6A21;&#x5F0F;&#xFF0C;&#x4EE5;&#x9632;&#x6B62;&#x901A;&#x8BDD;&#x88AB;&#x5176;&#x4ED6;&#x8BEF;&#x64CD;&#x4F5C;&#x6253;&#x65AD;&#x3002;</p>
+<h4 id="&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x5E94;&#x7528;">&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x5E94;&#x7528;</h4>
+<p>&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x5E94;&#x8BE5;&#x5728;&#x5F00;&#x59CB;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x7533;&#x8BF7; TRANSIENT &#x7C7B;&#x578B;&#x7684; AudioFocus&#xFF0C;&#x5E76;&#x5728;&#x7533;&#x8BF7;&#x83B7;&#x5F97;&#x6388;&#x6743;&#x540E;&#xFF0C;&#x51C6;&#x5907;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x3002;&#x5982;&#x679C;&#x5728;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5982;&#x679C; AudioFocus &#x88AB;&#x6302;&#x8D77;&#xFF0C;&#x90A3;&#x4E48;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x5E94;&#x8BE5;&#x5C06;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x8FD8;&#x539F;&#xFF0C;&#x6062;&#x590D;&#x8BBE;&#x5907;&#x6B63;&#x5E38;&#x72B6;&#x6001;&#xFF1B;&#x5728;&#x5B8C;&#x6210;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x540E;&#xFF0C;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x91CA;&#x653E;&#x8BE5; AudioFocus&#xFF0C;&#x4EE5;&#x6062;&#x590D;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x3002;</p>
+<h4 id="&#x8BED;&#x97F3;&#x6FC0;&#x6D3B;">&#x8BED;&#x97F3;&#x6FC0;&#x6D3B;</h4>
+<p>&#x5728;&#x7528;&#x6237;&#x8BED;&#x97F3;&#x6FC0;&#x6D3B;&#x8BBE;&#x5907;&#x65F6;&#xFF0C;Launcher &#x5E94;&#x7528;&#x4F1A;&#x7ACB;&#x523B;&#x7533;&#x8BF7; TRANSIENT &#x7C7B;&#x578B;&#x7684; AudioFocus&#xFF0C;&#x5E76;&#x4E14;&#x64AD;&#x653E;&#x8BBE;&#x5907;&#x6FC0;&#x6D3B;&#x97F3;&#x6548;&#xFF0C;&#x54CD;&#x5E94;&#x7528;&#x6237;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x3002;&#x6240;&#x4EE5;&#x5728;&#x8BED;&#x97F3;&#x6FC0;&#x6D3B;&#x65F6;&#xFF0C;&#x4F1A;&#x5C06;&#x5F53;&#x524D;&#x7684; TRANSIENT &#x7C7B;&#x578B;&#x7684; AudioFocus &#x5E9F;&#x5F03;&#x3001;&#x77ED;&#x6682;&#x6302;&#x8D77;&#x5F53;&#x524D;&#x7684;&#x9ED8;&#x8BA4;&#x7C7B;&#x578B;&#x7684; AudioFocus&#x3002;</p>
+<p>&#x5728;&#x5E94;&#x7528;&#x7533;&#x8BF7;&#x4E86; TRANSIENT_EXCLUSIVE &#x7C7B;&#x578B;&#x7684; AudioFocus &#x540E;&#xFF0C;Launcher &#x5E94;&#x7528;&#x4F1A;&#x5173;&#x95ED;&#x8BBE;&#x5907;&#x7684;&#x5524;&#x9192;&#x5F15;&#x64CE;&#x3002;</p>
+<h2 id="&#x5F00;&#x59CB;&#x63A5;&#x7BA1;&#x7CFB;&#x7EDF;&#x8BED;&#x97F3;&#x7126;&#x70B9;">&#x5F00;&#x59CB;&#x63A5;&#x7BA1;&#x7CFB;&#x7EDF;&#x8BED;&#x97F3;&#x7126;&#x70B9;</h2>
+<p>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x4EE3;&#x7801;&#x76EE;&#x5F55;&#x6709;&#x5982;&#x4E0B;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre><code>-- ~/awesome-app
+   |- package.json
+   |
+   |- /src
+   |  |- /voice
+   |  |  |- player.js
+   |  |
+   |  |- app.js
+</code></pre><p>&#x6211;&#x4EEC;&#x5E0C;&#x671B; app &#x5728;&#x63A5;&#x6536;&#x5230; url &#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#xFF0C;&#x5373;&#x542F;&#x52A8;&#x64AD;&#x653E;&#x5668;&#x5F00;&#x59CB;&#x64AD;&#x653E;&#x5A92;&#x4F53;&#xFF0C;&#x6211;&#x4EEC;&#x4E3A; <code>~/awesome-app/src/app.js</code> &#x64B0;&#x5199;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Application = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;@yodaos/application&apos;</span>).Application
+
+<span class="hljs-keyword">var</span> app = Application({
+  url: (urlObj) =&gt; {
+    app.startVoice(<span class="hljs-string">&apos;player&apos;</span>, urlObj.query.media_url)
+  }
+})
+
+app.startVoice = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startVoice</span> (<span class="hljs-params">name, args</span>) </span>{
+  <span class="hljs-keyword">var</span> voice = <span class="hljs-built_in">require</span>(<span class="hljs-string">`./voice/<span class="hljs-subst">${name}</span>`</span>)
+  voice.apply(<span class="hljs-keyword">this</span>, args)
+}
+</code></pre>
+<p>&#x800C;&#x5728; <code>~/awesome-app/src/voice/player.js</code> &#x4E2D;&#x5373;&#x53EF;&#x5173;&#x6CE8; VUI &#x76F8;&#x5173;&#x7684;&#x4E8B;&#x5B9C;&#xFF0C;&#x521B;&#x5EFA;&#x64AD;&#x653E;&#x5668;&#x3001;&#x64AD;&#x653E;&#x7B49;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> AudioFocus = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;@yodaos/application&apos;</span>).AudioFocus
+<span class="hljs-keyword">var</span> MediaPlayer = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;@yoda/multimedia&apos;</span>).MediaPlayer
+
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Player</span> (<span class="hljs-params">mediaUrl</span>) </span>{
+  <span class="hljs-keyword">var</span> focus = <span class="hljs-keyword">new</span> AudioFocus()
+  <span class="hljs-keyword">var</span> resumeOnGain = <span class="hljs-literal">true</span>
+  <span class="hljs-keyword">var</span> player = <span class="hljs-keyword">new</span> MediaPlayer()
+  player.setDataSource(mediaUrl)
+  player.prepare()
+
+  focus.onGain = () =&gt; {
+    <span class="hljs-keyword">if</span> (resumeOnGain) {
+      player.start()
+    }
+    resumeOnGain = <span class="hljs-literal">false</span>
+  }
+  focus.onLoss = (transient, mayDuck) =&gt; {
+    <span class="hljs-keyword">if</span> (transient) {
+      player.pause()
+      resumeOnGain = <span class="hljs-literal">true</span>
+    } <span class="hljs-keyword">else</span> {
+      player.stop()
+    }
+  }
+  focus.request()
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5A92;&#x4F53;&#x64AD;&#x653E;&#x5E94;&#x7528;&#xFF0C;</p>
+<h3 id="&#x8FD0;&#x884C;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;">&#x8FD0;&#x884C;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;</h3>
+<p>&#x9996;&#x5148;&#xFF0C;&#x901A;&#x8FC7; yoda-cli &#x5C06;&#x5E94;&#x7528;&#x4EE3;&#x7801;&#x4E0E;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5B89;&#x88C5;&#x5230;&#x8BBE;&#x5907;&#xFF1A;</p>
+<pre><code class="lang-bash">~/awesome-app &gt; yoda-cli pm install .
+</code></pre>
+<p>&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; yoda-cli &#x7ED9;&#x5E94;&#x7528;&#x53D1;&#x9001; Url &#x6307;&#x4EE4;&#xFF1A;</p>
+<pre><code class="lang-bash">~/awesome-app &gt; yoda-cli am open-url yoda-app://awesome-app/?media_url=/opt/media/music.mp3
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-build-your-first-app.html" class="navigation navigation-prev " aria-label="Previous page: 开始编写你的第一个应用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="03-lightd.html" class="navigation navigation-next " aria-label="Next page: 灯效开发">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"语音焦点","level":"1.2.2","depth":2,"next":{"title":"灯效开发","level":"1.2.3","depth":2,"path":"guidance/03-lightd.md","ref":"guidance/03-lightd.md","articles":[]},"previous":{"title":"开始编写你的第一个应用","level":"1.2.1","depth":2,"path":"guidance/01-build-your-first-app.md","ref":"guidance/01-build-your-first-app.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github-buttons","splitter","disqus","i18n-upgrade"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"YODAOS"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"i18n-upgrade":{"Lang1":{"name":"English","url":"en","include":"[]"},"Lang2":{"name":"中文","url":"zh","include":"[]"}},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"i18n":{"Lang1":{"name":"English","url":"en-us"},"Lang2":{"name":"简体中文","url":"zh-cn"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-cn","gitbook":"*"},"file":{"path":"guidance/02-audio-focus.md","mtime":"2019-10-03T12:06:21.598Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-03T12:07:09.477Z"},"basePath":"..","book":{"language":"zh-cn"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-i18n-upgrade/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

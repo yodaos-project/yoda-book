@@ -1,0 +1,681 @@
+
+<!DOCTYPE HTML>
+<html lang="en-us" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Lights · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="04-mqtt.html" />
+    
+    
+    <link rel="prev" href="02-keyboard.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Get Started
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../guidance/01-build-your-first-app.html">
+            
+                <a href="../../guidance/01-build-your-first-app.html">
+            
+                    
+                    Build your first app
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../guidance/02-lifetime.html">
+            
+                <a href="../../guidance/02-lifetime.html">
+            
+                    
+                    Life Cycle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../guidance/03-lightd.html">
+            
+                <a href="../../guidance/03-lightd.html">
+            
+                    
+                    Light Effect Development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../guidance/04-app-manifest.html">
+            
+                <a href="../../guidance/04-app-manifest.html">
+            
+                    
+                    Application Manifest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Best Practices
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../best-practice/01-testing.html">
+            
+                <a href="../../best-practice/01-testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../best-practice/03-performance-stability.html">
+            
+                <a href="../../best-practice/03-performance-stability.html">
+            
+                    
+                    Performance and Stability
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <a target="_blank" href="https://github.com/Rokid/yoda-samples">
+            
+                    
+                    Samples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    YODAOS Source
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    Compile and Run
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../system/compile-run.html">
+            
+                <a href="../system/compile-run.html">
+            
+                    
+                    Compile and Run
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    Product Customization
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="01-overview.html">
+            
+                <a href="01-overview.html">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="02-keyboard.html">
+            
+                <a href="02-keyboard.html">
+            
+                    
+                    Button
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3.3" data-path="03-light.html">
+            
+                <a href="03-light.html">
+            
+                    
+                    Lights
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="04-mqtt.html">
+            
+                <a href="04-mqtt.html">
+            
+                    
+                    Custom MQTT message
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    Testing
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../testing/test-tools-introduce.html">
+            
+                <a href="../testing/test-tools-introduce.html">
+            
+                    
+                    Test facility
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../testing/unit-test-introduce.html">
+            
+                <a href="../testing/unit-test-introduce.html">
+            
+                    
+                    compatibility test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Lights</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="yodaos-lighting-service-architecture-and-customization-guidelines">YODAOS Lighting Service Architecture and Customization Guidelines</h1>
+<h2 id="overview">Overview</h2>
+<p>The light is divided into two parts, one is the upper part of the lightd application frame, and the other is the underlying rendering part, which is the part of this document that will be described.
+The upper application framework abstracts the apis that operate the lights. The user only needs to know how many lights are there and then operate the lights. By default each light is in RGB format.
+But in this part of the hardware, in addition to knowing how many lights there are, you also need to know the format of the lights. For example, above the Me is the RGB light, above the NABOO is the monochrome PWM light.</p>
+<p>The problems that need to be described in this part of the document are mainly the following</p>
+<ul>
+<li>How to configure the system built-in lighting effect</li>
+<li>How to receive frame data passed by the light application framework</li>
+<li>How to convert the frame data passed by the application framework into the actual light format and then render.</li>
+</ul>
+<h2 id="configuring-system-lighting-effects">Configuring System Lighting Effects</h2>
+<p>The built-in lighting effects file is stored under /opt/light/ by default and can be configured in the lightd service.</p>
+<p>Configure the path of the system build-in lighting effect file:</p>
+<ol>
+<li>Edit the file: <code>/usr/yoda/services/lightd/service.js</code>.</li>
+<li>Configure the value of this field <code>var LIGHT_SOURCE = &apos;/opt/light/&apos;</code> Note that the last side requires a slash <code>/</code>.</li>
+</ol>
+<p>From the configuration file, the lighting effect files can be divided into two types:</p>
+<ol>
+<li>System lighting effect file.</li>
+<li>User light effect file.</li>
+</ol>
+<h3 id="system-light-effect-file-definition">System Light Effect File Definition</h3>
+<p>The system light effect is configured in <code>${LIGHT_SOURCE}/config.json</code>. The content of this file is the json object. The key saves the relative path of the system&apos;s lighting effect. The value is the priority of the light. The smaller the priority number of the system lighting effect, the higher the priority. That is 0 is the highest.</p>
+<p>The system light effect maintains a layer, which is an array that holds all the lights to be restored. There can only be one light effect per layer, and the number of layers indicates the priority. That is, if a system light is to be restored, the light will be saved to the system layer. Look for it from the 0th floor when recovering. The maximum number of layers in the layer is determined by the largest number in the config.json file.</p>
+<p>The following is an example of the contents of a <code>config.json</code> file:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;setVolume.js&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-string">&quot;setMuted.js&quot;</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-string">&quot;awake.js&quot;</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-string">&quot;longPressMic.js&quot;</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-string">&quot;loading.js&quot;</span>: <span class="hljs-number">3</span>,
+  <span class="hljs-string">&quot;setPickup.js&quot;</span>: <span class="hljs-number">3</span>,
+  <span class="hljs-string">&quot;setSpeaking.js&quot;</span>: <span class="hljs-number">4</span>,
+  <span class="hljs-string">&quot;bluetoothOpen.js&quot;</span>: <span class="hljs-number">3</span>,
+  <span class="hljs-string">&quot;bluetoothConnect.js&quot;</span>: <span class="hljs-number">3</span>
+}
+</code></pre>
+<p>Only the light effect files declared in this file are defined as <code>System Light Effect</code>.</p>
+<blockquote>
+<p>System Light Effect Priority Why is 0 the maximum?</p>
+</blockquote>
+<p>Assume that the higher the number, the higher the priority. Pre-defined 10 lighting effects, if you want to add a lower priority lighting effect, then increase all the numbers to 1.
+The system-defined priority will not be changed at runtime. Generally, in the definition phase, the highest priority is defined first, so it is natural that starting from 0, 1234 is in order.</p>
+<h3 id="user-light-effect-file-definition">User Light Effect File Definition</h3>
+<p>All non-system lighting effects are defined as user lighting effects. That is, even if your file is in the system directory, it is not declared in the <code>config.json</code> file, it is still user-friendly.</p>
+<p>The user&apos;s lighting effect does not need to be defined, and there is no pre-declared priority, so its priority is the runtime, which is dynamically specified by the caller.</p>
+<p>User lighting also has a layer. Only this layer is the smaller the number, the lower the priority, the default is 0. When recovering, look up from the largest layer until the 0th floor. The maximum number of layers is configured by the lightd service. If the call is out of range, it is automatically limited to the range. For example, if the maximum range is exceeded, the default is the maximum number of layers.</p>
+<p>Configure the maximum number of layers in the user layer:</p>
+<ol>
+<li>Edit the file: <code>/usr/yoda/services/lightd/service.js</code></li>
+<li>Configure the value of this field <code>var maxUserspaceLayers = 3</code> Note that you need an integer greater than 0.</li>
+</ol>
+<p>The higher the priority number of the user&apos;s lighting effect, the higher the priority.</p>
+<blockquote>
+<p>User Light Effect Priority Why is 0 Minimum?</p>
+</blockquote>
+<p>Suppose, if 0 is the maximum, then when I call a user light effect, how much priority should I pass?
+The priority of the user&apos;s lighting effect is dynamically specified at runtime. If you want to call a higher priority light effect, the number will naturally increase by 1, so it starts from 0.</p>
+<h2 id="lightd-application-layer-workflow">Lightd Application Layer Workflow</h2>
+<h3 id="lightd-architecture">Lightd Architecture</h3>
+<p>The lightd is divided into two parts:</p>
+<ul>
+<li>One is the upper JavaScript application framework, responsible for abstracting hardware apis and managing resources.</li>
+<li>The second is the underlying hardware rendering library, which is responsible for rendering the lighting effects of the upper application settings to the hardware.</li>
+</ul>
+<h3 id="led-data-structure">Led Data Structure</h3>
+<p>From the perspective of the JavaScript application framework, the default is now the RGB data format. Even the monochrome PWM lamp is used as the RGB operation. The underlying rendering library automatically converts the RGB to a single when the data stream is passed to the hardware rendering. The data format is arranged in RGB RGB... order. The value of each channel is an 8-bit integer. That is, the value of each channel is between 0-255.</p>
+<p>Let&apos;s take the hardware with 5 RGB lights as an example to see how the real data is represented in lightd.</p>
+<p>5 lights, each of which is an RGB channel, so the length of the <code>frame</code> frame is 5 * 3 = 15, which is 15 bytes, so the real data structure is:</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">char</span>* frame = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">5</span> * <span class="hljs-number">3</span>]
+</code></pre>
+<blockquote>
+<p>noun explanation: frame
+frame represents the data needed to refresh all the lights one frame.</p>
+</blockquote>
+<h2 id="hardware-layer-workflow">Hardware Layer Workflow</h2>
+<h4 id="led-hal-parameter-configuration">LED HAL Parameter Configuration</h4>
+<ul>
+<li>LED driver attribute classification
+Make menuconfig -&gt; rokid -&gt; Hardware Layer Solutions -&gt;
+There are three types of LED drivers: PWM format, MCU side I2C, ARM side I2C (take kamino18 as an example)</li>
+<li>Number of LED lights
+Make menuconfig -&gt; rokid -&gt; Hardware Layer Solutions -&gt;
+The number of led lights can be controlled by <code>BOARD_LED_NUMS</code></li>
+</ul>
+<hr>
+<h4 id="led-hal-code-logic">LED HAL Code Logic</h4>
+<ul>
+<li>Standard android hardware layer architecture, code directory: <code>kamino18/hardware/modules/leds/</code></li>
+<li>HAL layer code basic format</li>
+</ul>
+<pre><code class="lang-c"> <span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> <span class="hljs-keyword">hw_module_methods_t</span> led_module_methods = {
+     .open = led_dev_open,
+ };
+
+ <span class="hljs-keyword">struct</span> <span class="hljs-keyword">hw_module_t</span> HAL_MODULE_INFO_SYM = {
+     .tag = HARDWARE_MODULE_TAG,
+     .module_api_version = LEDS_API_VERSION,
+     .hal_api_version = HARDWARE_HAL_API_VERSION,
+     .id = LED_ARRAY_HW_ID,
+     .name = <span class="hljs-string">&quot;ROKID PWM LEDS HAL&quot;</span>,
+     .methods = &amp;led_module_methods,
+ };
+</code></pre>
+<ul>
+<li>Calling method of HAL layer:
+Hw_get_module(LED_ARRAT_HW_ID, (const struct hw_module_t **)&amp;module);</li>
+<li>Processing application layer sent RGB data
+The first entry function <code>led_draw()</code> mainly implements the following functions:</li>
+<li>If it is a three-color lamp in RGB format, directly write to the underlying driver in the corresponding order</li>
+<li>If it is a PWM controlled monochromatic lamp, it will respond to convert the RGB data into grayscale value by <code>rgb_to_gray()</code> to the driver layer.</li>
+<li>The above lights automatically discard the transparency value</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-keyboard.html" class="navigation navigation-prev " aria-label="Previous page: Button">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="04-mqtt.html" class="navigation navigation-next " aria-label="Next page: Custom MQTT message">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lights","level":"2.3.3","depth":2,"next":{"title":"Custom MQTT message","level":"2.3.4","depth":2,"path":"yodaos-source/customization/04-mqtt.md","ref":"yodaos-source/customization/04-mqtt.md","articles":[]},"previous":{"title":"Button","level":"2.3.2","depth":2,"path":"yodaos-source/customization/02-keyboard.md","ref":"yodaos-source/customization/02-keyboard.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github-buttons","splitter","disqus","i18n-upgrade"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"YODAOS"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"i18n-upgrade":{"Lang1":{"name":"English","url":"en","include":"[]"},"Lang2":{"name":"中文","url":"zh","include":"[]"}},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"i18n":{"Lang1":{"name":"English","url":"en-us"},"Lang2":{"name":"简体中文","url":"zh-cn"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en-us","gitbook":"*"},"file":{"path":"yodaos-source/customization/03-light.md","mtime":"2019-10-03T12:06:21.594Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-03T12:07:09.477Z"},"basePath":"../..","book":{"language":"en-us"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-i18n-upgrade/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

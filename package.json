@@ -1,0 +1,29 @@
+{
+  "name": "yodaos-book",
+  "version": "1.0.0",
+  "description": "The book covers the application development and customization.",
+  "scripts": {
+    "install": "gitbook install",
+    "pdf": "gitbook pdf",
+    "dev": "gitbook serve",
+    "build": "gitbook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yodaos-project/yoda-book.git"
+  },
+  "keywords": [
+    "yoda",
+    "yodaos",
+    "docs",
+    "guidances"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-disqus": "^0.1.0",
+    "gitbook-plugin-github-buttons": "^3.0.0",
+    "gitbook-plugin-i18n-upgrade": "^2.0.0",
+    "gitbook-plugin-splitter": "0.0.8"
+  }
+}

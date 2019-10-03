@@ -1,0 +1,671 @@
+
+<!DOCTYPE HTML>
+<html lang="en-us" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Test facility · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="unit-test-introduce.html" />
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Get Started
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../guidance/01-build-your-first-app.html">
+            
+                <a href="../../guidance/01-build-your-first-app.html">
+            
+                    
+                    Build your first app
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../guidance/02-lifetime.html">
+            
+                <a href="../../guidance/02-lifetime.html">
+            
+                    
+                    Life Cycle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../guidance/03-lightd.html">
+            
+                <a href="../../guidance/03-lightd.html">
+            
+                    
+                    Light Effect Development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../guidance/04-app-manifest.html">
+            
+                <a href="../../guidance/04-app-manifest.html">
+            
+                    
+                    Application Manifest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Best Practices
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../best-practice/01-testing.html">
+            
+                <a href="../../best-practice/01-testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../best-practice/03-performance-stability.html">
+            
+                <a href="../../best-practice/03-performance-stability.html">
+            
+                    
+                    Performance and Stability
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <a target="_blank" href="https://github.com/Rokid/yoda-samples">
+            
+                    
+                    Samples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    YODAOS Source
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    Compile and Run
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../system/compile-run.html">
+            
+                <a href="../system/compile-run.html">
+            
+                    
+                    Compile and Run
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    Product Customization
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../customization/01-overview.html">
+            
+                <a href="../customization/01-overview.html">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../customization/02-keyboard.html">
+            
+                <a href="../customization/02-keyboard.html">
+            
+                    
+                    Button
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../customization/03-light.html">
+            
+                <a href="../customization/03-light.html">
+            
+                    
+                    Lights
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../customization/04-mqtt.html">
+            
+                <a href="../customization/04-mqtt.html">
+            
+                    
+                    Custom MQTT message
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    Testing
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.4.1" data-path="test-tools-introduce.html">
+            
+                <a href="test-tools-introduce.html">
+            
+                    
+                    Test facility
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="unit-test-introduce.html">
+            
+                <a href="unit-test-introduce.html">
+            
+                    
+                    compatibility test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Test facility</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="testing-tools">Testing Tools</h1>
+<h2 id="unit-test-tool-tape">Unit test tool: Tape</h2>
+<h3 id="introduction-to-single-test-tools">Introduction to Single Test Tools</h3>
+<p><a href="https://github.com/shadow-node/tape#tape" target="_blank">https://github.com/shadow-node/tape#tape</a></p>
+<h2 id="coverage-statistics-tool-istanbul">Coverage Statistics Tool Istanbul</h2>
+<h3 id="usage">Usage</h3>
+<h4 id="installing-the-nyc-package">Installing the Nyc Package</h4>
+<p>The npm tool pulls down the corresponding package. Currently, the runtime has added the dependency of the nyc toolkit, directly npm install.</p>
+<h3 id="preparing-for-coverage-environment">Preparing for Coverage Environment</h3>
+<p>The initialization function is to prepare the coverage statistics environment: to ensure that the current code is up-to-date; to clear the historical data that may be built last time;</p>
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">init</span></span>()
+{
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;========init coverage env========&quot;</span>
+    <span class="hljs-built_in">cd</span> <span class="hljs-variable">$WORKSPACE</span>/<span class="hljs-variable">$GERRIT_PROJECT</span>/
+    rm -rf node_modules
+    npm install
+    npm install --save-dev nyc
+    rm -rf coverage
+    rm -rf .nyc_output
+    adb shell mount -o remount -o rw /
+    adb shell mkdir -p .nyc_output
+    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;$?&quot;</span> != 0 ];<span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;============init fail=============&quot;</span>
+    <span class="hljs-keyword">fi</span>
+}
+</code></pre>
+<h4 id="generating-piling-files">Generating Piling Files</h4>
+<p>Generate a piling file. The idea is to put the source file to be counted into the specified directory, and then generate the piling file to the specified directory.</p>
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">getOutput</span></span>()
+{
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;========get new files Output========&quot;</span>
+  mkdir -p <span class="hljs-built_in">source</span>-prepare
+  cp -r packages ./<span class="hljs-built_in">source</span>-prepare/
+  cp -r runtime ./<span class="hljs-built_in">source</span>-prepare/
+  cp -r apps ./<span class="hljs-built_in">source</span>-prepare/
+  cp -r res ./<span class="hljs-built_in">source</span>-prepare/
+  node_modules/.bin/nyc instrument ./<span class="hljs-built_in">source</span>-prepare ./<span class="hljs-built_in">source</span>-for-coverage
+  <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;$?&quot;</span> != 0 ];<span class="hljs-keyword">then</span>
+       <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;========getOutput===========&quot;</span>
+    <span class="hljs-keyword">fi</span>
+}
+</code></pre>
+<h4 id="push-piling-files-to-device">Push Piling Files to Device</h4>
+<p>Push the successfully piling file to the device side according to the original directory structure.</p>
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">pushToDevice</span></span>()
+{
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;========pushToDevice========&quot;</span>
+    tools/coverage-install -t
+    tools/runtime-op restart
+  <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;$?&quot;</span> != 0 ];<span class="hljs-keyword">then</span>
+       <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;=======pushToDevice fail=======&quot;</span>
+    <span class="hljs-keyword">fi</span>
+}
+</code></pre>
+<h4 id="execution-unit-test">Execution Unit Test</h4>
+<p>Perform unit tests with tape. Currently tape has supported the coverage statistics save path passed in via the --coverage parameter.</p>
+<pre><code> //example
+ tools/test --coverage &apos;.nyc_output/xx.data&apos; -p &apos;**/*.test.js&apos;
+</code></pre><h4 id="pull-coverage-file-to-local">Pull Coverage File to Local</h4>
+<p>Pull the device side .nyc_output file to the same level as the source file directory.</p>
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">pullCoverageDate</span></span>()
+{
+  sleep 5
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;========pull coverage data========&quot;</span>
+  mkdir -p .nyc_output
+  adb pull /.nyc_output 
+  <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;$?&quot;</span> != 0 ];<span class="hljs-keyword">then</span>
+       <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;no coverage data&quot;</span>
+    <span class="hljs-keyword">fi</span>
+}
+</code></pre>
+<h4 id="generating-coverage-report">Generating Coverage Report</h4>
+<p>Use nyc to generate a report based on the coverage file.</p>
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">makeReport</span></span>()
+{
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;========make coverage report========&quot;</span>
+  node_modules/.bin/nyc report --reporter=html
+  <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;$?&quot;</span> != 0 ];<span class="hljs-keyword">then</span>
+       <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;make report fail!&quot;</span>
+  <span class="hljs-keyword">fi</span>
+}
+</code></pre>
+<h3 id="q--a">Q &amp; A</h3>
+<ul>
+<li><p>Q1: Where is the coverage file generation location on the device?</p>
+</li>
+<li><p>A1: Determined by the execution of the tape --the coverage parameter (the above script is generated in the .nyc_output directory of the device root).</p>
+</li>
+<li><p>Q2: Generate coverage report error, can&apos;t find directory .nyc_output?</p>
+</li>
+<li><p>A2: Because the command to generate the report defaults to reading the coverage file from the .nyc_output file in the current directory.</p>
+</li>
+<li><p>Q3: Is the generated coverage report location?</p>
+</li>
+<li><p>A3: Under the project root directory, the coverage directory is automatically generated, and the index.html file in the directory can be opened.</p>
+</li>
+<li><p>Q4: Visit the report page to view the source code coverage details. The error message indicates that the directory cannot be found.</p>
+</li>
+<li><p>A4: Make sure your source directory is level with the reported coverage directory.</p>
+</li>
+<li><p>Q5: Is there a problem with the single test discovery function?</p>
+</li>
+<li><p>A5: It may be that the push piling file process ensures that non-js files are not affected.</p>
+</li>
+<li><p>Q6: After performing the single test, it is found that the generated coverage file is not in the complete json format, resulting in the failure to generate a report.</p>
+</li>
+<li><p>A6: Make sure there is only one place in a test process that listens to the end of the process and generates a coverage file. The logic of the listener process is already integrated into the tape.</p>
+</li>
+</ul>
+<h3 id="reference-document">Reference Document</h3>
+<p><a href="https://istanbul.js.org/docs/tutorials/iotjs/" target="_blank">https://istanbul.js.org/docs/tutorials/iotjs/</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="unit-test-introduce.html" class="navigation navigation-next navigation-unique" aria-label="Next page: compatibility test">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Test facility","level":"2.4.1","depth":2,"next":{"title":"compatibility test","level":"2.4.2","depth":2,"path":"yodaos-source/testing/unit-test-introduce.md","ref":"yodaos-source/testing/unit-test-introduce.md","articles":[]},"previous":{"title":"Testing","level":"2.4","depth":1,"ref":"","articles":[{"title":"Test facility","level":"2.4.1","depth":2,"path":"yodaos-source/testing/test-tools-introduce.md","ref":"yodaos-source/testing/test-tools-introduce.md","articles":[]},{"title":"compatibility test","level":"2.4.2","depth":2,"path":"yodaos-source/testing/unit-test-introduce.md","ref":"yodaos-source/testing/unit-test-introduce.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github-buttons","splitter","disqus","i18n-upgrade"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"YODAOS"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"i18n-upgrade":{"Lang1":{"name":"English","url":"en","include":"[]"},"Lang2":{"name":"中文","url":"zh","include":"[]"}},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"i18n":{"Lang1":{"name":"English","url":"en-us"},"Lang2":{"name":"简体中文","url":"zh-cn"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en-us","gitbook":"*"},"file":{"path":"yodaos-source/testing/test-tools-introduce.md","mtime":"2019-10-03T12:06:21.594Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-03T12:07:09.477Z"},"basePath":"../..","book":{"language":"en-us"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-i18n-upgrade/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,659 @@
+
+<!DOCTYPE HTML>
+<html lang="en-us" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Build your first app · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="02-lifetime.html" />
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Get Started
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="01-build-your-first-app.html">
+            
+                <a href="01-build-your-first-app.html">
+            
+                    
+                    Build your first app
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="02-lifetime.html">
+            
+                <a href="02-lifetime.html">
+            
+                    
+                    Life Cycle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="03-lightd.html">
+            
+                <a href="03-lightd.html">
+            
+                    
+                    Light Effect Development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="04-app-manifest.html">
+            
+                <a href="04-app-manifest.html">
+            
+                    
+                    Application Manifest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Best Practices
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../best-practice/01-testing.html">
+            
+                <a href="../best-practice/01-testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../best-practice/03-performance-stability.html">
+            
+                <a href="../best-practice/03-performance-stability.html">
+            
+                    
+                    Performance and Stability
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <a target="_blank" href="https://github.com/Rokid/yoda-samples">
+            
+                    
+                    Samples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    YODAOS Source
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    Compile and Run
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../yodaos-source/system/compile-run.html">
+            
+                <a href="../yodaos-source/system/compile-run.html">
+            
+                    
+                    Compile and Run
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    Product Customization
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../yodaos-source/customization/01-overview.html">
+            
+                <a href="../yodaos-source/customization/01-overview.html">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../yodaos-source/customization/02-keyboard.html">
+            
+                <a href="../yodaos-source/customization/02-keyboard.html">
+            
+                    
+                    Button
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../yodaos-source/customization/03-light.html">
+            
+                <a href="../yodaos-source/customization/03-light.html">
+            
+                    
+                    Lights
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../yodaos-source/customization/04-mqtt.html">
+            
+                <a href="../yodaos-source/customization/04-mqtt.html">
+            
+                    
+                    Custom MQTT message
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    Testing
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../yodaos-source/testing/test-tools-introduce.html">
+            
+                <a href="../yodaos-source/testing/test-tools-introduce.html">
+            
+                    
+                    Test facility
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../yodaos-source/testing/unit-test-introduce.html">
+            
+                <a href="../yodaos-source/testing/unit-test-introduce.html">
+            
+                    
+                    compatibility test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Build your first app</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="yodaos-developer-tools">YODAOS Developer Tools</h2>
+<p><a href="https://github.com/yodaos-project/yoda-platform-tools" target="_blank">YODAOS Developer Tools</a> provides a range of convenient tools for manipulating YODAOS devices, such as sending text commands, sending NLP intents, launching, installing applications, etc.</p>
+<p>The YODAOS Developer Tools can be downloaded from the <a href="https://github.com/yodaos-project/yoda-platform-tools/releases" target="_blank">YODAOS Developer Tools Releases</a> page.</p>
+<h2 id="creating-a-yodaos-application">Creating a YODAOS application</h2>
+<p>With the YODAOS Developer Tools, we can quickly create a YODAOS application project:</p>
+<pre><code class="lang-bash">~/workspace &gt; yoda-cli init app awesome-demo-app
+&#x2714; Name of the package ... awesome-demo-app
+&#x2714; A short description of the package ... A demo application project
+&#x2714; Is this package private? ... no / yes
+&#x2714; S<span class="hljs-built_in">kill</span> ids of your app ...
+&#x2714; Requested permissions of your app ... ACCESS_TTS
+&#x2714; Keywords ... demo, app
+</code></pre>
+<p>After running the above command, you can see the generated YODAOS application project in the <code>awesome-demo-app</code> directory in the current directory.</p>
+<p>More <code>yoda-cli</code> commands can be viewed with <code>yoda-cli help</code>.</p>
+<p>Once the project is built, you can install the app on your YODAOS device:</p>
+<pre><code class="lang-bash">~/workspace &gt; yoda-cli pm install awesome-demo-app
+</code></pre>
+<p>Or,</p>
+<pre><code>~/workspace/awesome-demo-app &gt; yoda-cli pm install .
+</code></pre><h2 id="program-entry-main-function">Program entry: Main function</h2>
+<p>For YODAOS, each application is a <a href="https://nodejs.org/docs/latest/api/modules.html" target="_blank">CommonJS</a> module. Every CommonJS module will have a reference to <code>module.exports</code>, and the application of YODAOS is the same. His main entry is a function that receives a <code>activity</code> as a parameter via <code>module.exports</code>.</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span> (<span class="hljs-params">activity</span>) </span>{
+
+}
+</code></pre>
+<p>The application interacts with the system through the <code>activity</code> object provided by the system framework, such as receiving the system, application events, and calling the system API.</p>
+<h3 id="interact-with-yodaos">Interact with YODAOS</h3>
+<p>The <code>activity</code> provided by the system framework is an object that conforms to Node.js <a href="https://nodejs.org/docs/latest/api/events.html#events_events" target="_blank">EventEmitter API</a>, on which we can listen to any application. Life cycle events:</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span> (<span class="hljs-params">activity</span>) </span>{
+  activity.on(<span class="hljs-string">&apos;create&apos;</span>, () =&gt; {
+    <span class="hljs-comment">/** do initialization on event `create` */</span>
+  })
+
+  activity.on(<span class="hljs-string">&apos;request&apos;</span>, () =&gt; {
+    activity.tts.speak(<span class="hljs-string">&apos;Hello World&apos;</span>)
+  })
+}
+</code></pre>
+<blockquote>
+<p>View more life cycle documentation: <a href="02-lifetime.html">Life Cycle</a></p>
+</blockquote>
+<h2 id="application-manifest">Application Manifest</h2>
+<p>In addition to the program code, the application needs to declare its own identity, permission request and other information, so that YODAOS allocates resources to the application, distributes NLP, and so on. The package.json of the YODAOS app contains this information:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;com.company.example.awesome-app&quot;</span>,
+  <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,
+  <span class="hljs-string">&quot;main&quot;</span>: <span class="hljs-string">&quot;app.js&quot;</span>,
+  <span class="hljs-string">&quot;manifest&quot;</span>: {
+    <span class="hljs-string">&quot;skills&quot;</span>: [
+      <span class="hljs-string">&quot;an-pre-registered-skill-id&quot;</span>
+    ],
+    <span class="hljs-string">&quot;permission&quot;</span>: [
+      <span class="hljs-string">&quot;ACCESS_TTS&quot;</span>,
+      <span class="hljs-string">&quot;ACCESS_MULTIMEDIA&quot;</span>
+    ]
+  }
+}
+</code></pre>
+<p>Package.json is similar to the <a href="https://www.npmjs.com/" target="_blank">npm</a> package, but for YODAOS applications, the most important of these is <code>name</code> and <code>manifest</code>: the former declares the ID of the application, the latter declares the permissions, skill IDs, etc. that need to be requested from YodaRuntime.</p>
+<blockquote>
+<p>View more package.json Description document: <a href="04-app-manifest.html">Apply Manifest</a></p>
+</blockquote>
+<h2 id="processing-voice-requests">Processing voice requests</h2>
+<p>After writing the NLP matching rules on the Rokid developer website, you can write the following code in the application code to process the voice request:</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span> (<span class="hljs-params">activity</span>) </span>{
+  activity.on(<span class="hljs-string">&apos;request&apos;</span>, nlp =&gt; {
+    activity.tts.speak(<span class="hljs-string">`Hello, <span class="hljs-subst">${nlp.slots.value}</span>`</span>)
+  })
+}
+</code></pre>
+<h2 id="processing-url-requests">Processing URL requests</h2>
+<p>The application can evoke other applications in the form of URLs and entrust the current interaction to the application that can handle the URL.</p>
+<p>If you want to process the URL of a domain name, you need to register the URL in the app&apos;s package.json . Here&apos;s an example of registering a foobar.app domain name:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;manifest&quot;</span>: {
+    <span class="hljs-string">&quot;skills&quot;</span>: [<span class="hljs-string">&quot;AVERYLONGSKILLID&quot;</span>],
+    <span class="hljs-string">&quot;hosts&quot;</span>: [
+      [ <span class="hljs-string">&quot;foobar.app&quot;</span>, { <span class="hljs-string">&quot;skillId&quot;</span>: <span class="hljs-string">&quot;AVERYLONGSKILLID&quot;</span> } ]
+    ]
+  }
+}
+</code></pre>
+<blockquote>
+<p>See more apps Manifest Document: <a href="04-app-manifest.html#manifesthosts">Apply Manifest</a></p>
+</blockquote>
+<p>After registering such a domain name, other applications can evoke the application by calling:</p>
+<pre><code class="lang-javascript">activity.openURL(<span class="hljs-string">&apos;yoda-skill://foobar.app/example&apos;</span>)
+</code></pre>
+<p>An application that has registered the domain name can process the URL request with the following code:</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span> (<span class="hljs-params">activity</span>) </span>{
+  activity.on(<span class="hljs-string">&apos;url&apos;</span>, urlObject =&gt; {
+    activity.tts.speak(<span class="hljs-string">`Opened URL <span class="hljs-subst">${url.pathname}</span>`</span>)
+  })
+}
+</code></pre>
+<blockquote>
+<p>See more documentation for URL Object: <a href="https://nodejs.org/docs/latest/api/url.html#url_legacy_urlobject" target="_blank">Legacy urlObject</a></p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="02-lifetime.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Life Cycle">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Build your first app","level":"1.2.1","depth":2,"next":{"title":"Life Cycle","level":"1.2.2","depth":2,"path":"guidance/02-lifetime.md","ref":"guidance/02-lifetime.md","articles":[]},"previous":{"title":"Get Started","level":"1.2","depth":1,"ref":"","articles":[{"title":"Build your first app","level":"1.2.1","depth":2,"path":"guidance/01-build-your-first-app.md","ref":"guidance/01-build-your-first-app.md","articles":[]},{"title":"Life Cycle","level":"1.2.2","depth":2,"path":"guidance/02-lifetime.md","ref":"guidance/02-lifetime.md","articles":[]},{"title":"Light Effect Development","level":"1.2.3","depth":2,"path":"guidance/03-lightd.md","ref":"guidance/03-lightd.md","articles":[]},{"title":"Application Manifest","level":"1.2.4","depth":2,"path":"guidance/04-app-manifest.md","ref":"guidance/04-app-manifest.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github-buttons","splitter","disqus","i18n-upgrade"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"YODAOS"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"i18n-upgrade":{"Lang1":{"name":"English","url":"en","include":"[]"},"Lang2":{"name":"中文","url":"zh","include":"[]"}},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"i18n":{"Lang1":{"name":"English","url":"en-us"},"Lang2":{"name":"简体中文","url":"zh-cn"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en-us","gitbook":"*"},"file":{"path":"guidance/01-build-your-first-app.md","mtime":"2019-10-03T12:06:21.594Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-03T12:07:09.477Z"},"basePath":"..","book":{"language":"en-us"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-i18n-upgrade/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,717 @@
+
+<!DOCTYPE HTML>
+<html lang="en-us" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Life Cycle · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="03-lightd.html" />
+    
+    
+    <link rel="prev" href="01-build-your-first-app.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Get Started
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-build-your-first-app.html">
+            
+                <a href="01-build-your-first-app.html">
+            
+                    
+                    Build your first app
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="02-lifetime.html">
+            
+                <a href="02-lifetime.html">
+            
+                    
+                    Life Cycle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="03-lightd.html">
+            
+                <a href="03-lightd.html">
+            
+                    
+                    Light Effect Development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="04-app-manifest.html">
+            
+                <a href="04-app-manifest.html">
+            
+                    
+                    Application Manifest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Best Practices
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../best-practice/01-testing.html">
+            
+                <a href="../best-practice/01-testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../best-practice/03-performance-stability.html">
+            
+                <a href="../best-practice/03-performance-stability.html">
+            
+                    
+                    Performance and Stability
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <a target="_blank" href="https://github.com/Rokid/yoda-samples">
+            
+                    
+                    Samples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    YODAOS Source
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    Compile and Run
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../yodaos-source/system/compile-run.html">
+            
+                <a href="../yodaos-source/system/compile-run.html">
+            
+                    
+                    Compile and Run
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    Product Customization
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../yodaos-source/customization/01-overview.html">
+            
+                <a href="../yodaos-source/customization/01-overview.html">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../yodaos-source/customization/02-keyboard.html">
+            
+                <a href="../yodaos-source/customization/02-keyboard.html">
+            
+                    
+                    Button
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../yodaos-source/customization/03-light.html">
+            
+                <a href="../yodaos-source/customization/03-light.html">
+            
+                    
+                    Lights
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../yodaos-source/customization/04-mqtt.html">
+            
+                <a href="../yodaos-source/customization/04-mqtt.html">
+            
+                    
+                    Custom MQTT message
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    Testing
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../yodaos-source/testing/test-tools-introduce.html">
+            
+                <a href="../yodaos-source/testing/test-tools-introduce.html">
+            
+                    
+                    Test facility
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../yodaos-source/testing/unit-test-introduce.html">
+            
+                <a href="../yodaos-source/testing/unit-test-introduce.html">
+            
+                    
+                    compatibility test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Life Cycle</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="overview">Overview</h2>
+<p>With knowledge of <a href="https://developer.rokid.com/docs/2-RokidDocument/1-SkillsKit/platform-introduction.html" target="_blank">Rokid Skills</a>, if you need to develop skills that are strongly related to devices capabilities, you would like to develop a native app. Complex application code needs to constantly communicate and interact with the system framework. The system framework provides sorts of the infrastructure necessary for all applications to run, and application developers provide the code to customize these infrastructures so that the application runs the way developers want. If you want to customize an application more efficiently, it&apos;s helpful to know some about how the YODAOS infrastructure works.</p>
+<h2 id="application-status">Application Status</h2>
+<p>The app is divided into 5 states</p>
+<table>
+<thead>
+<tr>
+<th>Status Name</th>
+<th>Main Role</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Not Running</td>
+<td>application process is not running</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Inactive</td>
+<td>No task is running</td>
+<td>the resource is prioritized collected by the system</td>
+</tr>
+<tr>
+<td>Active</td>
+<td>The current top-of-stack application, may be activated by NLP, URL, or proactively activated from the background state</td>
+<td>Apps can broadcast TTS, play media, etc. only on this state</td>
+</tr>
+<tr>
+<td>Paused</td>
+<td>Applications that be activated as a scene app, was temporarily pushed into the pause state by another application in the form of cut</td>
+<td>Applications should pause its media when entering the pause state</td>
+</tr>
+<tr>
+<td>Background</td>
+<td>Enter the background, the difference from inactive is that there are currently running tasks, should not be destroyed by system</td>
+<td>Applications must actively enter the state</td>
+</tr>
+</tbody>
+</table>
+<p><img src="../../../asset/yodaos-app-life-cycle.jpg" alt="YODAOS Application Lifecycle"></p>
+<h3 id="application-process-and-application-life-cycle">Application Process and Application Life Cycle</h3>
+<p>The daemon application will be started by the vui when the vui is ready (when the login is successful), and set to the inactive state, and the application will receive an <code>activity#create</code> event. When nlp/url is received, if it is not at the top of the stack, it will receive an <code>activity#active</code> event and then an <code>activity#request</code>/<code>activity#url</code> event.</p>
+<p>If the daemon application has crashed and has not restarted when it receives nlp/url, it will be launched at the same as the normal application.</p>
+<p>Normal applications that received nlp/url, if no process has not been created, will be started by vui, and receive <code>activity#create</code> event, if the application is not at the top of the stack, will receive <code>activity#active</code> event, Finally received the <code>activity#request</code>/<code>activity#url</code> event.</p>
+<p>After the application has processed all requests (nlp/url), it should voluntarily quit and free up the top of the stack so that the suspended application, such as music, can continue to play the media. Apps can actively exit via <code>Activity#exit</code> or put themselves in the background via <code>Activity#setBackground</code>. After the current top-of-stack application actively vacates the top of the stack, the vui will attempt to restore the previously suspended application and notify the application that it has been restored to the top of the stack via the <code>activity#resume</code> event.</p>
+<p>If an application in the form of a scene is active, the user triggers a voice command to open another application, then</p>
+<p>After the app calls <code>Activity#exit</code>, the app is marked inactive and receives the <code>activity#destroy</code> event. Applications in the inactive state will be reclaimed system resources by vui at the appropriate time. The current normal application will be reclaimed by the system after receiving the <code>activity#destroy</code> event.</p>
+<h3 id="background-process">Background process</h3>
+<p>Applications (including daemon apps and general apps) can proactively put themselves in the background, freeing up the top of the stack so that paused apps like music could continue to play media. Apps can put themselves into the background using the <code>Activity#setBackground</code> method. It is worth noting that if the application is not on the top of the stack, there is no permission to broadcast tts/play media. Therefore, if you need to broadcast a tts/play media to a certain extent in the background task execution, you need to use <code>Activity#setForeground</code> to preempt the activation state.</p>
+<h2 id="lifecycle-events">Lifecycle events</h2>
+<p>The application can receive events with state changes through the Activity instance each time the application&apos;s life cycle state changes.</p>
+<ul>
+<li><code>activity#create</code> event: will be triggered after the application process is ready, can start the application initialization work;</li>
+<li><code>activity#active</code> event: will be triggered after the application enters the activation state, and can start voice interaction such as tts/media;</li>
+<li><code>activity#pause</code> event: will be triggered when the application whose expression is scene is short-lived by another application whose form is cut.</li>
+<li><code>activity#destroy</code> event: will be triggered when the application exits active;</li>
+<li><code>activity#request</code> event: will be triggered when an NLP request is received from the app;</li>
+<li><code>activity#url</code> event: will trigger the application that registered the corresponding url after other application calls openURL;</li>
+</ul>
+<h2 id="strategies-for-handling-application-state-changes">Strategies for handling application state changes</h2>
+<p>Let&apos;s take a Bluetooth music application as an example to briefly introduce a strategy for a YODAOS application to respond to changes in application status.</p>
+<h3 id="what-should-be-done-when-the-app-starts">What should be done when the app starts?</h3>
+<p>When the app starts, it does the following by listening to the <code>activity#create</code> event:</p>
+<ul>
+<li>Initialize important data for your app</li>
+<li>Prepare the application&apos;s VUI, such as responding to user inquiries, preparing media players, etc.</li>
+</ul>
+<p>It should be noted that the event listener of <code>activity#create</code> should be as lightweight as possible. The application should be able to handle all initialization work within 5s and be able to handle user interaction events. If the application does not process all initialization work within 5 seconds, the system framework kills the application process for a non-responsive reason.</p>
+<blockquote>
+<p>For Bluetooth music applications, the device needs to be turned on for Bluetooth to be used for subsequent Bluetooth operations.</p>
+</blockquote>
+<h3 id="what-should-be-done-when-the-app-receives-activitypause">What should be done when the app receives <code>activity#pause</code></h3>
+<p>When the application is running, the user may temporarily request the system to respond to certain commands. At this time, the system framework temporarily suspends the current application and starts another application to process the current user command. Applications that are temporarily suspended need to do the following by listening to the <code>activity#pause</code> event:</p>
+<ul>
+<li>Save current media progress</li>
+<li>Save current app status</li>
+</ul>
+<p>Until the application receives the <code>activity#resume</code> event of the listener, the application should be ready to resume the application recovery event triggered by the exit of the application that temporarily processes the command, and complete the recovery of the above suspended operation.</p>
+<blockquote>
+<p>For Bluetooth music applications, after receiving the <code>activity#pause</code>, you need to send a pause signal to the connected Bluetooth device to pause the playing media.</p>
+</blockquote>
+<h3 id="what-should-be-done-when-the-app-actively-enters-the-background">What should be done when the app actively enters the background?</h3>
+<p>Voice applications do not need to be active in the foreground at all times. Some applications, such as system Bluetooth, can connect to the background and wait for connections through the <code>Activity.setBackground</code> method, and leave the foreground to other active applications. After the application enters the background running state, it cannot continue to request to play TTS or other multimedia, and only some silent operations can be performed. Applications running in the background, if you need to start a voice interaction with the user, you need to enter the active state through <code>Activity.setForeground</code>.</p>
+<blockquote>
+<p>For Bluetooth music applications, after the device Bluetooth is turned on, it does not need to occupy the activation state of the device when there is no device connection, so it actively enters the background, keeps the device Bluetooth open, and waits for the connection. After completing the Bluetooth connection, the Bluetooth application will re-enter the active state and broadcast TTS such as &quot;Connected to your Bluetooth device&quot;.</p>
+</blockquote>
+<h3 id="what-should-be-done-when-the-app-received-activitydestroy">What should be done when the app received <code>activity#destroy</code>?</h3>
+<p>After the application has processed all the commands, it will exit the current active state by actively calling <code>Activity#exit</code>; or because a new user command needs to enter the active state and force the current application to exit the active state, the current application will be Suspend and will listen to the <code>activity#destroy</code> event. In this monitor, the application should do the following as quickly as possible:</p>
+<ul>
+<li>Save app status</li>
+<li>Stop all timers or periodic tasks</li>
+<li>Do not initiate new task requests</li>
+</ul>
+<blockquote>
+<p>For Bluetooth music applications, after receiving the <code>activity#destroy</code>, you need to turn off the device Bluetooth.</p>
+</blockquote>
+<h2 id="daemon-app">Daemon App</h2>
+<p>Some applications may want to start as soon as the VUI is ready to initialize some operations that need to be active for a long time; or if the IoT application needs to start device discovery, registration, and connection between devices after the device is booted. Etc., similar applications will need to remain active after performing an NLP request, in which case the application needs to be registered as a daemon application in Manifest.</p>
+<blockquote>
+<p>View more package.json Description document: <a href="04-app-manifest.html">Apply Manifest</a></p>
+</blockquote>
+<h2 id="how-to-debug-the-life-cycle">How to debug the life cycle</h2>
+<p>When the application receives a vui message event, it will automatically print a similar log as follows:</p>
+<pre><code>&lt;@ipc&gt; Received VuiDaemon event event: resume
+</code></pre><p>When the app calls the Activity&apos;s API, the following log is automatically printed:</p>
+<pre><code>&lt;bus-4321&gt; Received child @yoda/cloudappclient invocation(10): Activity.tts.stop
+&lt;@ipc-4321&gt; Received VuiDaemon resolved promise(10)
+</code></pre><p>There will be application process pid, application id, call serial number, and API name, and print the call of the corresponding serial number after the call is completed.</p>
+<p>If you need to query the currently activated application, you can use <code>tools/yoda-debug GetLifetime</code> to get information such as the current application, the current application type, and the currently running application:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;activeSlots&quot;</span>: {
+    <span class="hljs-string">&quot;cut&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;scene&quot;</span>: <span class="hljs-string">&quot;@yoda\/cloudappclient&quot;</span>
+  },
+  <span class="hljs-string">&quot;appDataMap&quot;</span>: {
+    <span class="hljs-string">&quot;@yoda\/cloudappclient&quot;</span>: {
+      <span class="hljs-string">&quot;form&quot;</span>: <span class="hljs-string">&quot;scene&quot;</span>
+    }
+  },
+  <span class="hljs-string">&quot;backgroundAppIds&quot;</span>: [],
+  <span class="hljs-string">&quot;monopolist&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;appIdOnPause&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;cloudAppStack&quot;</span>: {
+    <span class="hljs-string">&quot;cut&quot;</span>: <span class="hljs-string">&quot;7D0F5E5D57CD496B940654D7C8963AE0&quot;</span>,
+    <span class="hljs-string">&quot;scene&quot;</span>: <span class="hljs-string">&quot;RBA66C902A6347DD86CA8D419B0BB974&quot;</span>,
+    <span class="hljs-string">&quot;active&quot;</span>: <span class="hljs-string">&quot;RBA66C902A6347DD86CA8D419B0BB974&quot;</span>
+  },
+  <span class="hljs-string">&quot;appStatus&quot;</span>: {
+    <span class="hljs-string">&quot;@yoda\/network&quot;</span>: <span class="hljs-string">&quot;exited&quot;</span>,
+    <span class="hljs-string">&quot;@yoda\/cloudappclient&quot;</span>: <span class="hljs-string">&quot;running&quot;</span>,
+    <span class="hljs-string">&quot;@yoda\/system&quot;</span>: <span class="hljs-string">&quot;running&quot;</span>,
+    <span class="hljs-string">&quot;@yoda\/volume&quot;</span>: <span class="hljs-string">&quot;running&quot;</span>
+  }
+}
+</code></pre>
+<!--
+## Application Development FAQ
+
+### tts/multimedia requires the app to be the currently active app
+When the previous NLP has not been processed, the next NLP has entered. If the previous NLP contains a tts, it is usually written as follows. It is easy for the next NLP to be broadcast:
+
+```javascript
+Module.exports = activity => {
+  Activity.on('request', nlp => {
+    Activity.tts.speak('hello')
+      .then(() => activity.exit())
+  })
+})
+```
+-->
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-build-your-first-app.html" class="navigation navigation-prev " aria-label="Previous page: Build your first app">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="03-lightd.html" class="navigation navigation-next " aria-label="Next page: Light Effect Development">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Life Cycle","level":"1.2.2","depth":2,"next":{"title":"Light Effect Development","level":"1.2.3","depth":2,"path":"guidance/03-lightd.md","ref":"guidance/03-lightd.md","articles":[]},"previous":{"title":"Build your first app","level":"1.2.1","depth":2,"path":"guidance/01-build-your-first-app.md","ref":"guidance/01-build-your-first-app.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github-buttons","splitter","disqus","i18n-upgrade"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"YODAOS"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"i18n-upgrade":{"Lang1":{"name":"English","url":"en","include":"[]"},"Lang2":{"name":"中文","url":"zh","include":"[]"}},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"i18n":{"Lang1":{"name":"English","url":"en-us"},"Lang2":{"name":"简体中文","url":"zh-cn"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en-us","gitbook":"*"},"file":{"path":"guidance/02-lifetime.md","mtime":"2019-10-03T12:06:21.594Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-03T12:07:09.477Z"},"basePath":"..","book":{"language":"en-us"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-i18n-upgrade/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

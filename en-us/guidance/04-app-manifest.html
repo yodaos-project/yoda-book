@@ -1,0 +1,684 @@
+
+<!DOCTYPE HTML>
+<html lang="en-us" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Application Manifest · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="03-lightd.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Get Started
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-build-your-first-app.html">
+            
+                <a href="01-build-your-first-app.html">
+            
+                    
+                    Build your first app
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="02-lifetime.html">
+            
+                <a href="02-lifetime.html">
+            
+                    
+                    Life Cycle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="03-lightd.html">
+            
+                <a href="03-lightd.html">
+            
+                    
+                    Light Effect Development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="04-app-manifest.html">
+            
+                <a href="04-app-manifest.html">
+            
+                    
+                    Application Manifest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Best Practices
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../best-practice/01-testing.html">
+            
+                <a href="../best-practice/01-testing.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../best-practice/03-performance-stability.html">
+            
+                <a href="../best-practice/03-performance-stability.html">
+            
+                    
+                    Performance and Stability
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <a target="_blank" href="https://github.com/Rokid/yoda-samples">
+            
+                    
+                    Samples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    YODAOS Source
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    Compile and Run
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../yodaos-source/system/compile-run.html">
+            
+                <a href="../yodaos-source/system/compile-run.html">
+            
+                    
+                    Compile and Run
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    Product Customization
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../yodaos-source/customization/01-overview.html">
+            
+                <a href="../yodaos-source/customization/01-overview.html">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../yodaos-source/customization/02-keyboard.html">
+            
+                <a href="../yodaos-source/customization/02-keyboard.html">
+            
+                    
+                    Button
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../yodaos-source/customization/03-light.html">
+            
+                <a href="../yodaos-source/customization/03-light.html">
+            
+                    
+                    Lights
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../yodaos-source/customization/04-mqtt.html">
+            
+                <a href="../yodaos-source/customization/04-mqtt.html">
+            
+                    
+                    Custom MQTT message
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    Testing
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../yodaos-source/testing/test-tools-introduce.html">
+            
+                <a href="../yodaos-source/testing/test-tools-introduce.html">
+            
+                    
+                    Test facility
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../yodaos-source/testing/unit-test-introduce.html">
+            
+                <a href="../yodaos-source/testing/unit-test-introduce.html">
+            
+                    
+                    compatibility test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Application Manifest</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>Every YODAOS application needs to have a package.json file in the application root path. This package.json file describes some of the necessary information about the application.</p>
+<p>This package.json must declare the following information:</p>
+<ul>
+<li>The package name of the app.</li>
+<li>The skill ID of the app.</li>
+<li>The application runtime needs access to some of the protected APIs in the system.</li>
+</ul>
+<p>The next few sections detail how several important parts of application development are reflected in Manifest.</p>
+<h2 id="package-name-and-skill-id">Package Name and Skill ID</h2>
+<p>After creating a local skill on the Ruoqi developer platform and getting the skill ID, in order to associate this skill with the local application, you need to fill in the <code>manifest.skills</code> field in the application&apos;s package.json , as in the following example:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;com.company.example.awesome-app&quot;</span>,
+  <span class="hljs-string">&quot;manifest&quot;</span>: {
+    <span class="hljs-string">&quot;skills&quot;</span>: [
+      <span class="hljs-string">&quot;an-pre-registered-skill-id&quot;</span>
+    ]
+  }
+}
+</code></pre>
+<h2 id="permissions">permissions</h2>
+<p>YODAOS apps must request permission to gain access to some system features (such as TTS or media player). Each permission is represented by a globally unique identifier.</p>
+<p>If an application needs to use the TTS and media player features, the following lines must be included in his package.json:</p>
+<pre><code class="lang-json">{
+  ...
+  <span class="hljs-string">&quot;manifest&quot;</span>: {
+    <span class="hljs-string">&quot;permission&quot;</span>: [
+      <span class="hljs-string">&quot;ACCESS_TTS&quot;</span>,
+      <span class="hljs-string">&quot;ACCESS_MULTIMEDIA&quot;</span>
+    ]
+  }
+  ...
+}
+</code></pre>
+<h1 id="manifest-element-reference">Manifest Element Reference</h1>
+<h2 id="name">name</h2>
+<p><strong>&lt;string&gt;</strong> <em>Required</em></p>
+<p>The local unique name of an application is its name field.</p>
+<p>Some rules:</p>
+<ul>
+<li>The package name may be part of the URL, either as a command line argument or as a folder name. Therefore, this name cannot contain any URL unsafe characters;</li>
+<li>You cannot use the core module name of Node.js as the package name.</li>
+</ul>
+<h2 id="main">main</h2>
+<p><strong>&lt;string&gt;</strong> Default: index.js</p>
+<p>Represents the default startup entry file for the app. YODAOS will use this entry file to launch the app. The index.js of the application root is used by default.</p>
+<h2 id="manifestskills">manifest.skills</h2>
+<p><strong>&lt;array&gt;</strong> Default: []</p>
+<p>A sequence of IDs representing all the skills associated with the app. After the user voice input and parsing, YODAOS needs to distribute the speech to the application that can handle the intent expressed by the voice. The distribution process depends on the skills applied by the application in the Ruoqi developer website. Information, so the app needs to enumerate its skill ID in package.json.</p>
+<p>Example:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;manifest&quot;</span>: {
+    <span class="hljs-string">&quot;skills&quot;</span>: [
+      <span class="hljs-string">&quot;AVERYLONGSKILLID&quot;</span>
+    ]
+  }
+}
+</code></pre>
+<h2 id="manifestpermission">manifest.permission</h2>
+<p><strong>&lt;array&gt;</strong> Default: []</p>
+<p>Represents the identity of all permissions that the application wishes to apply for.</p>
+<p>Possible permission identifiers:</p>
+<table>
+<thead>
+<tr>
+<th>Permission ID</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACCESS_TTS</td>
+<td>Broadcast TTS permissions</td>
+</tr>
+<tr>
+<td>ACCESS_MULTIMEDIA</td>
+<td>Permission to play media using the media player</td>
+</tr>
+<tr>
+<td>ACCESS_VOICE_COMMAND</td>
+<td>Replaces the user&apos;s permission to execute commands using text</td>
+</tr>
+<tr>
+<td>ACCESS_MONOPOLIZATION</td>
+<td>Exclusively active, prevents permissions from being interrupted by other activated applications and interacting with the current user</td>
+</tr>
+<tr>
+<td>INTERRUPT</td>
+<td>Interrupt the current application and gain access to the active state</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;manifest&quot;</span>: {
+    <span class="hljs-string">&quot;permission&quot;</span>: [
+      <span class="hljs-string">&quot;ACCESS_TTS&quot;</span>,
+      <span class="hljs-string">&quot;ACCESS_MULTIMEDIA&quot;</span>
+    ]
+  }
+}
+</code></pre>
+<h2 id="manifesthosts">manifest.hosts</h2>
+<p><strong>&lt;array&gt;</strong> Default: []</p>
+<p>Represents the domain name of the yoda-skill that the app can handle. YODAOS applications can use an API such as Activity#openURL to open a URL such as <code>yoda-skill://an-app-registered-host/path/to/resources</code> and send the parameters they wish to pass to the URL with the URL parameter. The application of this URL. An application that wants YODAOS to proxy the URL of a domain name to itself needs to register the domain name in package.json.</p>
+<p>The manifest.hosts field needs to be an array. The elements of this array are the tuples where the first is the domain name and the second is the domain name parameter. The domain name parameter is a JSON Object containing the <code>skillId</code> field.</p>
+<p>Example:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;manifest&quot;</span>: {
+    <span class="hljs-string">&quot;hosts&quot;</span>: [
+      [ <span class="hljs-string">&quot;example.app&quot;</span>, { <span class="hljs-string">&quot;skillId&quot;</span>: <span class="hljs-string">&quot;AVERYLONGSKILLID&quot;</span> } ]
+    ]
+  }
+}
+</code></pre>
+<h2 id="manifestdaemon">manifest.daemon</h2>
+<p><strong>&lt;boolean&gt;</strong> Default: false</p>
+<p>If the application wants to start immediately when YODAOS is ready, instead of waiting for the user&apos;s voice to trigger the command, and then wants to continue the process after processing the voice request, instead of exiting the process as soon as all voice requests have been processed , you need to set the manifest.daemon option to true.</p>
+<p>Example:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;manifest&quot;</span>: {
+    <span class="hljs-string">&quot;daemon&quot;</span>: <span class="hljs-literal">true</span>
+  }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="03-lightd.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Light Effect Development">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Application Manifest","level":"1.2.4","depth":2,"next":{"title":"Best Practices","level":"1.3","depth":1,"ref":"","articles":[{"title":"Testing","level":"1.3.1","depth":2,"path":"best-practice/01-testing.md","ref":"best-practice/01-testing.md","articles":[]},{"title":"Performance and Stability","level":"1.3.2","depth":2,"path":"best-practice/03-performance-stability.md","ref":"best-practice/03-performance-stability.md","articles":[]}]},"previous":{"title":"Light Effect Development","level":"1.2.3","depth":2,"path":"guidance/03-lightd.md","ref":"guidance/03-lightd.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github-buttons","splitter","disqus","i18n-upgrade"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"YODAOS"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"i18n-upgrade":{"Lang1":{"name":"English","url":"en","include":"[]"},"Lang2":{"name":"中文","url":"zh","include":"[]"}},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"yodaos-project","repo":"yodart","type":"star","size":"small","count":true},{"user":"yodaos-project","type":"follow","width":"160","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"i18n":{"Lang1":{"name":"English","url":"en-us"},"Lang2":{"name":"简体中文","url":"zh-cn"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en-us","gitbook":"*"},"file":{"path":"guidance/04-app-manifest.md","mtime":"2019-10-03T12:06:21.594Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-03T12:07:09.477Z"},"basePath":"..","book":{"language":"en-us"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-i18n-upgrade/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

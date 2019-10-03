@@ -1,0 +1,7 @@
+node_modules
+_book
+.DS_Store
+
+package-lock.json
+yarn.lock
+*.pdf
