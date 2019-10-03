@@ -1,7 +1,7 @@
 {
-  "name": "yoda-docs",
+  "name": "yodaos-book",
   "version": "1.0.0",
-  "description": "",
+  "description": "The book covers the application development and customization.",
   "scripts": {
     "install": "gitbook install",
     "pdf": "gitbook pdf",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.rokid-inc.com:GravityTeam/yoda-docs.git"
+    "url": "git@github.com:yodaos-project/yoda-book.git"
   },
   "keywords": [
     "yoda",
@@ -18,7 +18,7 @@
     "docs",
     "guidances"
   ],
-  "license": "UNLICENSED",
+  "license": "Apache 2.0",
   "dependencies": {
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-disqus": "^0.1.0",
