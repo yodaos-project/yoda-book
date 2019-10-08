@@ -24,7 +24,6 @@
   - [网络](/yodaos-source/framework/04-networking.md)
   - [蓝牙](/yodaos-source/framework/05-bluetooth.md)
   - [语音交互接口](/yodaos-source/framework/06-voice-interface.md)
-  - [硬件抽象接口](yodaos-source/framework/07-hal.md)
 - [编译](/yodaos-source/01-compile.md)
 - [术语表](/yodaos-source/02-glossary.md)
 - [配置产品](/yodaos-source/customization/00-overview.md)

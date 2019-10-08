@@ -51,8 +51,7 @@ YodaOS Component 是 [AFS][] 提供的模块化组件机制，其包含框架层
 ```js
 class MyComponent {
   constructor (runtime) {
-    this._runtime = runtime
-    // do what you want to
+    // visit `runtime` to access the other components.
   }
 }
 module.exports = MyComponent
@@ -82,9 +81,6 @@ class MyDescriptor extends Descriptor {
     return Promise.resolve('hello')
   }
 }
-MyDescriptor.values = {
-  some: {}
-}
 MyDescriptor.events = {
   created: {}
 }
@@ -101,7 +97,6 @@ module.exports = MyDescriptor
 
 - 继承自 [Descriptor](https://github.com/yodaos-project/yodart/tree/master/runtime/lib/descriptor.js) 类，它定义在 `runtime/lib/descriptor.js`
 - 在类构造函数中，调用 `super(runtime, namespace)` 并设置该接口类的命名空间（namespace）
-- 在 `MyDescriptor.values` 定义：使用该类时可访问的值
 - 在 `MyDescriptor.events` 定义：使用该类时的事件列表
 - 在 `MyDescriptor.methods` 定义：使用该类时的所有方法
 
@@ -139,7 +134,7 @@ YodaOS 将应用分为两种运行模式：`extapp` 与 `light`，前者以独�
 确定了应用的运行模式，我们就可以了解应用的启动机制了，可以在 [`runtime/app`](https://github.com/yodaos-project/yodart/blob/master/runtime/app) 目录下发现以下文件：
 
 - `default-launcher.js` 默认的应用启动方式，通过 `child_process.fork()` 来启动进程
-- `executable-launcher.js` 与前者不同，该启动器用于支持 C/C++ 应用
+- `executable-launcher.js` 与前者不同，该启动器用于支持可执行程序作为入口程序，它被用于提供一些非 JavaScript 应用开发环境，如 C/C++、Rust、Golang 等
 - `light-launcher.js` 支持 `light` 模式的应用启动
 
 以上就是启动一个应用需要在应用框架服务（AFS）完成的工作了，而客户端的流程也可以简单概括为要完成下面这几件事情：
@@ -149,7 +144,7 @@ YodaOS 将应用分为两种运行模式：`extapp` 与 `light`，前者以独�
 - 根据 [YodaOS Descriptor][] 生成应用 API
 - 最后，将控制权交由应用
 
-> 对于不同的启动机制，只是在完成以上这些工作的方式不同而已，有兴趣了解的读者可以具体深入代码中了解。
+> 对于不同的启动机制，只是在完成以上这些工作的方式不同而已，有兴趣的读者可以具体深入代码中了解。
 
 #### 服务初始化
 
